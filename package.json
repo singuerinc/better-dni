@@ -13,8 +13,8 @@
     "mocha": "^4.0.1"
   },
   "scripts": {
-    "coveralls": "nyc yarn test && nyc report --reporter=text-lcov | coveralls",
-    "test": "mocha dni.test.js"
+    "test": "nyc yarn _test && nyc report --reporter=text-lcov | coveralls",
+    "_test": "mocha dni.test.js"
   },
   "devDependencies": {
     "coveralls": "^3.0.1",
