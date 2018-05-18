@@ -2,6 +2,13 @@
 
 Validates DNI (NIE / NIF)
 
+## Installation
+
+```js
+// npm or yarn
+npm i better-dni
+```
+
 ## Usage
 
 ```js
