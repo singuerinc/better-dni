@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.org/singuerinc/better-dni.svg?branch=master)](https://travis-ci.org/singuerinc/better-dni)
 [![Coverage Status](https://coveralls.io/repos/github/singuerinc/better-dni/badge.svg?branch=master)](https://coveralls.io/github/singuerinc/better-dni?branch=master)
 
-# Better DNI
+![logo.svg](logo.svg)
 
 Spanish DNI (NIE / NIF) validation
 
