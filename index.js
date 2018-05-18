@@ -30,7 +30,7 @@ const isNIF = value => {
  * @param {string} value
  * @returns {boolean}
  */
-const valid = value => {
+const isValid = value => {
   const str = sanitize(value);
 
   if (!isNIF(str) && !isNIE(str)) {
@@ -47,7 +47,7 @@ const valid = value => {
 };
 
 module.exports = {
-  valid,
+  isValid,
   isNIE,
   isNIF
 };
