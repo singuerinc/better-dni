@@ -14,7 +14,7 @@
   },
   "scripts": {
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
-    "test": "tsc && nyc mocha dni.test.js"
+    "test": "nyc mocha dni.test.js"
   },
   "devDependencies": {
     "coveralls": "^3.0.1",
