@@ -1,8 +1,14 @@
 {
   "name": "better-dni",
   "version": "1.0.0",
+  "description": "Validates Spanish DNI (NIE / NIF)",
   "main": "index.js",
   "license": "MIT",
+  "author": "Nahuel Scotti <nahuel.scotti@gmail.com> (https://www.singuerinc.com)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/singuerinc/better-dni.git"
+  },
   "dependencies": {
     "chai": "^4.1.2",
     "mocha": "^4.0.1"

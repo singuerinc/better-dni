@@ -1,6 +1,6 @@
 # Better DNI
 
-Validates DNI (NIE / NIF)
+Validates Spanish DNI (NIE / NIF)
 
 ## Installation
 
