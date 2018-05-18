@@ -7,7 +7,7 @@
   "author": "Nahuel Scotti <nahuel.scotti@gmail.com> (https://www.singuerinc.com)",
   "repository": "singuerinc/better-dni.git",
   "engines": {
-    "node": ">=4"
+    "node": ">=6"
   },
   "dependencies": {
     "mocha": "^4.0.1"
