@@ -18,7 +18,7 @@ yarn add better-dni
 ## Usage
 
 ```js
-import { isValid } from 'better-dni';
+import { isValid, isNIE, isNIF } from 'better-dni';
 
 isValid('Z7662566Y'); // => true
 isNIE('x0000000a'); // => true
