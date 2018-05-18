@@ -3,7 +3,7 @@
 
 # Better DNI
 
-Validates Spanish DNI (NIE / NIF)
+Spanish DNI (NIE / NIF) validation
 
 ## Installation
 

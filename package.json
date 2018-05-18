@@ -1,7 +1,7 @@
 {
   "name": "better-dni",
   "version": "1.2.1",
-  "description": "Validates Spanish DNI (NIE / NIF)",
+  "description": "Spanish DNI (NIE / NIF) validation",
   "main": "index.js",
   "license": "MIT",
   "author": "Nahuel Scotti <nahuel.scotti@gmail.com> (https://www.singuerinc.com)",
