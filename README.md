@@ -5,8 +5,11 @@ Validates Spanish DNI (NIE / NIF)
 ## Installation
 
 ```js
-// npm or yarn
+// npm
 npm i better-dni
+
+// yarn
+yarn add better-dni
 ```
 
 ## Usage
