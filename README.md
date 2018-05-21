@@ -42,3 +42,7 @@ isValid('Z7662566-Y'); // => true
 | @willowi/validate-nif | validateNif | 755,383        |
 
 > Benchmark on a MacBook Pro (Retina, 13-inch, Early 2015) - 3,1 GHz Intel Core i7 - 16 GB 1867 MHz DDR3
+
+## Demo
+
+[https://blissful-kilby-263882.netlify.com/](https://blissful-kilby-263882.netlify.com/)
