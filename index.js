@@ -20,6 +20,7 @@ const sanitize = memoize(value =>
 
 const nie = /^[XYZ]{1}[0-9]{7}[TRWAGMYFPDXBNJZSQVHLCKET]{1}$/i;
 const nif = /^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKET]{1}$/i;
+const toLetter = l => ({ X: 0, Y: 1, Z: 2 }[l]);
 
 /**
  * Returns true if the string is a NIE
@@ -51,13 +52,11 @@ const isValid = memoize(value => {
     return false;
   }
 
-  const toLetter = m => ({ X: 0, Y: 1, Z: 2 }[m]);
   const x = str.replace(/^[XYZ]/i, toLetter);
 
-  const letter = str.substr(-1);
   const charIndex = parseInt(x.substr(0, 8), 10) % 23;
 
-  return 'TRWAGMYFPDXBNJZSQVHLCKET'.charAt(charIndex) === letter;
+  return 'TRWAGMYFPDXBNJZSQVHLCKET'.charAt(charIndex) === str[8];
 });
 
 module.exports = {
