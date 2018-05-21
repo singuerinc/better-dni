@@ -54,7 +54,6 @@ const isValid = memoize(value => {
   }
 
   const x = replaceLetter(dni);
-
   const charIndex = parseInt(x.substr(0, 8), 10) % 23;
 
   return 'TRWAGMYFPDXBNJZSQVHLCKET'.charAt(charIndex) === x[8];
