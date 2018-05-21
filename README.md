@@ -36,7 +36,7 @@ isValid('Z7662566-Y'); // => true
 
 | lib                   | method      | operations/sec |
 | --------------------- | ----------- | -------------- |
-| better-dni            | isValid     | **68,613,690** |
+| better-dni            | isValid     | **71,934,704** |
 | dni-js                | isValid     | 2,630,463      |
 | dni-js-validator      | isValid     | 6,455,491      |
 | @willowi/validate-nif | validateNif | 755,383        |

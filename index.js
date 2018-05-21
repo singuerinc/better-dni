@@ -22,6 +22,8 @@ const nie = /^[XYZ]{1}[0-9]{7}[TRWAGMYFPDXBNJZSQVHLCKET]{1}$/i;
 const nif = /^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKET]{1}$/i;
 const toLetter = memoize(l => ({ X: 0, Y: 1, Z: 2 }[l]));
 const replaceLetter = memoize(x => x.replace(/^[XYZ]/i, toLetter));
+const _isNIE = v => nie.test(v);
+const _isNIF = v => nif.test(v);
 
 /**
  * Returns true if the string is a NIE
@@ -29,7 +31,7 @@ const replaceLetter = memoize(x => x.replace(/^[XYZ]/i, toLetter));
  * @returns {boolean}
  */
 const isNIE = memoize(value => {
-  return nie.test(sanitize(value));
+  return _isNIE(sanitize(value));
 });
 
 /**
@@ -38,7 +40,7 @@ const isNIE = memoize(value => {
  * @returns {boolean}
  */
 const isNIF = memoize(value => {
-  return nif.test(sanitize(value));
+  return _isNIF(sanitize(value));
 });
 
 /**
@@ -49,7 +51,7 @@ const isNIF = memoize(value => {
 const isValid = memoize(value => {
   const dni = sanitize(value);
 
-  if (!isNIF(dni) && !isNIE(dni)) {
+  if (!_isNIF(dni) && !_isNIE(dni)) {
     return false;
   }
 
