@@ -34,7 +34,7 @@ isNIF('00000000A'); // => true
 
 | lib                   | method      | operations/sec |
 | --------------------- | ----------- | -------------- |
-| better-dni            | isValid     | **5,077,942**  |
+| better-dni            | isValid     | **5,477,942**  |
 | dni-js-validator      | isValid     | 2,700,560      |
 | dni-js                | isValid     | 2,596,587      |
 | @willowi/validate-nif | validateNif | 640,322        |

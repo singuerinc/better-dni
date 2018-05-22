@@ -1,5 +1,3 @@
-const sanitize = value => (!!value ? value : '').toLowerCase();
-
 const _isNIE = v => /^[XYZ]{1}[0-9]{7}[trwagmyfpdxbnjzsqvhlcket]{1}$/i.test(v);
 const _isNIF = v => /^[0-9]{8}[trwagmyfpdxbnjzsqvhlcket]{1}$/i.test(v);
 
@@ -9,7 +7,7 @@ const _isNIF = v => /^[0-9]{8}[trwagmyfpdxbnjzsqvhlcket]{1}$/i.test(v);
  * @returns {boolean}
  */
 const isNIE = value => {
-  return _isNIE(sanitize(value));
+  return !!value && _isNIE(value);
 };
 
 /**
@@ -18,7 +16,7 @@ const isNIE = value => {
  * @returns {boolean}
  */
 const isNIF = value => {
-  return _isNIF(sanitize(value));
+  return !!value && _isNIF(value);
 };
 
 /**
@@ -39,7 +37,6 @@ const isValid = value => {
 };
 
 module.exports = {
-  sanitize,
   isValid,
   isNIE,
   isNIF
