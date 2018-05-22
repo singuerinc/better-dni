@@ -2,7 +2,7 @@ const assert = require('assert');
 const { isValid, isNIE, isNIF } = require('./index');
 
 describe('dni', () => {
-  describe('isNIE', () => {
+  describe('#isNIE', () => {
     it('should return if is nie with X', () => {
       assert.equal(true, isNIE('x0000000a'));
     });
@@ -20,7 +20,7 @@ describe('dni', () => {
     });
   });
 
-  describe('isNIF', () => {
+  describe('#isNIF', () => {
     it('should return if is nif', () => {
       assert.equal(true, isNIF('00000000A'));
     });
@@ -30,10 +30,10 @@ describe('dni', () => {
     });
   });
 
-  describe('valid', () => {
+  describe('#isValid', () => {
     describe('nif', () => {
-      it('should validate x9464186p', () => {
-        assert.equal(isValid('x9464186p'), true);
+      it('should not validate more than max chars', () => {
+        assert.equal(isValid('x9464186p123456'), false);
       });
 
       it('should validate 55799910R', () => {
@@ -50,6 +50,10 @@ describe('dni', () => {
     });
 
     describe('nie', () => {
+      it('should validate x9464186p', () => {
+        assert.equal(isValid('x9464186p'), true);
+      });
+
       it('should validate Z0697009E', () => {
         assert.equal(isValid('z0697009e'), true);
       });
@@ -85,22 +89,46 @@ describe('dni', () => {
   });
 
   describe('errors', () => {
-    it('should handle empty strings', () => {
-      assert.equal(isValid(''), false);
-      assert.equal(isNIE(''), false);
-      assert.equal(isNIF(''), false);
+    describe('#isValid', () => {
+      it('should handle empty strings', () => {
+        assert.equal(isValid(''), false);
+      });
+
+      it('should handle null values', () => {
+        assert.equal(isValid(null), false);
+      });
+
+      it('should handle undefined values', () => {
+        assert.equal(isValid(undefined), false);
+      });
     });
 
-    it('should handle null values', () => {
-      assert.equal(isValid(null), false);
-      assert.equal(isNIE(null), false);
-      assert.equal(isNIF(null), false);
+    describe('#isNIE', () => {
+      it('should handle empty strings', () => {
+        assert.equal(isNIE(''), false);
+      });
+
+      it('should handle null values', () => {
+        assert.equal(isNIE(null), false);
+      });
+
+      it('should handle undefined values', () => {
+        assert.equal(isNIE(undefined), false);
+      });
     });
 
-    it('should handle undefined values', () => {
-      assert.equal(isValid(undefined), false);
-      assert.equal(isNIE(undefined), false);
-      assert.equal(isNIF(undefined), false);
+    describe('#isNIE', () => {
+      it('should handle empty strings', () => {
+        assert.equal(isNIF(''), false);
+      });
+
+      it('should handle null values', () => {
+        assert.equal(isNIF(null), false);
+      });
+
+      it('should handle undefined values', () => {
+        assert.equal(isNIF(undefined), false);
+      });
     });
   });
 });

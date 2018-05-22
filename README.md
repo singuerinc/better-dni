@@ -2,7 +2,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/singuerinc/better-dni/badge.svg?branch=master)](https://coveralls.io/github/singuerinc/better-dni?branch=master)
 [![Known Vulnerabilities](https://snyk.io/test/github/singuerinc/better-dni/badge.svg)](https://snyk.io/test/github/singuerinc/better-dni)
 
-![logo.svg](logo.svg)
+![Better DNI](logo.png)
 
 Spanish DNI (NIE / NIF) validation
 
@@ -22,10 +22,10 @@ yarn add better-dni
 import { isValid, isNIE, isNIF } from 'better-dni';
 
 isValid('Z7662566Y'); // => true
-isValid('Z7662566-Y'); // => true
 
-isNIE('x0000000a'); // => true
-isNIF('00000000A'); // => true
+isNIF('06672804K'); // => true
+
+isNIE('X1302311M'); // => true
 ```
 
 ## Benchmark
