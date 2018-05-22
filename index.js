@@ -18,12 +18,16 @@ const sanitize = memoize(value =>
     .join('')
 );
 
-const nie = /^[XYZ]{1}[0-9]{7}[TRWAGMYFPDXBNJZSQVHLCKET]{1}$/i;
-const nif = /^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKET]{1}$/i;
 const toLetter = memoize(l => ({ X: 0, Y: 1, Z: 2 }[l]));
-const replaceLetter = memoize(x => x.replace(/^[XYZ]/i, toLetter));
-const _isNIE = v => nie.test(v);
-const _isNIF = v => nif.test(v);
+const chartToLetter = memoize((char, i) => (i === 0 ? toLetter(char) || char : char));
+const replaceLetter = memoize(word =>
+  word
+    .split('')
+    .map(chartToLetter)
+    .join('')
+);
+const _isNIE = v => /^[XYZ]{1}[0-9]{7}[TRWAGMYFPDXBNJZSQVHLCKET]{1}$/.test(v);
+const _isNIF = v => /^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKET]{1}$/.test(v);
 
 /**
  * Returns true if the string is a NIE
