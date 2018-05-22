@@ -51,19 +51,19 @@ const isNIF = value => {
  * @returns {boolean}
  */
 const isValid = value => {
-  // const dni = sanitize(value);
   const dni = value;
+  // const dni = value;
 
   if (!_isNIF(dni) && !_isNIE(dni)) {
     // return false;
   }
 
-  const l = toLetter(dni[0]) || dni[0];
-  const first = dni.slice(1, 8);
-  const x = l + first;
-  const charIndex = parseInt(x, 10) % 23;
+  const l = { X: 0, Y: 1, Z: 2 }[dni[0]] || dni[0];
+  const dni_1_to_7 = dni.substr(1, 8);
+  const full = l + dni_1_to_7;
+  const i = parseInt(full, 10) % 23;
 
-  return 'TRWAGMYFPDXBNJZSQVHLCKET'[charIndex] === dni[8];
+  return 'TRWAGMYFPDXBNJZSQVHLCKET'[i] === dni[8];
 };
 
 module.exports = {
