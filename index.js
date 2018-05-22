@@ -31,9 +31,9 @@ const isValid = value => {
 
   if (!_isNIF(dni) && !_isNIE(dni)) return false;
 
-  const l = { x: 0, y: 1, z: 2 }[dni[0]] || dni[0];
-  const dni_1_to_8 = dni.substr(1, 8);
-  const i = +(l + dni_1_to_8, 10) % 23;
+  const f = { x: 0, y: 1, z: 2 }[dni[0]] || dni[0];
+  const dni_1_to_7 = dni.substr(1, 7);
+  const i = +(f + dni_1_to_7) % 23;
 
   return 'trwagmyfpdxbnjzsqvhlcket'[i] === dni[8];
 };

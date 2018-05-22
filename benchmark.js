@@ -4,6 +4,8 @@ const { isValid: dni_js_isValid } = require('dni-js');
 const { isValid: dni_js_validator_isValid } = require('dni-js-validator');
 const { validateNif } = require('@willowi/validate-nif');
 
+// console.log(better_dni_isValid('12345678Z'));
+
 // console.log('better_dni_isValid', better_dni_isValid('12345678Z'));
 // console.log('dni_js_isValid', dni_js_isValid('12345678Z'));
 // console.log('dni_js_validator_isValid', dni_js_validator_isValid('12345678Z'));
