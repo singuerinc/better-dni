@@ -1,7 +1,7 @@
-const sanitize = value => (!!value ? value : '').replace(/\s_-/, '');
+const sanitize = value => (!!value ? value : '').toLowerCase();
 
-const _isNIE = v => /^[XYZ]{1}[0-9]{7}[TRWAGMYFPDXBNJZSQVHLCKET]{1}$/i.test(v);
-const _isNIF = v => /^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKET]{1}$/i.test(v);
+const _isNIE = v => /^[XYZ]{1}[0-9]{7}[trwagmyfpdxbnjzsqvhlcket]{1}$/i.test(v);
+const _isNIF = v => /^[0-9]{8}[trwagmyfpdxbnjzsqvhlcket]{1}$/i.test(v);
 
 /**
  * Returns true if the string is a NIE
@@ -27,18 +27,15 @@ const isNIF = value => {
  * @returns {boolean}
  */
 const isValid = value => {
-  const dni = !!value ? value : ''; //.replace(/\s_-/, '');
+  const dni = sanitize(value); //.replace(/\s_-/, '');
 
-  if (!_isNIF(dni) && !_isNIE(dni)) {
-    return false;
-  }
+  if (!_isNIF(dni) && !_isNIE(dni)) return false;
 
-  const l = { X: 0, Y: 1, Z: 2, x: 0, y: 1, z: 2 }[dni[0]] || dni[0];
-  const dni_1_to_7 = dni.substr(1, 8);
-  const full = l + dni_1_to_7;
-  const i = parseInt(full, 10) % 23;
+  const l = { x: 0, y: 1, z: 2 }[dni[0]] || dni[0];
+  const dni_1_to_8 = dni.substr(1, 8);
+  const i = +(l + dni_1_to_8, 10) % 23;
 
-  return 'TRWAGMYFPDXBNJZSQVHLCKET'[i] === dni[8] || 'trwagmyfpdxbnjzsqvhlcket'[i] === dni[8];
+  return 'trwagmyfpdxbnjzsqvhlcket'[i] === dni[8];
 };
 
 module.exports = {

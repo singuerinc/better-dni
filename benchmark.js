@@ -33,29 +33,11 @@ suite1
   .run({ async: true });
 
 // const suite2 = new Benchmark.Suite();
-// const shuffle = array => {
-//   for (var i = 0; i < array.length; i++) {
-//     const j = Math.floor(Math.random() * array.length);
-//     const temp = array[i];
-//     array[i] = array[j];
-//     array[j] = temp;
-//   }
-//   return array;
-// };
+// let i = 0;
+// const count = i => i % 4;
 // const randomNIF = () => {
-//   const array = shuffle(['1', '2', '3', '4', '5', '6', '7', '8', '9']);
-//   const dni =
-//     array[0] +
-//     array[1] +
-//     array[2] +
-//     array[3] +
-//     array[4] +
-//     array[5] +
-//     array[6] +
-//     array[7] +
-//     array[8] +
-//     'A';
-//   return dni;
+//   i++;
+//   return ['12345678Z', 'X9464187D', 'X9464186P', '03118880B'][count(i)];
 // };
 
 // suite2
