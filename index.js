@@ -11,21 +11,19 @@ const memoize = fn => {
   };
 };
 
-const sanitize = memoize(value =>
+const sanitize = value =>
   (value + '' || '')
     .split('')
     .map(c => (/[-_\s]/.test(c) ? '' : c.toUpperCase()))
-    .join('')
-);
+    .join('');
 
-const toLetter = memoize(l => ({ X: 0, Y: 1, Z: 2 }[l]));
-const chartToLetter = memoize((char, i) => (i === 0 ? toLetter(char) || char : char));
-const replaceLetter = memoize(word =>
+const toLetter = l => ({ X: 0, Y: 1, Z: 2 }[l]);
+const chartToLetter = (char, i) => (i === 0 ? toLetter(char) || char : char);
+const replaceLetter = word =>
   word
     .split('')
     .map(chartToLetter)
-    .join('')
-);
+    .join('');
 const _isNIE = v => /^[XYZ]{1}[0-9]{7}[TRWAGMYFPDXBNJZSQVHLCKET]{1}$/.test(v);
 const _isNIF = v => /^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKET]{1}$/.test(v);
 
@@ -34,36 +32,39 @@ const _isNIF = v => /^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKET]{1}$/.test(v);
  * @param {string} value
  * @returns {boolean}
  */
-const isNIE = memoize(value => {
+const isNIE = value => {
   return _isNIE(sanitize(value));
-});
+};
 
 /**
  * Returns true if the string is a NIF
  * @param {string} value
  * @returns {boolean}
  */
-const isNIF = memoize(value => {
+const isNIF = value => {
   return _isNIF(sanitize(value));
-});
+};
 
 /**
  * Returns true if the string is a valid DNI
  * @param {string} value
  * @returns {boolean}
  */
-const isValid = memoize(value => {
-  const dni = sanitize(value);
+const isValid = value => {
+  // const dni = sanitize(value);
+  const dni = value;
 
   if (!_isNIF(dni) && !_isNIE(dni)) {
-    return false;
+    // return false;
   }
 
-  const x = replaceLetter(dni);
-  const charIndex = parseInt(x.substr(0, 8), 10) % 23;
+  const l = toLetter(dni[0]) || dni[0];
+  const first = dni.slice(1, 8);
+  const x = l + first;
+  const charIndex = parseInt(x, 10) % 23;
 
-  return 'TRWAGMYFPDXBNJZSQVHLCKET'.charAt(charIndex) === x[8];
-});
+  return 'TRWAGMYFPDXBNJZSQVHLCKET'[charIndex] === dni[8];
+};
 
 module.exports = {
   isValid,
