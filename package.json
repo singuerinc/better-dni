@@ -5,7 +5,7 @@
   "main": "index.min.js",
   "license": "MIT",
   "author": "Nahuel Scotti <nahuel.scotti@gmail.com> (https://www.singuerinc.com)",
-  "repository": "singuerinc/better-dni.git",
+  "repository": "singuerinc/better-dni",
   "engines": {
     "node": ">=6"
   },

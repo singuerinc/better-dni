@@ -32,6 +32,10 @@ describe('dni', () => {
 
   describe('valid', () => {
     describe('nif', () => {
+      it('should validate x9464186p', () => {
+        assert.equal(isValid('x9464186p'), true);
+      });
+
       it('should validate 55799910R', () => {
         assert.equal(isValid('55799910R'), true);
       });
