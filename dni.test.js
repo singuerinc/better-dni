@@ -1,7 +1,25 @@
 const assert = require('assert');
-const { isValid, isNIE, isNIF } = require('./index');
+const { sanitize, isValid, isNIE, isNIF } = require('./index');
 
 describe('dni', () => {
+  describe('sanitize', () => {
+    it('should capitalize', () => {
+      assert.equal('X0000000A', sanitize('x0000000a'));
+    });
+
+    it('should remove white spaces', () => {
+      assert.equal('X0000000A', sanitize('X0 0000 00 A'));
+    });
+
+    it('should remove underscores', () => {
+      assert.equal('X0000000A', sanitize('X0_0000_00_A'));
+    });
+
+    it('should remove dashes', () => {
+      assert.equal('X0000000A', sanitize('X0-0000-00-A'));
+    });
+  });
+
   describe('isNIE', () => {
     it('should return if is nie with X', () => {
       assert.equal(true, isNIE('x0000000a'));

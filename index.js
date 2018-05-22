@@ -1,31 +1,7 @@
-const memoize = fn => {
-  let cache = {};
-  return n => {
-    if (n in cache) {
-      return cache[n];
-    } else {
-      let result = fn(n);
-      cache[n] = result;
-      return result;
-    }
-  };
-};
+const sanitize = value => (!!value ? value : '').replace(/\s_-/, '');
 
-const sanitize = value =>
-  (value + '' || '')
-    .split('')
-    .map(c => (/[-_\s]/.test(c) ? '' : c.toUpperCase()))
-    .join('');
-
-const toLetter = l => ({ X: 0, Y: 1, Z: 2 }[l]);
-const chartToLetter = (char, i) => (i === 0 ? toLetter(char) || char : char);
-const replaceLetter = word =>
-  word
-    .split('')
-    .map(chartToLetter)
-    .join('');
-const _isNIE = v => /^[XYZ]{1}[0-9]{7}[TRWAGMYFPDXBNJZSQVHLCKET]{1}$/.test(v);
-const _isNIF = v => /^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKET]{1}$/.test(v);
+const _isNIE = v => /^[XYZ]{1}[0-9]{7}[TRWAGMYFPDXBNJZSQVHLCKET]{1}$/i.test(v);
+const _isNIF = v => /^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKET]{1}$/i.test(v);
 
 /**
  * Returns true if the string is a NIE
@@ -51,22 +27,22 @@ const isNIF = value => {
  * @returns {boolean}
  */
 const isValid = value => {
-  const dni = value;
-  // const dni = value;
+  const dni = !!value ? value : ''; //.replace(/\s_-/, '');
 
   if (!_isNIF(dni) && !_isNIE(dni)) {
-    // return false;
+    return false;
   }
 
-  const l = { X: 0, Y: 1, Z: 2 }[dni[0]] || dni[0];
+  const l = { X: 0, Y: 1, Z: 2, x: 0, y: 1, z: 2 }[dni[0]] || dni[0];
   const dni_1_to_7 = dni.substr(1, 8);
   const full = l + dni_1_to_7;
   const i = parseInt(full, 10) % 23;
 
-  return 'TRWAGMYFPDXBNJZSQVHLCKET'[i] === dni[8];
+  return 'TRWAGMYFPDXBNJZSQVHLCKET'[i] === dni[8] || 'trwagmyfpdxbnjzsqvhlcket'[i] === dni[8];
 };
 
 module.exports = {
+  sanitize,
   isValid,
   isNIE,
   isNIF
