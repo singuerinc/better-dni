@@ -14,7 +14,7 @@
     "build": "rollup --config",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "test": "nyc mocha dni.test.js",
-    "release": "yarn test && yarn build && np"
+    "release": "yarn test && yarn build"
   },
   "devDependencies": {
     "@willowi/validate-nif": "^1.0.0",
