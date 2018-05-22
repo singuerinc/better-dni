@@ -44,3 +44,7 @@ isNIE('X1302311M'); // => true
 ## Demo
 
 [https://blissful-kilby-263882.netlify.com/](https://blissful-kilby-263882.netlify.com/)
+
+## Related
+
+* [spain-phone](https://github.com/singuerinc/spain-phone) - Spanish phone number validation
