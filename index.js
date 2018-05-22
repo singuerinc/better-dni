@@ -27,9 +27,9 @@ const isNIF = value => {
  * @returns {boolean}
  */
 const isValid = value => {
-  const dni = sanitize(value); //.replace(/\s_-/, '');
+  const dni = (!!value ? value : '').toLowerCase();
 
-  if (!_isNIF(dni) && !_isNIE(dni)) return false;
+  if (!value && !_isNIF(dni) && !_isNIE(dni)) return false;
 
   const f = { x: 0, y: 1, z: 2 }[dni[0]] || dni[0];
   const dni_1_to_7 = dni.substr(1, 7);

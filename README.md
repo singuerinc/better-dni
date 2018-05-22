@@ -22,12 +22,10 @@ yarn add better-dni
 import { isValid, isNIE, isNIF } from 'better-dni';
 
 isValid('Z7662566Y'); // => true
+isValid('Z7662566-Y'); // => true
+
 isNIE('x0000000a'); // => true
 isNIF('00000000A'); // => true
-
-// it also handle some common user input mistakes and special cases
-isValid(' Z7662566Y    '); // => true
-isValid('Z7662566-Y'); // => true
 ```
 
 ## Benchmark
@@ -36,10 +34,10 @@ isValid('Z7662566-Y'); // => true
 
 | lib                   | method      | operations/sec |
 | --------------------- | ----------- | -------------- |
-| better-dni            | isValid     | **71,934,704** |
-| dni-js                | isValid     | 2,630,463      |
-| dni-js-validator      | isValid     | 6,455,491      |
-| @willowi/validate-nif | validateNif | 755,383        |
+| better-dni            | isValid     | **5,077,942**  |
+| dni-js-validator      | isValid     | 2,700,560      |
+| dni-js                | isValid     | 2,596,587      |
+| @willowi/validate-nif | validateNif | 640,322        |
 
 > Benchmark on a MacBook Pro (Retina, 13-inch, Early 2015) - 3,1 GHz Intel Core i7 - 16 GB 1867 MHz DDR3
 
