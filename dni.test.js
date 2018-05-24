@@ -1,5 +1,5 @@
 const assert = require('assert');
-const { isValid, isNIE, isNIF } = require('./index');
+const { isValid, isNIE, isNIF, randomNIE, randomNIF } = require('./index');
 
 describe('dni', () => {
   describe('#isNIE', () => {
@@ -27,6 +27,20 @@ describe('dni', () => {
 
     it('should return if is not nif', () => {
       assert.equal(false, isNIF('0000000AA'));
+    });
+  });
+
+  describe('#randomNIE', () => {
+    it('should return a random nie', () => {
+      const nie = randomNIE();
+      assert.equal(true, isNIE(nie));
+    });
+  });
+
+  describe('#randomNIF', () => {
+    it('should return a random nif', () => {
+      const nif = randomNIF();
+      assert.equal(true, isNIF(nif));
     });
   });
 
