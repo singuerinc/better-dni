@@ -19,13 +19,17 @@ yarn add better-dni
 ## Usage
 
 ```js
-import { isValid, isNIE, isNIF } from 'better-dni';
+import { isValid, isNIF, isNIE, randomNIF, randomNIE } from 'better-dni';
 
 isValid('Z7662566Y'); // => true
 
 isNIF('06672804K'); // => true
 
 isNIE('X1302311M'); // => true
+
+// useful for testing
+randomNIF(); // => String
+randomNIE(); // => String
 ```
 
 ## Benchmark
