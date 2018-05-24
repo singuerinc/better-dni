@@ -33,7 +33,15 @@ describe('dni', () => {
   describe('#randomNIE', () => {
     it('should return a random nie', () => {
       const nie = randomNIE();
-      assert.equal(true, isNIE(nie));
+      assert.equal(true, isValid(nie) && isNIE(nie));
+    });
+
+    it('should create 20 valid items', () => {
+      const list = Array(20)
+        .fill(0)
+        .map(randomNIE);
+
+      assert.equal(true, list.every(x => isValid(x) && isNIE(x)));
     });
   });
 
@@ -41,6 +49,14 @@ describe('dni', () => {
     it('should return a random nif', () => {
       const nif = randomNIF();
       assert.equal(true, isNIF(nif));
+    });
+
+    it('should create 20 valid items', () => {
+      const list = Array(20)
+        .fill(0)
+        .map(randomNIF);
+
+      assert.equal(true, list.every(x => isValid(x) && isNIF(x)));
     });
   });
 
