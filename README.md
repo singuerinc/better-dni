@@ -47,7 +47,7 @@ randomNIE(); // => String
 
 ## Demo
 
-[https://blissful-kilby-263882.netlify.com/](https://blissful-kilby-263882.netlify.com/)
+[https://better-dni.netlify.com/](https://better-dni.netlify.com/)
 
 ## Related
 
