@@ -1,8 +1,8 @@
 {
   "name": "better-dni",
-  "version": "1.8.1",
+  "version": "1.9.0",
   "description": "Spanish DNI (NIE / NIF) validation",
-  "main": "index.min.js",
+  "main": "dist/index.js",
   "license": "MIT",
   "author": "Nahuel Scotti <nahuel.scotti@gmail.com> (https://www.singuerinc.com)",
   "repository": "singuerinc/better-dni",
@@ -13,8 +13,9 @@
     "benchmark": "node benchmark.js",
     "build": "rollup --config",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
-    "test": "nyc mocha dni.test.js",
-    "release": "yarn test && yarn build"
+    "playground": "yarn build && node playground.js",
+    "test": "yarn build && nyc mocha",
+    "release": "NODE_ENV=production yarn test && yarn benchmark"
   },
   "devDependencies": {
     "@willowi/validate-nif": "^1.0.0",
@@ -37,7 +38,7 @@
   ],
   "types": "types/index.d.ts",
   "files": [
-    "index.min.js",
+    "dist/index.js",
     "types/index.d.ts"
   ]
 }
