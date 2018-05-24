@@ -1,0 +1,5 @@
+export { isValid } from './isValid';
+export { isNIE } from './isNIE';
+export { isNIF } from './isNIF';
+export { randomNIF } from './randomNIF';
+export { randomNIE } from './randomNIE';

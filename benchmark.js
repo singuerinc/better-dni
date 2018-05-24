@@ -1,5 +1,5 @@
 const Benchmark = require('benchmark');
-const { isValid: better_dni_isValid } = require('./index');
+const { isValid: better_dni_isValid } = require('./dist/index');
 const { isValid: dni_js_isValid } = require('dni-js');
 const { isValid: dni_js_validator_isValid } = require('dni-js-validator');
 const { validateNif } = require('@willowi/validate-nif');
