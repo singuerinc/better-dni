@@ -1,4 +1,7 @@
-const addControlChar = x => x + 'TRWAGMYFPDXBNJZSQVHLCKET'[+x % 23];
+const letter = x => 'TRWAGMYFPDXBNJZSQVHLCKET'[+x % 23];
+const add = (acc, x) => acc + x;
+const sum = numbers => numbers.reduce(add, 0);
+const randStrLimit = limit => ('' + Math.random()).substr(-limit);
 
 /**
  * Returns a valid NIF string
@@ -7,9 +10,8 @@ const addControlChar = x => x + 'TRWAGMYFPDXBNJZSQVHLCKET'[+x % 23];
  * randomNIF() // => "93375221M"
  */
 const randomNIF = () => {
-  const nif = rn => ('' + rn).substr(-8);
-  const rn = Math.random();
-  return addControlChar(nif(rn));
+  const nn = randStrLimit(8);
+  return nn + letter(sum(nn.split('')));
 };
 
 /**
@@ -19,11 +21,9 @@ const randomNIF = () => {
  * randomNIE() // => "X4108613P"
  */
 const randomNIE = () => {
-  const firstNIEChar = i => ['X', 'Y', 'Z'][i];
-  const nif = rn => ('' + rn).substr(-7);
-  const rn = Math.random();
-  const r = Math.floor(rn * 3);
-  return firstNIEChar(r) + addControlChar(nif(rn));
+  const r = Math.floor(Math.random() * 3);
+  const nn = randStrLimit(7);
+  return ['X', 'Y', 'Z'][r] + nn + letter(sum([r, ...nn.split('')]));
 };
 
 const _isNIE = v => /^[XYZ]{1}[0-9]{7}[trwagmyfpdxbnjzsqvhlcket]{1}$/i.test(v);
