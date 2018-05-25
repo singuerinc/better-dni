@@ -22,35 +22,46 @@ yarn add better-dni
 import { isValid, isNIF, isNIE, randomNIF, ctrlChar } from 'better-dni';
 
 // validates any type of DNI (NIE or NIF)
-isValid('Z7662566Y'); // => true
+isValid('Z7662566Y'); //=> true
 
 // checks if it is a valid NIF
-isNIF('06672804K'); // => true
+isNIF('06672804K'); //=> true
 
 // checks if it is a valid NIE
-isNIE('X1302311M'); // => true
+isNIE('X1302311M'); //=> true
 
 // returns the control letter in lower case
-ctrlChar('X1302311M'); // => 'm'
-ctrlChar('X1302311'); // => 'm'
+ctrlChar('X1302311M'); //=> 'm'
+ctrlChar('X1302311'); //=> 'm'
 
 // random generators, useful for testing
-randomNIF(); // => String
-randomNIE(); // => String
+randomNIF(); //=> String
+randomNIE(); //=> String
 ```
 
 ## Benchmark
 
-`better-dni` is doing the same job as other libraries like [dni-js](https://github.com/albertfdp/dni-js/), [dni-js-validator](https://github.com/idirouhab/dni-js-validator), and [@willowi/validate-nif](https://github.com/WillowiDev/validate-nif) but `better-dni` is built with optimization and speed in mind. Take a look at these benchmark results:
+`better-dni` does a similar job as other libraries like [dni-js](https://github.com/albertfdp/dni-js/), [dni-js-validator](https://github.com/idirouhab/dni-js-validator), and [@willowi/validate-nif](https://github.com/WillowiDev/validate-nif) but `better-dni` is built with optimization and speed in mind. Take a look at these benchmark results:
 
-| lib                   | method       | operations/sec |
-| --------------------- | ------------ | -------------- |
-| better-dni            | #isValid     | **5,477,942**  |
-| dni-js-validator      | #isValid     | 2,700,560      |
-| dni-js                | #isValid     | 2,596,587      |
-| @willowi/validate-nif | #validateNif | 640,322        |
+### isValid
 
-> Benchmark on a MacBook Pro (Retina, 13-inch, Early 2015) - 3,1 GHz Intel Core i7 - 16 GB 1867 MHz DDR3
+| lib                   | method       | operations/sec |             |
+| --------------------- | ------------ | -------------- | ----------- |
+| better-dni            | #isValid     | **7,557,496**  | 260% faster |
+| dni-js-validator      | #isValid     | 2,900,386      |             |
+| dni-js                | #isValid     | 2,474,098      |             |
+| @willowi/validate-nif | #validateNif | 681,591        |             |
+
+### ctrlChar / getLetter
+
+| lib                   | method     | operations/sec |             |
+| --------------------- | ---------- | -------------- | ----------- |
+| better-dni            | #ctrlChar  | **9,328,614**  | 236% faster |
+| dni-js                | #getLetter | 3,947,197      |             |
+| dni-js-validator      | no method  | -              |             |
+| @willowi/validate-nif | no method  | -              |             |
+
+> Benchmark on a MacBook Pro (Retina, 13-inch, Early 2015) - 3,1 GHz Intel Core i7 - 16 GB 1867 MHz DDR3 / Node v10.2.1
 
 ## Demo
 

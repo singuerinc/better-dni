@@ -1,28 +1,81 @@
 const Benchmark = require('benchmark');
-const { isValid: better_dni_isValid } = require('./dist/index');
-const { isValid: dni_js_isValid } = require('dni-js');
+const {
+  isValid: better_dni_isValid,
+  ctrlChar: better_dni_isValid_ctrlChar,
+  randomNIE,
+  randomNIF,
+  isNIE,
+  isNIF
+} = require('./dist/index');
+const { isValid: dni_js_isValid, getControlDigit: dni_js_getControlDigit } = require('dni-js');
 const { isValid: dni_js_validator_isValid } = require('dni-js-validator');
 const { validateNif } = require('@willowi/validate-nif');
 
-const suite1 = new Benchmark.Suite();
+const benches = [];
 
-suite1
-  .add('better-dni#isValid', function() {
-    better_dni_isValid('12345678Z');
-  })
-  .add('dni-js-validator#isValid', function() {
-    dni_js_validator_isValid('12345678Z');
-  })
-  .add('dni-js#isValid', function() {
-    dni_js_isValid('12345678Z');
-  })
-  .add('@willowi/validate-nif#validateNif', function() {
-    validateNif('12345678Z');
-  })
-  .on('cycle', function(event) {
-    console.log(String(event.target));
-  })
-  .on('complete', function() {
-    console.log('Fastest is ' + this.filter('fastest').map('name'));
-  })
-  .run({ async: true });
+benches.push(
+  new Benchmark.Suite('isValid')
+    .add('better-dni#isValid', () => {
+      better_dni_isValid('12345678Z');
+    })
+    .add('dni-js-validator#isValid', () => {
+      dni_js_validator_isValid('12345678Z');
+    })
+    .add('dni-js#isValid', () => {
+      dni_js_isValid('12345678Z');
+    })
+    .add('@willowi/validate-nif#validateNif', () => {
+      validateNif('12345678Z');
+    })
+    .on('cycle', function(event) {
+      console.log(String(event.target));
+    })
+    .on('complete', function() {
+      console.log('Fastest is ' + this.filter('fastest').map('name'));
+    }),
+  new Benchmark.Suite('ctrl char')
+    .add('better-dni#ctrlChar', () => {
+      better_dni_isValid_ctrlChar('X3825208');
+    })
+    .add('dni-js-validator#getControlDigit', () => {
+      dni_js_getControlDigit('X3825208');
+    })
+    .on('cycle', function(event) {
+      console.log(String(event.target));
+    })
+    .on('complete', function() {
+      console.log('Fastest is ' + this.filter('fastest').map('name'));
+    }),
+  new Benchmark.Suite('random')
+    .add('better-dni#randomNIE', () => {
+      randomNIE();
+    })
+    .add('better-dni#randomNIF', () => {
+      randomNIF();
+    })
+    .on('cycle', function(event) {
+      console.log(String(event.target));
+    })
+    .on('complete', function() {
+      console.log('Fastest is ' + this.filter('fastest').map('name'));
+    }),
+  new Benchmark.Suite('is')
+    .add('better-dni#isNIE', () => {
+      isNIE('Z9407822E');
+    })
+    .add('better-dni#isNIF', () => {
+      isNIF('42406984K');
+    })
+    .on('cycle', function(event) {
+      console.log(String(event.target));
+    })
+    .on('complete', function() {
+      console.log('Fastest is ' + this.filter('fastest').map('name'));
+    })
+);
+
+Benchmark.invoke([...benches], {
+  name: 'run',
+  args: true,
+  queued: true
+});
