@@ -12,6 +12,6 @@ describe('#randomNIF', () => {
       .fill(0)
       .map(randomNIF);
 
-    assert.equal(list.every(x => isValid(x) && isNIF(x)), true);
+    assert.equal(list.every(isNIF), true);
   });
 });

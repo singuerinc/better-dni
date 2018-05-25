@@ -1,4 +1,4 @@
-//  Better DNI v1.9.0
+//  Better DNI v1.9.1
 //  https://github.com/singuerinc/better-dni
 //  (c) 2017-2018 Nahuel Scotti
 //  Better DNI may be freely distributed under the MIT license.
@@ -13,24 +13,41 @@
 
   const _isNIF = v => /^[0-9]{8}[trwagmyfpdxbnjzsqvhlcket]{1}$/i.test(v);
 
+  const _letter = x => 'trwagmyfpdxbnjzsqvhlcket'[+x % 23];
+  const _randStrLimit = limit => ('' + Math.random()).substr(-limit);
+
+  const _char = y => {
+    const f = { x: '0', y: '1', z: '2' }[y[0]] || y[0];
+    const i = f + '' + y.substr(1, 7);
+    return _letter(i);
+  };
+
   /**
    * Returns true if the string is a valid DNI (NIF or NIE)
    * @param {string} value
    * @returns {boolean}
    * @example
-   * isValid("X4108613P"); // => true
+   * isValid("X9464186P"); // => true
+   * isValid("03118880B"); // => true
    */
   const isValid = value => {
     const dni = (!value ? '' : value).toLowerCase();
-
     if (dni.length !== 9 && !_isNIE(dni) && !_isNIF(dni)) return false;
-
-    const f = { x: '0', y: '1', z: '2' }[dni[0]] || dni[0];
-    const dni_1_to_7 = dni.substr(1, 7);
-    const i = +(f + dni_1_to_7) % 23;
-
-    return 'trwagmyfpdxbnjzsqvhlcket'[i] === dni[8];
+    return _char(dni) === dni[8];
   };
+
+  /**
+   * Returns the control letter in lower case
+   * for a NIF or NIE with or without control letter
+   * @param {string} value
+   * @returns {string}
+   * @example
+   * ctrlChar("X9464186P"); // => 'p'
+   * ctrlChar("X9464186"); // => 'p'
+   * ctrlChar("03118880B"); // => 'b'
+   * ctrlChar("03118880"); // => 'b'
+   */
+  const ctrlChar = x => _char(x.toLowerCase());
 
   /**
    * Returns true if the string is a NIE
@@ -40,7 +57,9 @@
    * isNIE("X4108613P"); // => true
    */
   const isNIE = value => {
-    return !!value && _isNIE(value);
+    return (
+      !!value && value.length === 9 && _isNIE(value) && ctrlChar(value) === value[8].toLowerCase()
+    );
   };
 
   /**
@@ -51,13 +70,10 @@
    * isNIF("93375221M"); // => true
    */
   const isNIF = value => {
-    return !!value && _isNIF(value);
+    return (
+      !!value && value.length === 9 && _isNIF(value) && ctrlChar(value) === value[8].toLowerCase()
+    );
   };
-
-  const _letter = x => 'TRWAGMYFPDXBNJZSQVHLCKET'[+x % 23];
-  const _add = (acc, x) => acc + x;
-  const _sum = numbers => numbers.reduce(_add, 0);
-  const _randStrLimit = limit => ('' + Math.random()).substr(-limit);
 
   /**
    * Returns a valid NIF string
@@ -67,7 +83,7 @@
    */
   const randomNIF = () => {
     const nn = _randStrLimit(8);
-    return nn + _letter(_sum(nn.split('')));
+    return nn + _letter(nn);
   };
 
   /**
@@ -79,7 +95,7 @@
   const randomNIE = () => {
     const r = Math.floor(Math.random() * 3);
     const nn = _randStrLimit(7);
-    return ['X', 'Y', 'Z'][r] + nn + _letter(_sum([r, ...nn.split('')]));
+    return ['X', 'Y', 'Z'][r] + nn + _letter(+(r + '' + nn));
   };
 
   exports.isValid = isValid;
@@ -87,6 +103,7 @@
   exports.isNIF = isNIF;
   exports.randomNIF = randomNIF;
   exports.randomNIE = randomNIE;
+  exports.ctrlChar = ctrlChar;
 
   Object.defineProperty(exports, '__esModule', { value: true });
 

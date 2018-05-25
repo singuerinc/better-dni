@@ -1,4 +1,5 @@
 import { _isNIE } from './internal/_isNIE';
+import { ctrlChar } from './ctrlChar';
 
 /**
  * Returns true if the string is a NIE
@@ -8,7 +9,9 @@ import { _isNIE } from './internal/_isNIE';
  * isNIE("X4108613P"); // => true
  */
 const isNIE = value => {
-  return !!value && _isNIE(value);
+  return (
+    !!value && value.length === 9 && _isNIE(value) && ctrlChar(value) === value[8].toLowerCase()
+  );
 };
 
 export { isNIE };
