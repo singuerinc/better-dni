@@ -1,5 +1,5 @@
 const assert = require('assert');
-const { isNIE, isNIF, randomNIE, randomNIF, isValid } = require('../dist/index');
+const { isNIE, isNIF, randomNIE, randomNIF, isValid, ctrlChar } = require('../dist/index');
 
 describe('api', () => {
   it('should export isValid', () => {
@@ -20,5 +20,9 @@ describe('api', () => {
 
   it('should export randomNIF', () => {
     assert.ok(randomNIF);
+  });
+
+  it('should export ctrlChar', () => {
+    assert.ok(ctrlChar);
   });
 });

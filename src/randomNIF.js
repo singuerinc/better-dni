@@ -1,4 +1,4 @@
-import { _randStrLimit, _letter, _sum } from './internal/_utils';
+import { _randStrLimit, _letter } from './internal/_utils';
 
 /**
  * Returns a valid NIF string
@@ -8,7 +8,7 @@ import { _randStrLimit, _letter, _sum } from './internal/_utils';
  */
 const randomNIF = () => {
   const nn = _randStrLimit(8);
-  return nn + _letter(_sum(nn.split('')));
+  return nn + _letter(nn);
 };
 
 export { randomNIF };

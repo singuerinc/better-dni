@@ -1,4 +1,9 @@
 /**
+ * Returns the control letter in lower case
+ * for a NIF or NIE with or without control letter
+ */
+declare const ctrlChar = (x: string) => string;
+/**
  * Returns a valid NIF string
  */
 declare const randomNIF = () => string;

@@ -19,15 +19,22 @@ yarn add better-dni
 ## Usage
 
 ```js
-import { isValid, isNIF, isNIE, randomNIF, randomNIE } from 'better-dni';
+import { isValid, isNIF, isNIE, randomNIF, ctrlChar } from 'better-dni';
 
+// validates any type of DNI (NIE or NIF)
 isValid('Z7662566Y'); // => true
 
+// checks if it is a valid NIF
 isNIF('06672804K'); // => true
 
+// checks if it is a valid NIE
 isNIE('X1302311M'); // => true
 
-// useful for testing
+// returns the control letter in lower case
+ctrlChar('X1302311M'); // => 'm'
+ctrlChar('X1302311'); // => 'm'
+
+// random generators, useful for testing
 randomNIF(); // => String
 randomNIE(); // => String
 ```
@@ -36,12 +43,12 @@ randomNIE(); // => String
 
 `better-dni` is doing the same job as other libraries like [dni-js](https://github.com/albertfdp/dni-js/), [dni-js-validator](https://github.com/idirouhab/dni-js-validator), and [@willowi/validate-nif](https://github.com/WillowiDev/validate-nif) but `better-dni` is built with optimization and speed in mind. Take a look at these benchmark results:
 
-| lib                   | method      | operations/sec |
-| --------------------- | ----------- | -------------- |
-| better-dni            | isValid     | **5,477,942**  |
-| dni-js-validator      | isValid     | 2,700,560      |
-| dni-js                | isValid     | 2,596,587      |
-| @willowi/validate-nif | validateNif | 640,322        |
+| lib                   | method       | operations/sec |
+| --------------------- | ------------ | -------------- |
+| better-dni            | #isValid     | **5,477,942**  |
+| dni-js-validator      | #isValid     | 2,700,560      |
+| dni-js                | #isValid     | 2,596,587      |
+| @willowi/validate-nif | #validateNif | 640,322        |
 
 > Benchmark on a MacBook Pro (Retina, 13-inch, Early 2015) - 3,1 GHz Intel Core i7 - 16 GB 1867 MHz DDR3
 

@@ -3,7 +3,10 @@ const { isNIF } = require('../dist/index');
 
 describe('#isNIF', () => {
   it('should return true if is nif', () => {
-    assert.equal(isNIF('00000000A'), true);
+    assert.equal(isNIF('48124311P'), true);
+    assert.equal(isNIF('75967948Y'), true);
+    assert.equal(isNIF('03118880B'), true);
+    assert.equal(isNIF('68785585Z'), true);
   });
 
   it('should return if is not nif', () => {

@@ -3,19 +3,22 @@ const { isNIE } = require('../dist/index');
 
 describe('#isNIE', () => {
   it('should return if is nie with X', () => {
-    assert.equal(isNIE('x0000000a'), true);
+    assert.equal(isNIE('x9464186p'), true);
+    assert.equal(isNIE('X9464186P'), true);
   });
 
   it('should return if is nie with Y', () => {
-    assert.equal(isNIE('y0000000a'), true);
+    assert.equal(isNIE('y1715871q'), true);
+    assert.equal(isNIE('Y1715871Q'), true);
   });
 
   it('should return if is nie with Z', () => {
-    assert.equal(isNIE('Z0000000A'), true);
+    assert.equal(isNIE('z0078471t'), true);
+    assert.equal(isNIE('Z0078471T'), true);
   });
 
   it('should return if is not nie', () => {
-    assert.equal(isNIE('Z000000AA'), false);
+    assert.equal(isNIE('Z00A000AA'), false);
   });
 
   it('should handle empty strings', () => {
@@ -23,7 +26,7 @@ describe('#isNIE', () => {
   });
 
   it('should not validate long strings that contain valid nies', () => {
-    assert.equal(isNIE('x0000000aaaaaaaaaaaaaaaa'), false);
+    assert.equal(isNIE('x9464186paaaaaaaaaaaaaaa'), false);
   });
 
   it('should handle null values', () => {

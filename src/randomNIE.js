@@ -1,4 +1,4 @@
-import { _randStrLimit, _letter, _sum } from './internal/_utils';
+import { _randStrLimit, _letter } from './internal/_utils';
 
 /**
  * Returns a valid NIE string
@@ -9,7 +9,7 @@ import { _randStrLimit, _letter, _sum } from './internal/_utils';
 const randomNIE = () => {
   const r = Math.floor(Math.random() * 3);
   const nn = _randStrLimit(7);
-  return ['X', 'Y', 'Z'][r] + nn + _letter(_sum([r, ...nn.split('')]));
+  return ['X', 'Y', 'Z'][r] + nn + _letter(+(r + '' + nn));
 };
 
 export { randomNIE };
