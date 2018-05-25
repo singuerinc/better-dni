@@ -6,6 +6,7 @@ import { _char } from './internal/_char';
  * Returns true if the string is a valid DNI (NIF or NIE)
  * @param {string} value
  * @returns {boolean}
+ * @since 1.1.0
  * @example
  * isValid("X9464186P"); // => true
  * isValid("03118880B"); // => true

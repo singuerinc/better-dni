@@ -5,6 +5,7 @@ import { _char } from './internal/_char';
  * for a NIF or NIE with or without control letter
  * @param {string} value
  * @returns {string}
+ * @since 1.9.1
  * @example
  * ctrlChar("X9464186P"); // => 'p'
  * ctrlChar("X9464186"); // => 'p'
