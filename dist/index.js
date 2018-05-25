@@ -1,4 +1,4 @@
-//  Better DNI v1.9.1
+//  Better DNI v1.10.0
 //  https://github.com/singuerinc/better-dni
 //  (c) 2017-2018 Nahuel Scotti
 //  Better DNI may be freely distributed under the MIT license.
@@ -26,6 +26,7 @@
    * Returns true if the string is a valid DNI (NIF or NIE)
    * @param {string} value
    * @returns {boolean}
+   * @since 1.1.0
    * @example
    * isValid("X9464186P"); // => true
    * isValid("03118880B"); // => true
@@ -41,6 +42,7 @@
    * for a NIF or NIE with or without control letter
    * @param {string} value
    * @returns {string}
+   * @since 1.9.1
    * @example
    * ctrlChar("X9464186P"); // => 'p'
    * ctrlChar("X9464186"); // => 'p'
@@ -53,6 +55,7 @@
    * Returns true if the string is a NIE
    * @param {string} value
    * @returns {boolean}
+   * @since 1.0.1
    * @example
    * isNIE("X4108613P"); // => true
    */
@@ -66,6 +69,7 @@
    * Returns true if the string is a NIF
    * @param {string} value
    * @returns {boolean}
+   * @since 1.0.1
    * @example
    * isNIF("93375221M"); // => true
    */
@@ -78,6 +82,7 @@
   /**
    * Returns a valid NIF string
    * @returns {string}
+   * @since 1.8.1
    * @example
    * randomNIF() // => "93375221M"
    */
@@ -89,6 +94,7 @@
   /**
    * Returns a valid NIE string
    * @returns {string}
+   * @since 1.8.1
    * @example
    * randomNIE() // => "X4108613P"
    */
