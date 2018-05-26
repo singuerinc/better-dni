@@ -1,7 +1,7 @@
 const assert = require('assert');
 const { randomNIFWith, ctrlChar } = require('../dist/index');
 
-describe.only('#randomNIFWith', () => {
+describe('#randomNIFWith', () => {
   it('should generate a NIF that ends with E', () => {
     const rand = randomNIFWith('E', 0.772417452129857);
     assert.equal(rand, '87018015E');
