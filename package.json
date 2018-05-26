@@ -12,6 +12,7 @@
   "scripts": {
     "benchmark": "node benchmark.js",
     "build": "rollup --config",
+    "dev": "rollup --config -w",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "playground": "yarn build && node playground.js",
     "test": "yarn build && nyc mocha",

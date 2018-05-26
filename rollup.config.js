@@ -17,5 +17,9 @@ export default {
     format: 'umd',
     file: 'dist/index.js',
     name: 'betterDni'
+  },
+  watch: {
+    include: 'src/**',
+    exclude: 'node_modules/**'
   }
 };
