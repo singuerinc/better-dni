@@ -3,18 +3,18 @@ const { randomNIFWith, ctrlChar } = require('../dist/index');
 
 describe('#randomNIFWith', () => {
   it('should generate a NIF that ends with E', () => {
-    const rand = randomNIFWith('E', 0.772417452129857);
-    assert.equal(rand, '87018015E');
+    const rand = randomNIFWith('E', 7452129857);
+    assert.equal(rand, '86956536E');
   });
 
   it('should generate a NIF that ends with C', () => {
-    const rand = randomNIFWith('C', 0.818239152342028);
-    assert.equal(rand, '86247881C');
+    const rand = randomNIFWith('C', 4452129857);
+    assert.equal(rand, '95652190C');
   });
 
   it('should generate always the same NIF given the same seed', () => {
-    const rand = randomNIFWith('G', 0.7497704970831218);
-    assert.equal(rand, '87398624G');
+    const rand = randomNIFWith('G', 5452129857);
+    assert.equal(rand, '60869550G');
   });
 
   it('should generate a random NIF that ends with G', () => {

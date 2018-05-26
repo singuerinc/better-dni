@@ -39,11 +39,11 @@ randomNIF(); //=> String
 randomNIE(); //=> String
 
 // returns a valid random NIF given the control letter
-randomNIFWith('C'); //=> '93401916C'
+randomNIFWith('C'); //=> '95652190C'
 
 // a seed (Number) can be provided and it will always return the same result
-randomNIFWith('C', 0.818239152342028); //=> '86247881C'
-randomNIFWith('C', 0.818239152342028); //=> '86247881C'
+randomNIFWith('G', 1); //=> '95652174G'
+randomNIFWith('G', 1); //=> '95652174G'
 ```
 
 ## Benchmark
@@ -54,7 +54,7 @@ randomNIFWith('C', 0.818239152342028); //=> '86247881C'
 
 | lib                   | method       | operations/sec |             |
 | --------------------- | ------------ | -------------- | ----------- |
-| better-dni            | #isValid     | **7,557,496**  | 260% faster |
+| better-dni            | #isValid     | **7,557,496**  | 2.6x faster |
 | dni-js-validator      | #isValid     | 2,900,386      |             |
 | dni-js                | #isValid     | 2,474,098      |             |
 | @willowi/validate-nif | #validateNif | 681,591        |             |
@@ -63,7 +63,7 @@ randomNIFWith('C', 0.818239152342028); //=> '86247881C'
 
 | lib                   | method     | operations/sec |             |
 | --------------------- | ---------- | -------------- | ----------- |
-| better-dni            | #ctrlChar  | **9,328,614**  | 236% faster |
+| better-dni            | #ctrlChar  | **9,328,614**  | 2.3x faster |
 | dni-js                | #getLetter | 3,947,197      |             |
 | dni-js-validator      | no method  | -              |             |
 | @willowi/validate-nif | no method  | -              |             |
