@@ -1,4 +1,4 @@
-//  Better DNI v1.10.0
+//  Better DNI v1.11.0
 //  https://github.com/singuerinc/better-dni
 //  (c) 2017-2018 Nahuel Scotti
 //  Better DNI may be freely distributed under the MIT license.
@@ -122,22 +122,23 @@
    * @returns {string}
    * @since 1.11.0
    * @example
-   * w/ random seed
-   * randomNIFWith('C'); //=> '93401916C'
-   * randomNIFWith('C'); //=> '89346257C'
+   * with random seed
+   * randomNIFWith('C'); //=> '95652190C'
+   * randomNIFWith('G'); //=> '60869550G'
    *
-   * w/ the same seed
-   * randomNIFWith('C', 0.818239152342028); //=> '86247881C'
-   * randomNIFWith('C', 0.818239152342028); //=> '86247881C'
+   * with the same seed
+   * randomNIFWith('G', 1); //=> '95652174G'
+   * randomNIFWith('G', 1); //=> '95652174G'
    */
-  const randomNIFWith = (char, seed = Math.random()) => {
+  const randomNIFWith = (char, seed = 100000000 * Math.random()) => {
     const upper = char.toUpperCase();
     const i = 'TRWAGMYFPDXBNJZSQVHLCKE'.indexOf(upper);
-    const r = new _Random(seed).next() / 100000;
-    const rand = Math.floor(r * 4347826);
-    const num = 99999998 - 23 * rand;
-    const dni = (num + i + '00000000').substr(0, 8);
-    return dni + upper;
+    const rand = (new _Random(seed).next() - 1) / 2147483646;
+    const n = 99999998 - 4347826 * (Math.floor(rand * 22) + 1);
+    const d = Math.max(0, n) % 23;
+    const h = n + (i - d);
+    const s = ('00000000' + h).substr(-8);
+    return s + upper;
   };
 
   exports.isValid = isValid;
