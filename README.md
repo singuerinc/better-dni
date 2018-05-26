@@ -37,6 +37,13 @@ ctrlChar('X1302311'); //=> 'm'
 // random generators, useful for testing
 randomNIF(); //=> String
 randomNIE(); //=> String
+
+// returns a valid random NIF given the control letter
+randomNIFWith('C'); //=> '93401916C'
+
+// a seed (Number) can be provided and it will always return the same result
+randomNIFWith('C', 0.818239152342028); //=> '86247881C'
+randomNIFWith('C', 0.818239152342028); //=> '86247881C'
 ```
 
 ## Benchmark
