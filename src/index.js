@@ -4,3 +4,4 @@ export { isNIF } from './isNIF';
 export { randomNIF } from './randomNIF';
 export { randomNIE } from './randomNIE';
 export { ctrlChar } from './ctrlChar';
+export { randomNIFWith } from './randomNIFWith';
