@@ -18,6 +18,7 @@ import { _Random } from './internal/_utils';
 const randomNIFWith = (char, seed = 100000000 * Math.random()) => {
   const upper = char.toUpperCase();
   const i = 'TRWAGMYFPDXBNJZSQVHLCKE'.indexOf(upper);
+  if (i === -1) return null;
   const rand = (new _Random(seed).next() - 1) / 2147483646;
   const n = 99999998 - 4347826 * (Math.floor(rand * 22) + 1);
   const d = Math.max(0, n) % 23;

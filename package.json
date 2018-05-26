@@ -1,6 +1,6 @@
 {
   "name": "better-dni",
-  "version": "1.11.1",
+  "version": "1.11.2",
   "description": "Spanish DNI (NIE / NIF) validation",
   "main": "dist/index.js",
   "license": "MIT",
