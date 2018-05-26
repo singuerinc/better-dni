@@ -3,32 +3,47 @@ const { randomNIFWith, ctrlChar } = require('../dist/index');
 
 describe('#randomNIFWith', () => {
   it('should generate a NIF that ends with E', () => {
-    const rand = randomNIFWith('E', 7452129857);
-    assert.equal(rand, '86956536E');
+    const nif = randomNIFWith('E', 7452129857);
+    assert.equal(nif, '86956536E');
   });
 
   it('should generate a NIF that ends with C', () => {
-    const rand = randomNIFWith('C', 4452129857);
-    assert.equal(rand, '95652190C');
+    const nif = randomNIFWith('C', 4452129857);
+    assert.equal(nif, '95652190C');
   });
 
   it('should generate always the same NIF given the same seed', () => {
-    const rand = randomNIFWith('G', 5452129857);
-    assert.equal(rand, '60869550G');
+    const nif = randomNIFWith('G', 5452129857);
+    assert.equal(nif, '60869550G');
   });
 
   it('should generate a random NIF that ends with G', () => {
-    const rand = randomNIFWith('G');
-    assert.equal(ctrlChar(rand), 'g');
+    const nif = randomNIFWith('G');
+    assert.equal(ctrlChar(nif), 'g');
   });
 
   it('should work with lower case', () => {
-    const rand = randomNIFWith('g');
-    assert.equal(ctrlChar(rand), 'g');
+    const nif = randomNIFWith('g');
+    assert.equal(ctrlChar(nif), 'g');
   });
 
   it('should work with upper case', () => {
-    const rand = randomNIFWith('C');
-    assert.equal(ctrlChar(rand), 'c');
+    const nif = randomNIFWith('C');
+    assert.equal(ctrlChar(nif), 'c');
+  });
+
+  it('should not generate with invalid letters', () => {
+    const nif = randomNIFWith('I');
+    assert.equal(nif, null);
+  });
+
+  it('should not generate with invalid letters', () => {
+    const nif = randomNIFWith('U');
+    assert.equal(nif, null);
+  });
+
+  it('should not generate with invalid letters', () => {
+    const nif = randomNIFWith('O');
+    assert.equal(nif, null);
   });
 });
