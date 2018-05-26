@@ -9,11 +9,22 @@
   (factory((global.betterDni = {})));
 }(this, (function (exports) { 'use strict';
 
-  const _isNIE = v => /^[XYZ]{1}[0-9]{7}[trwagmyfpdxbnjzsqvhlcket]{1}$/i.test(v);
+  const _isNIE = v => /^[XYZ]{1}[0-9]{7}[trwagmyfpdxbnjzsqvhlcke]{1}$/i.test(v);
 
-  const _isNIF = v => /^[0-9]{8}[trwagmyfpdxbnjzsqvhlcket]{1}$/i.test(v);
+  const _isNIF = v => /^[0-9]{8}[trwagmyfpdxbnjzsqvhlcke]{1}$/i.test(v);
 
-  const _letter = x => 'trwagmyfpdxbnjzsqvhlcket'[+x % 23];
+  function _Random(seed) {
+    this._seed = seed % 2147483647;
+    if (this._seed <= 0) this._seed += 2147483646;
+  }
+
+  _Random.prototype.next = function() {
+    return (this._seed = (this._seed * 16807) % 2147483647);
+  };
+
+  // _Random :: https://gist.github.com/blixt/f17b47c62508be59987b#file-prng-js
+
+  const _letter = x => 'trwagmyfpdxbnjzsqvhlcke'[+x % 23];
   const _randStrLimit = limit => ('' + Math.random()).substr(-limit);
 
   const _char = y => {
@@ -104,12 +115,38 @@
     return ['X', 'Y', 'Z'][r] + nn + _letter(+(r + '' + nn));
   };
 
+  /**
+   * Returns a random NIF with a specific letter
+   * A seed can be passed as a second parameter and
+   * it will always return the same value
+   * @returns {string}
+   * @since 1.11.0
+   * @example
+   * w/ random seed
+   * randomNIFWith('C'); //=> '93401916C'
+   * randomNIFWith('C'); //=> '89346257C'
+   *
+   * w/ the same seed
+   * randomNIFWith('C', 0.818239152342028); //=> '86247881C'
+   * randomNIFWith('C', 0.818239152342028); //=> '86247881C'
+   */
+  const randomNIFWith = (char, seed = Math.random()) => {
+    const upper = char.toUpperCase();
+    const i = 'TRWAGMYFPDXBNJZSQVHLCKE'.indexOf(upper);
+    const r = new _Random(seed).next() / 100000;
+    const rand = Math.floor(r * 4347826);
+    const num = 99999998 - 23 * rand;
+    const dni = (num + i + '00000000').substr(0, 8);
+    return dni + upper;
+  };
+
   exports.isValid = isValid;
   exports.isNIE = isNIE;
   exports.isNIF = isNIF;
   exports.randomNIF = randomNIF;
   exports.randomNIE = randomNIE;
   exports.ctrlChar = ctrlChar;
+  exports.randomNIFWith = randomNIFWith;
 
   Object.defineProperty(exports, '__esModule', { value: true });
 
