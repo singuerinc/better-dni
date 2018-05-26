@@ -70,3 +70,7 @@ randomNIE(); //=> String
 ## Related
 
 * [spain-phone](https://github.com/singuerinc/spain-phone) - Spanish phone number validation
+
+## Reference
+
+[http://www.interior.gob.es/web/servicios-al-ciudadano/dni/calculo-del-digito-de-control-del-nif-nie](http://www.interior.gob.es/web/servicios-al-ciudadano/dni/calculo-del-digito-de-control-del-nif-nie)
