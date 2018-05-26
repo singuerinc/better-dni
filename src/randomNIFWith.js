@@ -21,7 +21,7 @@ const randomNIFWith = (char, seed = Math.random()) => {
   const r = new _Random(seed).next() / 100000;
   const rand = Math.floor(r * 4347826);
   const num = 99999998 - 23 * rand;
-  const dni = String(num + i).padEnd(8, '0');
+  const dni = (num + i + '00000000').substr(0, 8);
   return dni + upper;
 };
 
