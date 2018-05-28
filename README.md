@@ -18,8 +18,10 @@ yarn add better-dni
 
 ## Usage
 
+### isValid / isNIF / isNIE
+
 ```js
-import { isValid, isNIF, isNIE, randomNIF, ctrlChar } from 'better-dni';
+import { isValid, isNIF, isNIE, ctrlChar } from 'better-dni';
 
 // validates any type of DNI (NIE or NIF)
 isValid('Z7662566Y'); //=> true
@@ -33,10 +35,16 @@ isNIE('X1302311M'); //=> true
 // returns the control letter in lower case
 ctrlChar('X1302311M'); //=> 'm'
 ctrlChar('X1302311'); //=> 'm'
+```
 
-// random generators, useful for testing
+### Random generators
+
+#### NIF
+
+```js
+import { randomNIF, randomNIFWith } from 'better-dni';
+
 randomNIF(); //=> e.g. '31719111H'
-randomNIE(); //=> e.g. 'X1120409X'
 
 // returns a valid random NIF given the control letter
 randomNIFWith('C'); // => e.g. '95652190C'
@@ -44,6 +52,22 @@ randomNIFWith('C'); // => e.g. '95652190C'
 // a seed (Number) can be provided and it will always return the same result
 randomNIFWith('G', 1); //=> '95652174G'
 randomNIFWith('G', 1); //=> '95652174G'
+```
+
+#### NIE
+
+```js
+import { randomNIE, randomNIEWith } from 'better-dni';
+
+randomNIE(); //=> e.g. 'X1120409X'
+
+// returns a valid random NIE given the first and control letter
+randomNIEWith('X'. 'S'); //=> 'X4481726S'
+randomNIEWith('Y'. 'F'); //=> 'Y5684121F'
+
+// a seed (Number) can be provided and it will always return the same result
+randomNIEWith('X', 'G', 1); //=> '95652174G'
+randomNIEWith('X', 'G', 1); //=> '95652174G'
 ```
 
 ## Benchmark
