@@ -4,7 +4,7 @@
 
 ![Better DNI](logo.png)
 
-Spanish DNI (NIE / NIF) validation
+The fastest Spanish DNI (NIE / NIF) validation
 
 ## Installation
 
@@ -35,11 +35,11 @@ ctrlChar('X1302311M'); //=> 'm'
 ctrlChar('X1302311'); //=> 'm'
 
 // random generators, useful for testing
-randomNIF(); //=> String
-randomNIE(); //=> String
+randomNIF(); //=> e.g. '31719111H'
+randomNIE(); //=> e.g. 'X1120409X'
 
 // returns a valid random NIF given the control letter
-randomNIFWith('C'); //=> '95652190C'
+randomNIFWith('C'); // => e.g. '95652190C'
 
 // a seed (Number) can be provided and it will always return the same result
 randomNIFWith('G', 1); //=> '95652174G'

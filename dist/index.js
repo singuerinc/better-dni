@@ -1,4 +1,4 @@
-//  Better DNI v1.11.2
+//  Better DNI v1.11.3
 //  https://github.com/singuerinc/better-dni
 //  (c) 2017-2018 Nahuel Scotti
 //  Better DNI may be freely distributed under the MIT license.
