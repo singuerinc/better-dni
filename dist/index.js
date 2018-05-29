@@ -24,8 +24,14 @@
 
   // _Random :: https://gist.github.com/blixt/f17b47c62508be59987b#file-prng-js
 
+  const _idxOf = x => y => x.indexOf(y);
+  const _headAsNum = _idxOf('XYZ');
+  const _lastIndex = _idxOf('TRWAGMYFPDXBNJZSQVHLCKE');
+  const _upper = x => x.toUpperCase();
+
   const _letter = x => 'trwagmyfpdxbnjzsqvhlcke'[+x % 23];
   const _randStrLimit = limit => ('' + Math.random()).substr(-limit);
+  const _randFloat = seed => (new _Random(seed).next() - 1) / 2147483646;
 
   const _char = y => {
     const f = { x: '0', y: '1', z: '2' }[y[0]] || y[0];
@@ -119,7 +125,7 @@
    * Returns a random NIF with a specific letter
    * A seed can be passed as a second parameter and
    * it will always return the same value
-   * @returns {string}
+   * @returns {string | null}
    * @since 1.11.0
    * @example
    * with random seed
@@ -131,22 +137,18 @@
    * randomNIFWith('G', 1); //=> '95652174G'
    */
   const randomNIFWith = (char, seed = 100000000 * Math.random()) => {
-    const upper = char.toUpperCase();
-    const i = 'TRWAGMYFPDXBNJZSQVHLCKE'.indexOf(upper);
+    const upper = _upper(char);
+    const i = _lastIndex(upper);
+
     if (i === -1) return null;
-    const rand = (new _Random(seed).next() - 1) / 2147483646;
-    const n = 99999998 - 4347826 * (Math.floor(rand * 22) + 1);
+
+    const n = 99999998 - 4347826 * (Math.floor(_randFloat(seed) * 22) + 1);
     const d = Math.max(0, n) % 23;
     const h = n + (i - d);
     const s = ('00000000' + h).substr(-8);
+
     return s + upper;
   };
-
-  const idxOf = x => y => x.indexOf(y);
-  const letterAsNum = idxOf('XYZ');
-  const lastIndex = idxOf('TRWAGMYFPDXBNJZSQVHLCKE');
-  const upper = x => x.toUpperCase();
-  const randFloat = seed => (new _Random(seed).next() - 1) / 2147483646;
 
   /**
    * Returns a random NIE with a specific letter
@@ -158,30 +160,30 @@
    * @since 1.12.0
    * @example
    * with random seed
-   * randomNIEWith('X'. 'S'); //=> 'X4481726S'
-   * randomNIEWith('Y'. 'F'); //=> 'Y5684121F'
+   * randomNIEWith('Y', 'C'); //=> 'Y2098020C'
+   * randomNIEWith('Z', 'G'); //=> 'Z5670557G'
    *
    * with the same seed
-   * randomNIEWith('X', 'G', 1); //=> '95652174G'
-   * randomNIEWith('X', 'G', 1); //=> '95652174G'
+   * randomNIEWith('X', 'E', 1); //=> 'X2080280E'
+   * randomNIEWith('X', 'E', 1); //=> 'X2080280E'
    */
-  const randomNIEWith = (xyz, y, seed = 100000000 * Math.random()) => {
+  const randomNIEWith = (xyz, l, seed = 100000000 * Math.random()) => {
     // first nie letter
-    const head = upper(xyz);
-    const headNum = letterAsNum(head);
+    const head = _upper(xyz);
+    const headNum = _headAsNum(head);
 
     if (headNum === -1) return null;
 
     // last ctrl letter
-    const last = upper(y);
-    const lastNum = lastIndex(last);
+    const last = _upper(l);
+    const lastNum = _lastIndex(last);
 
     if (lastNum === -1) return null;
 
     const headOne = headNum + 1;
 
     // random nie
-    const num = Math.floor(1000000 * headOne + (9999999 - 1000000 * headOne - 23) * randFloat(seed));
+    const num = Math.floor(1000000 * headOne + (9999999 - 1000000 * headOne - 23) * _randFloat(seed));
     const rest = +(headNum + '' + num) % 23;
     const h = +(headNum + '' + num) - rest + lastNum;
 

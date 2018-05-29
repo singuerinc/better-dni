@@ -18,7 +18,7 @@ yarn add better-dni
 
 ## Usage
 
-### isValid / isNIF / isNIE
+### isValid / isNIF / isNIE / ctrlChar
 
 ```js
 import { isValid, isNIF, isNIE, ctrlChar } from 'better-dni';
@@ -37,17 +37,17 @@ ctrlChar('X1302311M'); //=> 'm'
 ctrlChar('X1302311'); //=> 'm'
 ```
 
-### Random generators
+### Generators
 
 #### NIF
 
 ```js
 import { randomNIF, randomNIFWith } from 'better-dni';
 
-randomNIF(); //=> e.g. '31719111H'
+randomNIF(); //=> '31719111H'
 
 // returns a valid random NIF given the control letter
-randomNIFWith('C'); // => e.g. '95652190C'
+randomNIFWith('C'); // => '95652190C'
 
 // a seed (Number) can be provided and it will always return the same result
 randomNIFWith('G', 1); //=> '95652174G'
@@ -59,15 +59,15 @@ randomNIFWith('G', 1); //=> '95652174G'
 ```js
 import { randomNIE, randomNIEWith } from 'better-dni';
 
-randomNIE(); //=> e.g. 'X1120409X'
+randomNIE(); //=> 'X1120409X'
 
 // returns a valid random NIE given the first and control letter
-randomNIEWith('X'. 'S'); //=> 'X4481726S'
-randomNIEWith('Y'. 'F'); //=> 'Y5684121F'
+randomNIEWith('Y', 'C'); //=> 'Y2098020C'
+randomNIEWith('Z', 'G'); //=> 'Z5670557G'
 
 // a seed (Number) can be provided and it will always return the same result
-randomNIEWith('X', 'G', 1); //=> '95652174G'
-randomNIEWith('X', 'G', 1); //=> '95652174G'
+randomNIEWith('X', 'E', 1); //=> 'X2080280E'
+randomNIEWith('X', 'E', 1); //=> 'X2080280E'
 ```
 
 ## Benchmark
