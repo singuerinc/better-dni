@@ -24,17 +24,17 @@ describe('#randomNIEWith', () => {
 
   it('should generate a random NIE that ends with G', () => {
     const nie = randomNIEWith('X', 'G');
-    assert.equal(ctrlChar(nie), 'g');
+    assert.equal(ctrlChar(nie), 'G');
   });
 
   it('should work with lower case', () => {
-    const nie = randomNIEWith('Y', 'g');
-    assert.equal(ctrlChar(nie), 'g');
+    const nie = randomNIEWith('y', 'g');
+    assert.equal(ctrlChar(nie), 'G');
   });
 
   it('should work with upper case', () => {
     const nie = randomNIEWith('Z', 'C');
-    assert.equal(ctrlChar(nie), 'c');
+    assert.equal(ctrlChar(nie), 'C');
   });
 
   it('should not generate with invalid letters', () => {

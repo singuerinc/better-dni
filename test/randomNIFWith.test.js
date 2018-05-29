@@ -19,17 +19,17 @@ describe('#randomNIFWith', () => {
 
   it('should generate a random NIF that ends with G', () => {
     const nif = randomNIFWith('G');
-    assert.equal(ctrlChar(nif), 'g');
+    assert.equal(ctrlChar(nif), 'G');
   });
 
   it('should work with lower case', () => {
     const nif = randomNIFWith('g');
-    assert.equal(ctrlChar(nif), 'g');
+    assert.equal(ctrlChar(nif), 'G');
   });
 
   it('should work with upper case', () => {
     const nif = randomNIFWith('C');
-    assert.equal(ctrlChar(nif), 'c');
+    assert.equal(ctrlChar(nif), 'C');
   });
 
   it('should not generate with invalid letters', () => {

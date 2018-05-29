@@ -1,4 +1,4 @@
-//  Better DNI v1.12.0
+//  Better DNI v2.0.0
 //  https://github.com/singuerinc/better-dni
 //  (c) 2017-2018 Nahuel Scotti
 //  Better DNI may be freely distributed under the MIT license.
@@ -9,9 +9,30 @@
   (factory((global.betterDni = {})));
 }(this, (function (exports) { 'use strict';
 
-  const _isNIE = v => /^[XYZ]{1}[0-9]{7}[trwagmyfpdxbnjzsqvhlcke]{1}$/i.test(v);
+  const _isNIE = v => /^[XYZ]{1}[0-9]{7}[TRWAGMYFPDXBNJZSQVHLCKE]{1}$/i.test(v);
 
-  const _isNIF = v => /^[0-9]{8}[trwagmyfpdxbnjzsqvhlcke]{1}$/i.test(v);
+  const _isNIF = v => /^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKE]{1}$/i.test(v);
+
+  /**
+   * Returns true if the string is a valid DNI (NIF or NIE)
+   * @param {string} value
+   * @returns {boolean}
+   * @since 1.1.0
+   * @example
+   * isValid("X9464186P"); // => true
+   * isValid("03118880B"); // => true
+   */
+  const isValid = value => {
+    const dni = (!value ? '' : value).toLowerCase(); // lowercase is faster
+
+    if (dni.length !== 9 && !_isNIE(dni) && !_isNIF(dni)) return false;
+
+    const f = { x: '0', y: '1', z: '2' }[dni[0]] || dni[0];
+    const dni_1_to_7 = dni.substr(1, 7);
+    const i = +(f + dni_1_to_7) % 23;
+
+    return 'trwagmyfpdxbnjzsqvhlcket'[i] === dni[8];
+  };
 
   function _Random(seed) {
     this._seed = seed % 2147483647;
@@ -24,49 +45,36 @@
 
   // _Random :: https://gist.github.com/blixt/f17b47c62508be59987b#file-prng-js
 
+  const LETTERS = 'TRWAGMYFPDXBNJZSQVHLCKE';
+
   const _idxOf = x => y => x.indexOf(y);
   const _headAsNum = _idxOf('XYZ');
-  const _lastIndex = _idxOf('TRWAGMYFPDXBNJZSQVHLCKE');
+  const _lastIndex = _idxOf(LETTERS);
   const _upper = x => x.toUpperCase();
 
-  const _letter = x => 'trwagmyfpdxbnjzsqvhlcke'[+x % 23];
+  const _letter = x => LETTERS[+x % 23];
   const _randStrLimit = limit => ('' + Math.random()).substr(-limit);
   const _randFloat = seed => (new _Random(seed).next() - 1) / 2147483646;
 
   const _char = y => {
-    const f = { x: '0', y: '1', z: '2' }[y[0]] || y[0];
+    const f = { X: '0', Y: '1', Z: '2' }[y[0]] || y[0];
     const i = f + '' + y.substr(1, 7);
     return _letter(i);
   };
 
   /**
-   * Returns true if the string is a valid DNI (NIF or NIE)
-   * @param {string} value
-   * @returns {boolean}
-   * @since 1.1.0
-   * @example
-   * isValid("X9464186P"); // => true
-   * isValid("03118880B"); // => true
-   */
-  const isValid = value => {
-    const dni = (!value ? '' : value).toLowerCase();
-    if (dni.length !== 9 && !_isNIE(dni) && !_isNIF(dni)) return false;
-    return _char(dni) === dni[8];
-  };
-
-  /**
-   * Returns the control letter in lower case
+   * Returns the control letter in upper case
    * for a NIF or NIE with or without control letter
    * @param {string} value
    * @returns {string}
    * @since 1.9.1
    * @example
-   * ctrlChar("X9464186P"); // => 'p'
-   * ctrlChar("X9464186"); // => 'p'
-   * ctrlChar("03118880B"); // => 'b'
-   * ctrlChar("03118880"); // => 'b'
+   * ctrlChar("X9464186P"); // => 'P'
+   * ctrlChar("X9464186"); // => 'P'
+   * ctrlChar("03118880B"); // => 'B'
+   * ctrlChar("03118880"); // => 'B'
    */
-  const ctrlChar = x => _char(x.toLowerCase());
+  const ctrlChar = x => _char(x.toUpperCase());
 
   /**
    * Returns true if the string is a NIE
@@ -77,9 +85,7 @@
    * isNIE("X4108613P"); // => true
    */
   const isNIE = value => {
-    return (
-      !!value && value.length === 9 && _isNIE(value) && ctrlChar(value) === value[8].toLowerCase()
-    );
+    return !!value && value.length === 9 && _isNIE(value) && ctrlChar(value) === _upper(value[8]);
   };
 
   /**
@@ -91,9 +97,7 @@
    * isNIF("93375221M"); // => true
    */
   const isNIF = value => {
-    return (
-      !!value && value.length === 9 && _isNIF(value) && ctrlChar(value) === value[8].toLowerCase()
-    );
+    return !!value && value.length === 9 && _isNIF(value) && ctrlChar(value) === _upper(value[8]);
   };
 
   /**
@@ -184,8 +188,9 @@
 
     // random nie
     const num = Math.floor(1000000 * headOne + (9999999 - 1000000 * headOne - 23) * _randFloat(seed));
-    const rest = +(headNum + '' + num) % 23;
-    const h = +(headNum + '' + num) - rest + lastNum;
+    const b = +(headNum + '' + num);
+    const rest = b % 23;
+    const h = b - rest + lastNum;
 
     const s = '0' + h + last;
     const a = s.substr(-9);
