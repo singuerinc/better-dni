@@ -1,10 +1,10 @@
-import { _Random } from './internal/_utils';
+import { _lastIndex, _upper, _randFloat } from './internal/_utils';
 
 /**
  * Returns a random NIF with a specific letter
  * A seed can be passed as a second parameter and
  * it will always return the same value
- * @returns {string}
+ * @returns {string | null}
  * @since 1.11.0
  * @example
  * with random seed
@@ -16,14 +16,16 @@ import { _Random } from './internal/_utils';
  * randomNIFWith('G', 1); //=> '95652174G'
  */
 const randomNIFWith = (char, seed = 100000000 * Math.random()) => {
-  const upper = char.toUpperCase();
-  const i = 'TRWAGMYFPDXBNJZSQVHLCKE'.indexOf(upper);
+  const upper = _upper(char);
+  const i = _lastIndex(upper);
+
   if (i === -1) return null;
-  const rand = (new _Random(seed).next() - 1) / 2147483646;
-  const n = 99999998 - 4347826 * (Math.floor(rand * 22) + 1);
+
+  const n = 99999998 - 4347826 * (Math.floor(_randFloat(seed) * 22) + 1);
   const d = Math.max(0, n) % 23;
   const h = n + (i - d);
   const s = ('00000000' + h).substr(-8);
+
   return s + upper;
 };
 

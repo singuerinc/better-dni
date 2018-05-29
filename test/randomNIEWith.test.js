@@ -2,58 +2,58 @@ const assert = require('assert');
 const { randomNIEWith, ctrlChar } = require('../dist/index');
 
 describe('#randomNIEWith', () => {
-  it('should generate a NIF that ends with E', () => {
-    const nif = randomNIEWith('X', 'E', 7452129857);
-    assert.equal(nif, 'X2080280E');
+  it('should generate a NIE that ends with E', () => {
+    const nie = randomNIEWith('X', 'E', 7452129857);
+    assert.equal(nie, 'X2080280E');
   });
 
-  it('should generate a NIF that ends with C', () => {
-    const nif = randomNIEWith('Y', 'C', 4452129857);
-    assert.equal(nif, 'Y2098020C');
+  it('should generate a NIE that ends with C', () => {
+    const nie = randomNIEWith('Y', 'C', 4452129857);
+    assert.equal(nie, 'Y2098020C');
   });
 
-  it('should generate always the same NIF given the same seed', () => {
-    const nif = randomNIEWith('Z', 'G', 5452129857);
-    assert.equal(nif, 'Z5670557G');
+  it('should generate always the same NIE given the same seed', () => {
+    const nie = randomNIEWith('Z', 'G', 5452129857);
+    assert.equal(nie, 'Z5670557G');
   });
 
-  it('should generate always the same NIF given the negative seed', () => {
-    const nif = randomNIEWith('Z', 'G', -5452129857);
-    assert.equal(nif, 'Z7329340G');
+  it('should generate always the same NIE given the negative seed', () => {
+    const nie = randomNIEWith('Z', 'G', -5452129857);
+    assert.equal(nie, 'Z7329340G');
   });
 
-  it('should generate a random NIF that ends with G', () => {
-    const nif = randomNIEWith('X', 'G');
-    assert.equal(ctrlChar(nif), 'g');
+  it('should generate a random NIE that ends with G', () => {
+    const nie = randomNIEWith('X', 'G');
+    assert.equal(ctrlChar(nie), 'g');
   });
 
   it('should work with lower case', () => {
-    const nif = randomNIEWith('Y', 'g');
-    assert.equal(ctrlChar(nif), 'g');
+    const nie = randomNIEWith('Y', 'g');
+    assert.equal(ctrlChar(nie), 'g');
   });
 
   it('should work with upper case', () => {
-    const nif = randomNIEWith('Z', 'C');
-    assert.equal(ctrlChar(nif), 'c');
+    const nie = randomNIEWith('Z', 'C');
+    assert.equal(ctrlChar(nie), 'c');
   });
 
   it('should not generate with invalid letters', () => {
-    const nif = randomNIEWith('X', 'I');
-    assert.equal(nif, null);
+    const nie = randomNIEWith('X', 'I');
+    assert.equal(nie, null);
   });
 
   it('should not generate with invalid letters', () => {
-    const nif = randomNIEWith('X', 'U');
-    assert.equal(nif, null);
+    const nie = randomNIEWith('X', 'U');
+    assert.equal(nie, null);
   });
 
   it('should not generate with invalid letters', () => {
-    const nif = randomNIEWith('X', 'O');
-    assert.equal(nif, null);
+    const nie = randomNIEWith('X', 'O');
+    assert.equal(nie, null);
   });
 
   it('should not generate with invalid letters', () => {
-    const nif = randomNIEWith('A', 'O');
-    assert.equal(nif, null);
+    const nie = randomNIEWith('A', 'O');
+    assert.equal(nie, null);
   });
 });
