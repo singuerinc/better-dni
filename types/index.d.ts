@@ -12,7 +12,7 @@ declare const randomNIEWith = (xyz: string, l: string, seed: number) =>
  */
 declare const randomNIFWith = (l: string, seed: number) => string | null;
 /**
- * Returns the control letter in lower case
+ * Returns the control letter in upper case
  * for a NIF or NIE with or without control letter
  */
 declare const ctrlChar = (x: string) => string;

@@ -35,8 +35,9 @@ const randomNIEWith = (xyz, l, seed = 100000000 * Math.random()) => {
 
   // random nie
   const num = Math.floor(1000000 * headOne + (9999999 - 1000000 * headOne - 23) * _randFloat(seed));
-  const rest = +(headNum + '' + num) % 23;
-  const h = +(headNum + '' + num) - rest + lastNum;
+  const b = +(headNum + '' + num);
+  const rest = b % 23;
+  const h = b - rest + lastNum;
 
   const s = '0' + h + last;
   const a = s.substr(-9);

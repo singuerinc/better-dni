@@ -35,10 +35,10 @@ benches.push(
     }),
   new Benchmark.Suite('ctrl char')
     .add('better-dni#ctrlChar', () => {
-      better_dni_isValid_ctrlChar('X3825208');
+      better_dni_isValid_ctrlChar('X0729124R');
     })
     .add('dni-js-validator#getControlDigit', () => {
-      dni_js_getControlDigit('X3825208');
+      dni_js_getControlDigit('X0729124R');
     })
     .on('cycle', function(event) {
       console.log(String(event.target));
@@ -74,7 +74,7 @@ benches.push(
     })
 );
 
-Benchmark.invoke([...benches], {
+Benchmark.invoke([benches[0]], {
   name: 'run',
   args: true,
   queued: true

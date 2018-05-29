@@ -32,9 +32,9 @@ isNIF('06672804K'); //=> true
 // checks if it is a valid NIE
 isNIE('X1302311M'); //=> true
 
-// returns the control letter in lower case
-ctrlChar('X1302311M'); //=> 'm'
-ctrlChar('X1302311'); //=> 'm'
+// returns the control letter in upper case
+ctrlChar('X1302311M'); //=> 'M'
+ctrlChar('X1302311'); //=> 'M'
 ```
 
 ### Generators

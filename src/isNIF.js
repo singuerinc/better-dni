@@ -1,4 +1,5 @@
 import { _isNIF } from './internal/_isNIF';
+import { _upper } from './internal/_utils';
 import { ctrlChar } from './ctrlChar';
 
 /**
@@ -10,9 +11,7 @@ import { ctrlChar } from './ctrlChar';
  * isNIF("93375221M"); // => true
  */
 const isNIF = value => {
-  return (
-    !!value && value.length === 9 && _isNIF(value) && ctrlChar(value) === value[8].toLowerCase()
-  );
+  return !!value && value.length === 9 && _isNIF(value) && ctrlChar(value) === _upper(value[8]);
 };
 
 export { isNIF };

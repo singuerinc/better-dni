@@ -9,12 +9,14 @@ _Random.prototype.next = function() {
 
 // _Random :: https://gist.github.com/blixt/f17b47c62508be59987b#file-prng-js
 
+const LETTERS = 'TRWAGMYFPDXBNJZSQVHLCKE';
+
 const _idxOf = x => y => x.indexOf(y);
 const _headAsNum = _idxOf('XYZ');
-const _lastIndex = _idxOf('TRWAGMYFPDXBNJZSQVHLCKE');
+const _lastIndex = _idxOf(LETTERS);
 const _upper = x => x.toUpperCase();
 
-const _letter = x => 'trwagmyfpdxbnjzsqvhlcke'[+x % 23];
+const _letter = x => LETTERS[+x % 23];
 const _randStrLimit = limit => ('' + Math.random()).substr(-limit);
 const _randFloat = seed => (new _Random(seed).next() - 1) / 2147483646;
 
