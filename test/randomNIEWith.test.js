@@ -27,6 +27,11 @@ describe('#randomNIEWith', () => {
     assert.equal(ctrlChar(nie), 'G');
   });
 
+  it('should generate a random NIE that ends with X', () => {
+    const nie = randomNIEWith('X', 'X');
+    assert.equal(ctrlChar(nie), 'X');
+  });
+
   it('should work with lower case', () => {
     const nie = randomNIEWith('y', 'g');
     assert.equal(ctrlChar(nie), 'G');
