@@ -3,6 +3,7 @@ const {
   isValid: better_dni_isValid,
   ctrlChar: better_dni_isValid_ctrlChar,
   randomNIE,
+  randomNIEWith,
   randomNIF,
   isNIE,
   isNIF
@@ -71,10 +72,20 @@ benches.push(
     })
     .on('complete', function() {
       console.log('Fastest is ' + this.filter('fastest').map('name'));
+    }),
+  new Benchmark.Suite('randomNIEWith')
+    .add('better-dni#randomNIEWith', () => {
+      randomNIEWith('Z', 'E');
+    })
+    .on('cycle', function(event) {
+      console.log(String(event.target));
+    })
+    .on('complete', function() {
+      console.log('Fastest is ' + this.filter('fastest').map('name'));
     })
 );
 
-Benchmark.invoke([benches[0]], {
+Benchmark.invoke([benches[4]], {
   name: 'run',
   args: true,
   queued: true

@@ -1,4 +1,4 @@
-//  Better DNI v2.0.0
+//  Better DNI v2.0.2
 //  https://github.com/singuerinc/better-dni
 //  (c) 2017-2018 Nahuel Scotti
 //  Better DNI may be freely distributed under the MIT license.
@@ -48,7 +48,6 @@
   const LETTERS = 'TRWAGMYFPDXBNJZSQVHLCKE';
 
   const _idxOf = x => y => x.indexOf(y);
-  const _headAsNum = _idxOf('XYZ');
   const _lastIndex = _idxOf(LETTERS);
   const _upper = x => x.toUpperCase();
 
@@ -172,30 +171,25 @@
    * randomNIEWith('X', 'E', 1); //=> 'X2080280E'
    */
   const randomNIEWith = (xyz, l, seed = 100000000 * Math.random()) => {
-    // first nie letter
-    const head = _upper(xyz);
-    const headNum = _headAsNum(head);
+    const headNum = 'xyzXYZ'.indexOf(xyz) % 3;
 
     if (headNum === -1) return null;
 
-    // last ctrl letter
-    const last = _upper(l);
-    const lastNum = _lastIndex(last);
+    const lastNum = 'trwagmyfpdxbnjzsqvhlckeTRWAGMYFPDXBNJZSQVHLCKE'.indexOf(l) % 23;
 
     if (lastNum === -1) return null;
 
     const headOne = headNum + 1;
 
-    // random nie
     const num = Math.floor(1000000 * headOne + (9999999 - 1000000 * headOne - 23) * _randFloat(seed));
-    const b = +(headNum + '' + num);
+    const b = +`${headNum}${num}`;
     const rest = b % 23;
     const h = b - rest + lastNum;
 
-    const s = '0' + h + last;
-    const a = s.substr(-9);
+    const s = `000${h}${l}`;
+    const s8 = s.slice(-8);
 
-    return head + a.substr(-8);
+    return `${xyz}${s8}`.toUpperCase();
   };
 
   exports.isValid = isValid;
