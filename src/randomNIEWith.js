@@ -1,4 +1,4 @@
-import { _lastIndex, _headAsNum, _upper, _lower, _randFloat } from './internal/_utils';
+import { _upper, _randFloat } from './internal/_utils';
 import { ctrlChar } from './ctrlChar';
 
 /**
@@ -29,15 +29,16 @@ const randomNIEWith = (xyz, l, seed = 100000000 * Math.random()) => {
 
   const headOne = headNum + 1;
 
+  // TODO: Better calculation
   const num = Math.floor(1000000 * headOne + (9999999 - 1000000 * headOne - 23) * _randFloat(seed));
+
   const b = +`${headNum}${num}`;
   const rest = b % 23;
   const h = b - rest + lastNum;
 
-  const s = `0${h}${l}`;
-  const s8 = s.slice(-8);
+  const s = `0${h}${l}`.slice(-8);
 
-  return `${xyz}${s8}`.toUpperCase();
+  return `${xyz}${s}`.toUpperCase();
 };
 
 export { randomNIEWith };

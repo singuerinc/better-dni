@@ -5,6 +5,7 @@ const {
   randomNIE,
   randomNIEWith,
   randomNIF,
+  randomNIFWith,
   isNIE,
   isNIF
 } = require('./dist/index');
@@ -82,10 +83,20 @@ benches.push(
     })
     .on('complete', function() {
       console.log('Fastest is ' + this.filter('fastest').map('name'));
+    }),
+  new Benchmark.Suite('randomNIFWith')
+    .add('better-dni#randomNIFWith', () => {
+      randomNIFWith('E');
+    })
+    .on('cycle', function(event) {
+      console.log(String(event.target));
+    })
+    .on('complete', function() {
+      console.log('Fastest is ' + this.filter('fastest').map('name'));
     })
 );
 
-Benchmark.invoke([benches[4]], {
+Benchmark.invoke([benches[5]], {
   name: 'run',
   args: true,
   queued: true

@@ -1,4 +1,4 @@
-import { _lastIndex, _upper, _randFloat } from './internal/_utils';
+import { _randFloat } from './internal/_utils';
 
 /**
  * Returns a random NIF with a specific letter
@@ -16,17 +16,18 @@ import { _lastIndex, _upper, _randFloat } from './internal/_utils';
  * randomNIFWith('G', 1); //=> '95652174G'
  */
 const randomNIFWith = (char, seed = 100000000 * Math.random()) => {
-  const upper = _upper(char);
-  const i = _lastIndex(upper);
+  const lastNum = 'trwagmyfpdxbnjzsqvhlckeTRWAGMYFPDXBNJZSQVHLCKE'.indexOf(char) % 23;
 
-  if (i === -1) return null;
+  if (lastNum === -1) return null;
 
+  // TODO: Better calculation
   const n = 99999998 - 4347826 * (Math.floor(_randFloat(seed) * 22) + 1);
-  const d = Math.max(0, n) % 23;
-  const h = n + (i - d);
-  const s = ('00000000' + h).substr(-8);
 
-  return s + upper;
+  const d = Math.max(0, n) % 23;
+  const h = n + (lastNum - d);
+  const s = `0${h}`.slice(-8);
+
+  return `${s}${char}`.toUpperCase();
 };
 
 export { randomNIFWith };
