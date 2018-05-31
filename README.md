@@ -74,6 +74,10 @@ randomNIEWith('X', 'E', 1); //=> 'X2080280E'
 
 `better-dni` does a similar job as other libraries like [dni-js](https://github.com/albertfdp/dni-js/), [dni-js-validator](https://github.com/idirouhab/dni-js-validator), and [@willowi/validate-nif](https://github.com/WillowiDev/validate-nif) but `better-dni` is built with optimization and speed in mind. Take a look at these benchmark results:
 
+```js
+yarn build && yarn benchmark
+```
+
 ### isValid
 
 | lib                   | method       | operations/sec |             |
@@ -87,8 +91,8 @@ randomNIEWith('X', 'E', 1); //=> 'X2080280E'
 
 | lib                   | method     | operations/sec |             |
 | --------------------- | ---------- | -------------- | ----------- |
-| better-dni            | #ctrlChar  | **9,328,614**  | 2.3x faster |
-| dni-js                | #getLetter | 3,947,197      |             |
+| better-dni            | #ctrlChar  | **10,874,568** | 5.3x faster |
+| dni-js                | #getLetter | 2,032,845      |             |
 | dni-js-validator      | no method  | -              |             |
 | @willowi/validate-nif | no method  | -              |             |
 

@@ -1,4 +1,4 @@
-import { _upper, _randFloat } from './internal/_utils';
+import { _randFloat } from './internal/_utils';
 import { ctrlChar } from './ctrlChar';
 
 /**

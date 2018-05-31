@@ -1,8 +1,12 @@
 import { _letter } from './_utils';
 
 const _char = y => {
-  const f = { X: '0', Y: '1', Z: '2' }[y[0]] || y[0];
-  const i = f + '' + y.substr(1, 7);
+  // Get a number from 0 - 2 when `y` is a NIE
+  let f = 'xyzXYZ'.indexOf(y[0]) % 3;
+  // Otherwise default to the number (NIF case only)
+  if (f === -1) f = y[0];
+  // Strip the letters
+  const i = `${f}${y.slice(1, 8)}`;
   return _letter(i);
 };
 

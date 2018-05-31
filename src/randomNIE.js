@@ -10,7 +10,8 @@ import { _randStrLimit, _letter } from './internal/_utils';
 const randomNIE = () => {
   const r = Math.floor(Math.random() * 3);
   const nn = _randStrLimit(7);
-  return ['X', 'Y', 'Z'][r] + nn + _letter(+(r + '' + nn));
+  const l = _letter(+`${r}${nn}`);
+  return `${'XYZ'[r]}${nn}${l}`;
 };
 
 export { randomNIE };

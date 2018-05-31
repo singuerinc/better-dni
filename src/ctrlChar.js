@@ -12,6 +12,6 @@ import { _char } from './internal/_char';
  * ctrlChar("03118880B"); // => 'B'
  * ctrlChar("03118880"); // => 'B'
  */
-const ctrlChar = x => _char(x.toUpperCase());
+const ctrlChar = x => _char(x).toUpperCase();
 
 export { ctrlChar };

@@ -1,5 +1,4 @@
 import { _isNIE } from './internal/_isNIE';
-import { _upper } from './internal/_utils';
 import { ctrlChar } from './ctrlChar';
 
 /**
@@ -11,7 +10,9 @@ import { ctrlChar } from './ctrlChar';
  * isNIE("X4108613P"); // => true
  */
 const isNIE = value => {
-  return !!value && value.length === 9 && _isNIE(value) && ctrlChar(value) === _upper(value[8]);
+  return (
+    !!value && value.length === 9 && _isNIE(value) && ctrlChar(value) === value[8].toUpperCase()
+  );
 };
 
 export { isNIE };

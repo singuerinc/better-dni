@@ -45,16 +45,17 @@
 
   // _Random :: https://gist.github.com/blixt/f17b47c62508be59987b#file-prng-js
 
-  const LETTERS = 'TRWAGMYFPDXBNJZSQVHLCKE';
-  const _upper = x => x.toUpperCase();
-
-  const _letter = x => LETTERS[+x % 23];
-  const _randStrLimit = limit => ('' + Math.random()).substr(-limit);
+  const _letter = x => 'trwagmyfpdxbnjzsqvhlcke'[+x % 23];
+  const _randStrLimit = limit => `${Math.random()}`.slice(-limit);
   const _randFloat = seed => (new _Random(seed).next() - 1) / 2147483646;
 
   const _char = y => {
-    const f = { X: '0', Y: '1', Z: '2' }[y[0]] || y[0];
-    const i = f + '' + y.substr(1, 7);
+    // Get a number from 0 - 2 when `y` is a NIE
+    let f = 'xyzXYZ'.indexOf(y[0]) % 3;
+    // Otherwise default to the number (NIF case only)
+    if (f === -1) f = y[0];
+    // Strip the letters
+    const i = `${f}${y.slice(1, 8)}`;
     return _letter(i);
   };
 
@@ -70,7 +71,7 @@
    * ctrlChar("03118880B"); // => 'B'
    * ctrlChar("03118880"); // => 'B'
    */
-  const ctrlChar = x => _char(x.toUpperCase());
+  const ctrlChar = x => _char(x).toUpperCase();
 
   /**
    * Returns true if the string is a NIE
@@ -81,7 +82,9 @@
    * isNIE("X4108613P"); // => true
    */
   const isNIE = value => {
-    return !!value && value.length === 9 && _isNIE(value) && ctrlChar(value) === _upper(value[8]);
+    return (
+      !!value && value.length === 9 && _isNIE(value) && ctrlChar(value) === value[8].toUpperCase()
+    );
   };
 
   /**
@@ -93,7 +96,9 @@
    * isNIF("93375221M"); // => true
    */
   const isNIF = value => {
-    return !!value && value.length === 9 && _isNIF(value) && ctrlChar(value) === _upper(value[8]);
+    return (
+      !!value && value.length === 9 && _isNIF(value) && ctrlChar(value) === value[8].toUpperCase()
+    );
   };
 
   /**
@@ -118,7 +123,8 @@
   const randomNIE = () => {
     const r = Math.floor(Math.random() * 3);
     const nn = _randStrLimit(7);
-    return ['X', 'Y', 'Z'][r] + nn + _letter(+(r + '' + nn));
+    const l = _letter(+`${r}${nn}`);
+    return `${'XYZ'[r]}${nn}${l}`;
   };
 
   /**
@@ -203,3 +209,4 @@
   Object.defineProperty(exports, '__esModule', { value: true });
 
 })));
+//# sourceMappingURL=index.js.map
