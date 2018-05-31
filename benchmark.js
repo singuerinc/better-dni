@@ -96,7 +96,7 @@ benches.push(
     })
 );
 
-Benchmark.invoke([...benches], {
+Benchmark.invoke([benches[0]], {
   name: 'run',
   args: true,
   queued: true

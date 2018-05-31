@@ -1,4 +1,4 @@
-//  Better DNI v2.0.2
+//  Better DNI v2.1.1
 //  https://github.com/singuerinc/better-dni
 //  (c) 2017-2018 Nahuel Scotti
 //  Better DNI may be freely distributed under the MIT license.
@@ -23,15 +23,15 @@
    * isValid("03118880B"); // => true
    */
   const isValid = value => {
-    const dni = (!value ? '' : value).toLowerCase(); // lowercase is faster
+    const dni = !value ? '' : value; // lowercase is faster
 
     if (dni.length !== 9 && !_isNIE(dni) && !_isNIF(dni)) return false;
 
-    const f = { x: '0', y: '1', z: '2' }[dni[0]] || dni[0];
-    const dni_1_to_7 = dni.substr(1, 7);
-    const i = +(f + dni_1_to_7) % 23;
+    let f = 'xyzXYZ'.indexOf(dni[0]) % 3;
+    if (f === -1) f = dni[0];
+    const i = +(f + dni.slice(1, 8)) % 23;
 
-    return 'trwagmyfpdxbnjzsqvhlcket'[i] === dni[8];
+    return 'trwagmyfpdxbnjzsqvhlcket'.indexOf(dni[8].toLowerCase()) === i;
   };
 
   function _Random(seed) {

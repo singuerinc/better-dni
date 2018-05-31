@@ -82,10 +82,10 @@ yarn build && yarn benchmark
 
 | lib                   | method       | operations/sec |             |
 | --------------------- | ------------ | -------------- | ----------- |
-| better-dni            | #isValid     | **7,557,496**  | 2.6x faster |
-| dni-js-validator      | #isValid     | 2,900,386      |             |
-| dni-js                | #isValid     | 2,474,098      |             |
-| @willowi/validate-nif | #validateNif | 681,591        |             |
+| better-dni            | #isValid     | **10,128,148** | 3.5x faster |
+| dni-js-validator      | #isValid     | 2,870,822      |             |
+| dni-js                | #isValid     | 2,448,090      |             |
+| @willowi/validate-nif | #validateNif | 683,573        |             |
 
 ### ctrlChar / getLetter
 
