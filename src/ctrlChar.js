@@ -1,4 +1,4 @@
-import { _char } from './internal/_char';
+import { _letter } from './internal/_utils';
 
 /**
  * Returns the control letter in upper case
@@ -12,6 +12,14 @@ import { _char } from './internal/_char';
  * ctrlChar("03118880B"); // => 'B'
  * ctrlChar("03118880"); // => 'B'
  */
-const ctrlChar = x => _char(x).toUpperCase();
+const ctrlChar = y => {
+  // Get a number from 0 - 2 when `y` is a NIE
+  let f = 'xyzXYZ'.indexOf(y[0]) % 3;
+  // Otherwise default to the number (NIF case only)
+  if (f === -1) f = y[0];
+  // Strip the letters
+  const i = `${f}${y.slice(1, 8)}`;
+  return _letter(i).toUpperCase();
+};
 
 export { ctrlChar };

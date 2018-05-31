@@ -1,4 +1,4 @@
-//  Better DNI v2.1.1
+//  Better DNI v2.1.2
 //  https://github.com/singuerinc/better-dni
 //  (c) 2017-2018 Nahuel Scotti
 //  Better DNI may be freely distributed under the MIT license.
@@ -49,16 +49,6 @@
   const _randStrLimit = limit => `${Math.random()}`.slice(-limit);
   const _randFloat = seed => (new _Random(seed).next() - 1) / 2147483646;
 
-  const _char = y => {
-    // Get a number from 0 - 2 when `y` is a NIE
-    let f = 'xyzXYZ'.indexOf(y[0]) % 3;
-    // Otherwise default to the number (NIF case only)
-    if (f === -1) f = y[0];
-    // Strip the letters
-    const i = `${f}${y.slice(1, 8)}`;
-    return _letter(i);
-  };
-
   /**
    * Returns the control letter in upper case
    * for a NIF or NIE with or without control letter
@@ -71,7 +61,15 @@
    * ctrlChar("03118880B"); // => 'B'
    * ctrlChar("03118880"); // => 'B'
    */
-  const ctrlChar = x => _char(x).toUpperCase();
+  const ctrlChar = y => {
+    // Get a number from 0 - 2 when `y` is a NIE
+    let f = 'xyzXYZ'.indexOf(y[0]) % 3;
+    // Otherwise default to the number (NIF case only)
+    if (f === -1) f = y[0];
+    // Strip the letters
+    const i = `${f}${y.slice(1, 8)}`;
+    return _letter(i).toUpperCase();
+  };
 
   /**
    * Returns true if the string is a NIE
@@ -110,7 +108,7 @@
    */
   const randomNIF = () => {
     const nn = _randStrLimit(8);
-    return nn + _letter(nn);
+    return nn + _letter(nn).toUpperCase();
   };
 
   /**
@@ -123,7 +121,7 @@
   const randomNIE = () => {
     const r = Math.floor(Math.random() * 3);
     const nn = _randStrLimit(7);
-    const l = _letter(+`${r}${nn}`);
+    const l = _letter(+`${r}${nn}`).toUpperCase();
     return `${'XYZ'[r]}${nn}${l}`;
   };
 
