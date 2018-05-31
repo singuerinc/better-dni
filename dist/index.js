@@ -46,9 +46,6 @@
   // _Random :: https://gist.github.com/blixt/f17b47c62508be59987b#file-prng-js
 
   const LETTERS = 'TRWAGMYFPDXBNJZSQVHLCKE';
-
-  const _idxOf = x => y => x.indexOf(y);
-  const _lastIndex = _idxOf(LETTERS);
   const _upper = x => x.toUpperCase();
 
   const _letter = x => LETTERS[+x % 23];
@@ -140,17 +137,18 @@
    * randomNIFWith('G', 1); //=> '95652174G'
    */
   const randomNIFWith = (char, seed = 100000000 * Math.random()) => {
-    const upper = _upper(char);
-    const i = _lastIndex(upper);
+    const lastNum = 'trwagmyfpdxbnjzsqvhlckeTRWAGMYFPDXBNJZSQVHLCKE'.indexOf(char) % 23;
 
-    if (i === -1) return null;
+    if (lastNum === -1) return null;
 
+    // TODO: Better calculation
     const n = 99999998 - 4347826 * (Math.floor(_randFloat(seed) * 22) + 1);
-    const d = Math.max(0, n) % 23;
-    const h = n + (i - d);
-    const s = ('00000000' + h).substr(-8);
 
-    return s + upper;
+    const d = Math.max(0, n) % 23;
+    const h = n + (lastNum - d);
+    const s = `0${h}`.slice(-8);
+
+    return `${s}${char}`.toUpperCase();
   };
 
   /**
@@ -181,15 +179,16 @@
 
     const headOne = headNum + 1;
 
+    // TODO: Better calculation
     const num = Math.floor(1000000 * headOne + (9999999 - 1000000 * headOne - 23) * _randFloat(seed));
+
     const b = +`${headNum}${num}`;
     const rest = b % 23;
     const h = b - rest + lastNum;
 
-    const s = `000${h}${l}`;
-    const s8 = s.slice(-8);
+    const s = `0${h}${l}`.slice(-8);
 
-    return `${xyz}${s8}`.toUpperCase();
+    return `${xyz}${s}`.toUpperCase();
   };
 
   exports.isValid = isValid;
