@@ -11,9 +11,9 @@ const banner =
   '//  Better DNI may be freely distributed under the MIT license.\n';
 
 export default {
-  sourcemap: true,
   input: 'src/index.js',
   output: {
+    sourcemap: true,
     banner,
     format: 'umd',
     file: 'dist/index.js',
