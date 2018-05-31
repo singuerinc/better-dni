@@ -9,7 +9,7 @@ import { _randStrLimit, _letter } from './internal/_utils';
  */
 const randomNIF = () => {
   const nn = _randStrLimit(8);
-  return nn + _letter(nn);
+  return nn + _letter(nn).toUpperCase();
 };
 
 export { randomNIF };
