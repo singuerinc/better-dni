@@ -70,6 +70,13 @@ randomNIEWith('X', 'E', 1); //=> 'X2080280E'
 randomNIEWith('X', 'E', 1); //=> 'X2080280E'
 ```
 
+#### Normalize
+
+```js
+// Returns a "clean" dni string removing spaces, dashes, etc.
+normalize(' x-9464186_p   '); // => "X9464186P"
+```
+
 ## Benchmark
 
 `better-dni` does a similar job as other libraries like [dni-js](https://github.com/albertfdp/dni-js/), [dni-js-validator](https://github.com/idirouhab/dni-js-validator), and [@willowi/validate-nif](https://github.com/WillowiDev/validate-nif) but `better-dni` is built with optimization and speed in mind. Take a look at these benchmark results:

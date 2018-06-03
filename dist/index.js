@@ -1,4 +1,4 @@
-//  Better DNI v2.1.2
+//  Better DNI v2.2.0
 //  https://github.com/singuerinc/better-dni
 //  (c) 2017-2018 Nahuel Scotti
 //  Better DNI may be freely distributed under the MIT license.
@@ -195,6 +195,18 @@
     return `${xyz}${s}`.toUpperCase();
   };
 
+  /**
+   * Returns a "clean" dni string removing spaces, dashes, etc.
+   * @param {string} value
+   * @returns {string}
+   * @since 2.2.0
+   * @example
+   * normalize(" x-9464186_p   "); // => "X9464186P"
+   */
+  const normalize = str => {
+    return str.replace(/[-_\s]/gi, '').toUpperCase();
+  };
+
   exports.isValid = isValid;
   exports.isNIE = isNIE;
   exports.isNIF = isNIF;
@@ -203,6 +215,7 @@
   exports.ctrlChar = ctrlChar;
   exports.randomNIFWith = randomNIFWith;
   exports.randomNIEWith = randomNIEWith;
+  exports.normalize = normalize;
 
   Object.defineProperty(exports, '__esModule', { value: true });
 
