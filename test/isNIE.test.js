@@ -17,6 +17,18 @@ describe('#isNIE', () => {
     assert.equal(isNIE('Z0078471T'), true);
   });
 
+  it('should return false if is nie with 0', () => {
+    assert.equal(isNIE('09464186P'), false);
+  });
+
+  it('should return false if is nie with 1', () => {
+    assert.equal(isNIE('11715871Q'), false);
+  });
+
+  it('should return false if is nie with 2', () => {
+    assert.equal(isNIE('20078471T'), false);
+  });
+
   it('should return if is not nie', () => {
     assert.equal(isNIE('Z00A000AA'), false);
   });

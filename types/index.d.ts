@@ -1,4 +1,8 @@
 /**
+ * Returns a "clean" dni string removing spaces, dashes, etc.
+ */
+declare const normalize = (str: string) => string;
+/**
  * Returns a random NIE with a specific letter
  * A seed can be passed as a third parameter and
  * it will always return the same value
