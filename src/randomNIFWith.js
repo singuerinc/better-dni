@@ -18,7 +18,9 @@ import { _randFloat } from "./internal/_utils";
 const randomNIFWith = (char, seed = 100000000 * Math.random()) => {
   const lastNum = "trwagmyfpdxbnjzsqvhlckeTRWAGMYFPDXBNJZSQVHLCKE".indexOf(char) % 23;
 
-  if (lastNum === -1) return null;
+  if (lastNum === -1) {
+    return null;
+  }
 
   // TODO: Better calculation
   const n = 99999998 - 4347826 * (Math.floor(_randFloat(seed) * 22) + 1);

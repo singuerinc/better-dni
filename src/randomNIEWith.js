@@ -21,11 +21,15 @@ import { ctrlChar } from "./ctrlChar";
 const randomNIEWith = (xyz, l, seed = 100000000 * Math.random()) => {
   const headNum = "xyzXYZ".indexOf(xyz) % 3;
 
-  if (headNum === -1) return null;
+  if (headNum === -1) {
+    return null;
+  }
 
   const lastNum = "trwagmyfpdxbnjzsqvhlckeTRWAGMYFPDXBNJZSQVHLCKE".indexOf(l) % 23;
 
-  if (lastNum === -1) return null;
+  if (lastNum === -1) {
+    return null;
+  }
 
   const headOne = headNum + 1;
 

@@ -13,10 +13,16 @@ import { _isNIF } from "./internal/_isNIF";
 const isValid = (value) => {
   const dni = !value ? "" : value; // lowercase is faster
 
-  if (dni.length !== 9 && !_isNIE(dni) && !_isNIF(dni)) return false;
+  if (dni.length !== 9 && !_isNIE(dni) && !_isNIF(dni)) {
+    return false;
+  }
 
   let f = "xyzXYZ".indexOf(dni[0]) % 3;
-  if (f === -1) f = dni[0];
+
+  if (f === -1) {
+    f = dni[0];
+  }
+
   const i = +(f + dni.slice(1, 8)) % 23;
 
   return "trwagmyfpdxbnjzsqvhlcket".indexOf(dni[8].toLowerCase()) === i;
