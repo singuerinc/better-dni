@@ -1,5 +1,5 @@
-import { _randFloat } from './internal/_utils';
-import { ctrlChar } from './ctrlChar';
+import { _randFloat } from "./internal/_utils";
+import { ctrlChar } from "./ctrlChar";
 
 /**
  * Returns a random NIE with a specific letter
@@ -19,11 +19,11 @@ import { ctrlChar } from './ctrlChar';
  * randomNIEWith('X', 'E', 1); //=> 'X2080280E'
  */
 const randomNIEWith = (xyz, l, seed = 100000000 * Math.random()) => {
-  const headNum = 'xyzXYZ'.indexOf(xyz) % 3;
+  const headNum = "xyzXYZ".indexOf(xyz) % 3;
 
   if (headNum === -1) return null;
 
-  const lastNum = 'trwagmyfpdxbnjzsqvhlckeTRWAGMYFPDXBNJZSQVHLCKE'.indexOf(l) % 23;
+  const lastNum = "trwagmyfpdxbnjzsqvhlckeTRWAGMYFPDXBNJZSQVHLCKE".indexOf(l) % 23;
 
   if (lastNum === -1) return null;
 
