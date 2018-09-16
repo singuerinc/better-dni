@@ -1,3 +1,4 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/83d00fabfa424b0dbba64735f64ff74c)](https://app.codacy.com/app/nahuel.scotti/better-dni?utm_source=github.com&utm_medium=referral&utm_content=singuerinc/better-dni&utm_campaign=Badge_Grade_Dashboard)
 [![Build Status](https://travis-ci.org/singuerinc/better-dni.svg?branch=master)](https://travis-ci.org/singuerinc/better-dni)
 [![Coverage Status](https://coveralls.io/repos/github/singuerinc/better-dni/badge.svg?branch=master)](https://coveralls.io/github/singuerinc/better-dni?branch=master)
 [![Known Vulnerabilities](https://snyk.io/test/github/singuerinc/better-dni/badge.svg)](https://snyk.io/test/github/singuerinc/better-dni)
