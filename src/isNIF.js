@@ -9,7 +9,7 @@ import { ctrlChar } from "./ctrlChar";
  * @example
  * isNIF("93375221M"); // => true
  */
-const isNIF = value => {
+const isNIF = (value) => {
   return (
     !!value && value.length === 9 && _isNIF(value) && ctrlChar(value) === value[8].toUpperCase()
   );

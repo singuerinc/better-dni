@@ -9,7 +9,7 @@ import { ctrlChar } from "./ctrlChar";
  * @example
  * isNIE("X4108613P"); // => true
  */
-const isNIE = value => {
+const isNIE = (value) => {
   return (
     !!value && value.length === 9 && _isNIE(value) && ctrlChar(value) === value[8].toUpperCase()
   );

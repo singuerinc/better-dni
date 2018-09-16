@@ -9,8 +9,8 @@ _Random.prototype.next = function() {
 
 // _Random :: https://gist.github.com/blixt/f17b47c62508be59987b#file-prng-js
 
-const _letter = x => "trwagmyfpdxbnjzsqvhlcke"[+x % 23];
-const _randStrLimit = limit => `${Math.random()}`.slice(-limit);
-const _randFloat = seed => (new _Random(seed).next() - 1) / 2147483646;
+const _letter = (x) => "trwagmyfpdxbnjzsqvhlcke"[+x % 23];
+const _randStrLimit = (limit) => `${Math.random()}`.slice(-limit);
+const _randFloat = (seed) => (new _Random(seed).next() - 1) / 2147483646;
 
 export { _letter, _randStrLimit, _randFloat };

@@ -7,7 +7,7 @@ const nies = Array(15000)
   // .map(x => randomNIEWith('y', 'g'))
   // .map(x => randomNIEWith('z', 'g'))
   // .map(x => randomNIFWith('a'))
-  .map(x => randomNIFWith("E"))
+  .map((x) => randomNIFWith("E"))
   .map((x, i) => {
     const v = isValid(x);
     console.log(i, x, v);
