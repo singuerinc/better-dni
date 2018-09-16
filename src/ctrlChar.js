@@ -1,4 +1,4 @@
-import { _letter } from './internal/_utils';
+import { _letter } from "./internal/_utils";
 
 /**
  * Returns the control letter in upper case
@@ -14,7 +14,7 @@ import { _letter } from './internal/_utils';
  */
 const ctrlChar = y => {
   // Get a number from 0 - 2 when `y` is a NIE
-  let f = 'xyzXYZ'.indexOf(y[0]) % 3;
+  let f = "xyzXYZ".indexOf(y[0]) % 3;
   // Otherwise default to the number (NIF case only)
   if (f === -1) f = y[0];
   // Strip the letters

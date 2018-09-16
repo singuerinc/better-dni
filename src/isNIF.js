@@ -1,5 +1,5 @@
-import { _isNIF } from './internal/_isNIF';
-import { ctrlChar } from './ctrlChar';
+import { _isNIF } from "./internal/_isNIF";
+import { ctrlChar } from "./ctrlChar";
 
 /**
  * Returns true if the string is a NIF

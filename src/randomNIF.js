@@ -1,4 +1,4 @@
-import { _randStrLimit, _letter } from './internal/_utils';
+import { _randStrLimit, _letter } from "./internal/_utils";
 
 /**
  * Returns a valid NIF string

@@ -1,5 +1,5 @@
-import { _isNIE } from './internal/_isNIE';
-import { ctrlChar } from './ctrlChar';
+import { _isNIE } from "./internal/_isNIE";
+import { ctrlChar } from "./ctrlChar";
 
 /**
  * Returns true if the string is a NIE
