@@ -2,6 +2,7 @@
 [![Build Status](https://travis-ci.org/singuerinc/better-dni.svg?branch=master)](https://travis-ci.org/singuerinc/better-dni)
 [![Coverage Status](https://coveralls.io/repos/github/singuerinc/better-dni/badge.svg?branch=master)](https://coveralls.io/github/singuerinc/better-dni?branch=master)
 [![Known Vulnerabilities](https://snyk.io/test/github/singuerinc/better-dni/badge.svg)](https://snyk.io/test/github/singuerinc/better-dni)
+[![install size](https://packagephobia.now.sh/badge?p=better-dni)](https://packagephobia.now.sh/result?p=better-dni)
 
 ![Better DNI](logo.png)
 
