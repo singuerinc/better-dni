@@ -6,7 +6,7 @@
 
 ![Better DNI](logo.png)
 
-The fastest Spanish DNI (NIE / NIF) validation
+The fastest Spanish DNI (NIE / NIF) validation out there.
 
 ## Installation
 
