@@ -1,12 +1,12 @@
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/83d00fabfa424b0dbba64735f64ff74c)](https://app.codacy.com/app/nahuel.scotti/better-dni)
-[![Build Status](https://travis-ci.org/singuerinc/better-dni.svg?branch=master)](https://travis-ci.org/singuerinc/better-dni)
-[![Coverage Status](https://coveralls.io/repos/github/singuerinc/better-dni/badge.svg?branch=master)](https://coveralls.io/github/singuerinc/better-dni?branch=master)
-[![Known Vulnerabilities](https://snyk.io/test/github/singuerinc/better-dni/badge.svg)](https://snyk.io/test/github/singuerinc/better-dni)
-[![install size](https://packagephobia.now.sh/badge?p=better-dni)](https://packagephobia.now.sh/result?p=better-dni)
+[![Codacy grade](https://img.shields.io/codacy/grade/83d00fabfa424b0dbba64735f64ff74c.svg?style=flat-square)](https://app.codacy.com/app/nahuel.scotti/better-dni)
+[![Travis (.org)](https://img.shields.io/travis/singuerinc/better-dni.svg?style=flat-square)](https://travis-ci.org/singuerinc/better-dni)
+[![Coveralls github](https://img.shields.io/coveralls/github/singuerinc/better-dni.svg?style=flat-square)](https://coveralls.io/github/singuerinc/better-dni?branch=master)
+[![Known Vulnerabilities](https://snyk.io/test/github/singuerinc/better-dni/badge.svg?style=flat-square)](https://snyk.io/test/github/singuerinc/better-dni)
+![npm bundle size (minified)](https://img.shields.io/bundlephobia/min/better-dni.svg?style=flat-square)
 
 ![Better DNI](logo.png)
 
-The fastest Spanish DNI (NIE / NIF) validation
+The fastest Spanish DNI (NIE / NIF) validation out there.
 
 ## Installation
 
