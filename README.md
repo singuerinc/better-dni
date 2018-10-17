@@ -84,7 +84,7 @@ normalize(" x-9464186_p   "); // => "X9464186P"
 `better-dni` does a similar job as other libraries like [dni-js](https://github.com/albertfdp/dni-js/), [dni-js-validator](https://github.com/idirouhab/dni-js-validator), and [@willowi/validate-nif](https://github.com/WillowiDev/validate-nif) but `better-dni` is built with optimization and speed in mind. Take a look at these benchmark results:
 
 ```js
-yarn build && yarn benchmark
+yarn && yarn build && yarn benchmark
 ```
 
 ### isValid
