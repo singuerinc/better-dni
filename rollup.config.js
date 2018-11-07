@@ -1,4 +1,5 @@
 import { version } from "./package.json";
+import babel from "rollup-plugin-babel";
 
 const banner =
   "//  Better DNI v" +
@@ -19,6 +20,11 @@ export default {
     file: "dist/index.js",
     name: "betterDni"
   },
+  plugins: [
+    babel({
+      exclude: "node_modules/**"
+    })
+  ],
   watch: {
     include: "src/**",
     exclude: "node_modules/**"
