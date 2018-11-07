@@ -9,9 +9,13 @@
   (factory((global.betterDni = {})));
 }(this, (function (exports) { 'use strict';
 
-  const _isNIE = v => /^[XYZ]{1}[0-9]{7}[TRWAGMYFPDXBNJZSQVHLCKE]{1}$/i.test(v);
+  var _isNIE = function _isNIE(v) {
+    return /^[XYZ]{1}[0-9]{7}[TRWAGMYFPDXBNJZSQVHLCKE]{1}$/i.test(v);
+  };
 
-  const _isNIF = v => /^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKE]{1}$/i.test(v);
+  var _isNIF = function _isNIF(v) {
+    return /^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKE]{1}$/i.test(v);
+  };
 
   /**
    * Returns true if the string is a valid DNI (NIF or NIE)
@@ -22,16 +26,22 @@
    * isValid("X9464186P"); // => true
    * isValid("03118880B"); // => true
    */
-  const isValid = value => {
-    const dni = !value ? '' : value; // lowercase is faster
 
-    if (dni.length !== 9 && !_isNIE(dni) && !_isNIF(dni)) return false;
+  var isValid = function isValid(value) {
+    var dni = !value ? "" : value; // lowercase is faster
 
-    let f = 'xyzXYZ'.indexOf(dni[0]) % 3;
-    if (f === -1) f = dni[0];
-    const i = +(f + dni.slice(1, 8)) % 23;
+    if (dni.length !== 9 && !_isNIE(dni) && !_isNIF(dni)) {
+      return false;
+    }
 
-    return 'trwagmyfpdxbnjzsqvhlcket'.indexOf(dni[8].toLowerCase()) === i;
+    var f = "xyzXYZ".indexOf(dni[0]) % 3;
+
+    if (f === -1) {
+      f = dni[0];
+    }
+
+    var i = +(f + dni.slice(1, 8)) % 23;
+    return "trwagmyfpdxbnjzsqvhlcket".indexOf(dni[8].toLowerCase()) === i;
   };
 
   function _Random(seed) {
@@ -39,15 +49,22 @@
     if (this._seed <= 0) this._seed += 2147483646;
   }
 
-  _Random.prototype.next = function() {
-    return (this._seed = (this._seed * 16807) % 2147483647);
+  _Random.prototype.next = function () {
+    return this._seed = this._seed * 16807 % 2147483647;
+  }; // _Random :: https://gist.github.com/blixt/f17b47c62508be59987b#file-prng-js
+
+
+  var _letter = function _letter(x) {
+    return "trwagmyfpdxbnjzsqvhlcke"[+x % 23];
   };
 
-  // _Random :: https://gist.github.com/blixt/f17b47c62508be59987b#file-prng-js
+  var _randStrLimit = function _randStrLimit(limit) {
+    return "".concat(Math.random()).slice(-limit);
+  };
 
-  const _letter = x => 'trwagmyfpdxbnjzsqvhlcke'[+x % 23];
-  const _randStrLimit = limit => `${Math.random()}`.slice(-limit);
-  const _randFloat = seed => (new _Random(seed).next() - 1) / 2147483646;
+  var _randFloat = function _randFloat(seed) {
+    return (new _Random(seed).next() - 1) / 2147483646;
+  };
 
   /**
    * Returns the control letter in upper case
@@ -61,13 +78,14 @@
    * ctrlChar("03118880B"); // => 'B'
    * ctrlChar("03118880"); // => 'B'
    */
-  const ctrlChar = y => {
+
+  var ctrlChar = function ctrlChar(y) {
     // Get a number from 0 - 2 when `y` is a NIE
-    let f = 'xyzXYZ'.indexOf(y[0]) % 3;
-    // Otherwise default to the number (NIF case only)
-    if (f === -1) f = y[0];
-    // Strip the letters
-    const i = `${f}${y.slice(1, 8)}`;
+    var f = "xyzXYZ".indexOf(y[0]) % 3; // Otherwise default to the number (NIF case only)
+
+    if (f === -1) f = y[0]; // Strip the letters
+
+    var i = "".concat(f).concat(y.slice(1, 8));
     return _letter(i).toUpperCase();
   };
 
@@ -79,10 +97,9 @@
    * @example
    * isNIE("X4108613P"); // => true
    */
-  const isNIE = value => {
-    return (
-      !!value && value.length === 9 && _isNIE(value) && ctrlChar(value) === value[8].toUpperCase()
-    );
+
+  var isNIE = function isNIE(value) {
+    return !!value && value.length === 9 && _isNIE(value) && ctrlChar(value) === value[8].toUpperCase();
   };
 
   /**
@@ -93,10 +110,9 @@
    * @example
    * isNIF("93375221M"); // => true
    */
-  const isNIF = value => {
-    return (
-      !!value && value.length === 9 && _isNIF(value) && ctrlChar(value) === value[8].toUpperCase()
-    );
+
+  var isNIF = function isNIF(value) {
+    return !!value && value.length === 9 && _isNIF(value) && ctrlChar(value) === value[8].toUpperCase();
   };
 
   /**
@@ -106,8 +122,10 @@
    * @example
    * randomNIF() // => "93375221M"
    */
-  const randomNIF = () => {
-    const nn = _randStrLimit(8);
+
+  var randomNIF = function randomNIF() {
+    var nn = _randStrLimit(8);
+
     return nn + _letter(nn).toUpperCase();
   };
 
@@ -118,11 +136,15 @@
    * @example
    * randomNIE() // => "X4108613P"
    */
-  const randomNIE = () => {
-    const r = Math.floor(Math.random() * 3);
-    const nn = _randStrLimit(7);
-    const l = _letter(+`${r}${nn}`).toUpperCase();
-    return `${'XYZ'[r]}${nn}${l}`;
+
+  var randomNIE = function randomNIE() {
+    var r = Math.floor(Math.random() * 3);
+
+    var nn = _randStrLimit(7);
+
+    var l = _letter(+"".concat(r).concat(nn)).toUpperCase();
+
+    return "".concat("XYZ"[r]).concat(nn).concat(l);
   };
 
   /**
@@ -140,19 +162,21 @@
    * randomNIFWith('G', 1); //=> '95652174G'
    * randomNIFWith('G', 1); //=> '95652174G'
    */
-  const randomNIFWith = (char, seed = 100000000 * Math.random()) => {
-    const lastNum = 'trwagmyfpdxbnjzsqvhlckeTRWAGMYFPDXBNJZSQVHLCKE'.indexOf(char) % 23;
 
-    if (lastNum === -1) return null;
+  var randomNIFWith = function randomNIFWith(char) {
+    var seed = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 100000000 * Math.random();
+    var lastNum = "trwagmyfpdxbnjzsqvhlckeTRWAGMYFPDXBNJZSQVHLCKE".indexOf(char) % 23;
 
-    // TODO: Better calculation
-    const n = 99999998 - 4347826 * (Math.floor(_randFloat(seed) * 22) + 1);
+    if (lastNum === -1) {
+      return null;
+    } // TODO: Better calculation
 
-    const d = Math.max(0, n) % 23;
-    const h = n + (lastNum - d);
-    const s = `0${h}`.slice(-8);
 
-    return `${s}${char}`.toUpperCase();
+    var n = 99999998 - 4347826 * (Math.floor(_randFloat(seed) * 22) + 1);
+    var d = Math.max(0, n) % 23;
+    var h = n + (lastNum - d);
+    var s = "0".concat(h).slice(-8);
+    return "".concat(s).concat(char).toUpperCase();
   };
 
   /**
@@ -172,27 +196,29 @@
    * randomNIEWith('X', 'E', 1); //=> 'X2080280E'
    * randomNIEWith('X', 'E', 1); //=> 'X2080280E'
    */
-  const randomNIEWith = (xyz, l, seed = 100000000 * Math.random()) => {
-    const headNum = 'xyzXYZ'.indexOf(xyz) % 3;
 
-    if (headNum === -1) return null;
+  var randomNIEWith = function randomNIEWith(xyz, l) {
+    var seed = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 100000000 * Math.random();
+    var headNum = "xyzXYZ".indexOf(xyz) % 3;
 
-    const lastNum = 'trwagmyfpdxbnjzsqvhlckeTRWAGMYFPDXBNJZSQVHLCKE'.indexOf(l) % 23;
+    if (headNum === -1) {
+      return null;
+    }
 
-    if (lastNum === -1) return null;
+    var lastNum = "trwagmyfpdxbnjzsqvhlckeTRWAGMYFPDXBNJZSQVHLCKE".indexOf(l) % 23;
 
-    const headOne = headNum + 1;
+    if (lastNum === -1) {
+      return null;
+    }
 
-    // TODO: Better calculation
-    const num = Math.floor(1000000 * headOne + (9999999 - 1000000 * headOne - 23) * _randFloat(seed));
+    var headOne = headNum + 1; // TODO: Better calculation
 
-    const b = +`${headNum}${num}`;
-    const rest = b % 23;
-    const h = b - rest + lastNum;
-
-    const s = `0${h}${l}`.slice(-8);
-
-    return `${xyz}${s}`.toUpperCase();
+    var num = Math.floor(1000000 * headOne + (9999999 - 1000000 * headOne - 23) * _randFloat(seed));
+    var b = +"".concat(headNum).concat(num);
+    var rest = b % 23;
+    var h = b - rest + lastNum;
+    var s = "0".concat(h).concat(l).slice(-8);
+    return "".concat(xyz).concat(s).toUpperCase();
   };
 
   /**
@@ -203,8 +229,8 @@
    * @example
    * normalize(" x-9464186_p   "); // => "X9464186P"
    */
-  const normalize = str => {
-    return str.replace(/[-_\s]/gi, '').toUpperCase();
+  var normalize = function normalize(str) {
+    return str.replace(/[-_\s]/gi, "").toUpperCase();
   };
 
   exports.isValid = isValid;
