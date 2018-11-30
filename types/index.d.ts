@@ -1,33 +1,36 @@
 /**
  * Returns a "clean" dni string removing spaces, dashes, etc.
  */
-declare const normalize = (str: string) => string;
+declare function normalize(str: string): string;
 /**
  * Returns a random NIE with a specific letter
  * A seed can be passed as a third parameter and
  * it will always return the same value
  */
-declare const randomNIEWith = (xyz: string, char: string, seed: number) =>
-  string | null;
+declare function randomNIEWith(
+  xyz: string,
+  char: string,
+  seed: number
+): string | null;
 /**
  * Returns a random NIF with a specific letter
  * A seed can be passed as a second parameter and
  * it will always return the same value
  */
-declare const randomNIFWith = (char: string, seed: number) => string | null;
+declare function randomNIFWith(char: string, seed: number): string | null;
 /**
  * Returns the control letter in upper case
  * for a NIF or NIE with or without control letter
  */
-declare const ctrlChar = (dni: string) => string;
+declare function ctrlChar(dni: string): string;
 /**
  * Returns a valid NIF string
  */
-declare const randomNIF = () => string;
+declare function randomNIF(): string;
 /**
  * Returns a valid NIE string
  */
-declare const randomNIE = () => string;
+declare function randomNIE(): string;
 /**
  * Returns true if the string is a NIE
  */
