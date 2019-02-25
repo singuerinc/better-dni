@@ -1,3 +1,4 @@
+[![npm](https://img.shields.io/npm/v/better-dni.svg)](http://npm.im/better-dni)
 [![Codacy grade](https://img.shields.io/codacy/grade/83d00fabfa424b0dbba64735f64ff74c.svg?style=flat-square)](https://app.codacy.com/app/nahuel.scotti/better-dni)
 [![Travis (.org)](https://img.shields.io/travis/singuerinc/better-dni.svg?style=flat-square)](https://travis-ci.org/singuerinc/better-dni)
 [![Coveralls github](https://img.shields.io/coveralls/github/singuerinc/better-dni.svg?style=flat-square)](https://coveralls.io/github/singuerinc/better-dni?branch=master)
