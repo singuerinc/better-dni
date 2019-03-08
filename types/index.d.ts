@@ -43,4 +43,4 @@ declare const isNIF: (nif: string) => boolean;
  * Returns true if the string is a valid DNI
  */
 declare const isValid: (dni: string) => boolean;
-export { randomNIF, randomNIE, isValid, isNIF, isNIE };
+export { randomNIF, randomNIFWith, randomNIE, randomNIEWith, isValid, isNIF, isNIE, normalize };
