@@ -1,13 +1,13 @@
-//  Better DNI v2.2.0
+//  Better DNI v3.0.1
 //  https://github.com/singuerinc/better-dni
-//  (c) 2017-2018 Nahuel Scotti
+//  (c) 2017-2019 Nahuel Scotti
 //  Better DNI may be freely distributed under the MIT license.
 
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
   typeof define === 'function' && define.amd ? define(['exports'], factory) :
-  (factory((global.betterDni = {})));
-}(this, (function (exports) { 'use strict';
+  (global = global || self, factory(global.betterDni = {}));
+}(this, function (exports) { 'use strict';
 
   var _isNIE = function _isNIE(v) {
     return /^[XYZ]{1}[0-9]{7}[TRWAGMYFPDXBNJZSQVHLCKE]{1}$/i.test(v);
@@ -233,17 +233,17 @@
     return str.replace(/[-_\s]/gi, "").toUpperCase();
   };
 
-  exports.isValid = isValid;
+  exports.ctrlChar = ctrlChar;
   exports.isNIE = isNIE;
   exports.isNIF = isNIF;
-  exports.randomNIF = randomNIF;
-  exports.randomNIE = randomNIE;
-  exports.ctrlChar = ctrlChar;
-  exports.randomNIFWith = randomNIFWith;
-  exports.randomNIEWith = randomNIEWith;
+  exports.isValid = isValid;
   exports.normalize = normalize;
+  exports.randomNIE = randomNIE;
+  exports.randomNIEWith = randomNIEWith;
+  exports.randomNIF = randomNIF;
+  exports.randomNIFWith = randomNIFWith;
 
   Object.defineProperty(exports, '__esModule', { value: true });
 
-})));
+}));
 //# sourceMappingURL=index.js.map
