@@ -705,9 +705,9 @@
   integrity sha512-bjk1RIeZBCe/WukrFToIVegOf91Pebr8cXYBwLBIsfiGWVQ+ifwWsT59H3RxrWzWrzd1l/Amk1/ioY5Fq3/bpA==
 
 "@willowi/validate-nif@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@willowi/validate-nif/-/validate-nif-1.0.0.tgz#6171cbf03b23cda693e4b8bacd897c173edb8a90"
-  integrity sha512-LKsCcUAfkA/nRZ/qVV9sUbMOipkmG1xMkSrtThNVesDowOk+8EZiziE3pKuUliusBVCCqunXayxKBYPEHEpxMA==
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@willowi/validate-nif/-/validate-nif-1.0.1.tgz#feb9eb8d49825fa39038784772626c22e312e9fd"
+  integrity sha512-pAig9zvIdkV7vi+v+Z8R6ZbSoeyyIqGo6/spwHbeaWTmJ2/tsWHkJYT7ziSgvIgzueiPgLcKeh+OlMOC+OiyqA==
 
 ajv@^6.5.5:
   version "6.10.0"
