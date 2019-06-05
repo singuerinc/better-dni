@@ -1387,10 +1387,10 @@ dni-js-validator@^1.0.3:
   resolved "https://registry.yarnpkg.com/dni-js-validator/-/dni-js-validator-1.0.3.tgz#3651c8757dcc97ade86a6ddfe1a2c6da55290ac9"
   integrity sha512-RrwakgDpkH/idXI2nlUGQga/8shVfYZWaDOLi9KZq2H+9IEu3FiFXOqFfcQ3sX1scEqkvpnorgaCuApOpo3JCQ==
 
-dni-js@^0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/dni-js/-/dni-js-0.1.1.tgz#b8bf4f911a95273fa2ccb056dfc3af3b623b8839"
-  integrity sha512-lOuvileHOHpViNy485/Q4HXHpFCPJdfz7t3GtFdwwVmUd7FOthBsLhlnrQB84ICUSxWG0tmtHR4BpGgR+klGBw==
+dni-js@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/dni-js/-/dni-js-0.2.0.tgz#415d86a402fb52ae776c8602e232f6f603b7d34f"
+  integrity sha512-Wkx61WGrWQiJKaSOOotSCw7nYIuH/7JgP2tdVBP7IBmpBkVo9Axk1rA4djyn6xU2Owt46Fl5zIJiDk5CL5n5CA==
 
 dot-prop@^4.1.0:
   version "4.2.0"
