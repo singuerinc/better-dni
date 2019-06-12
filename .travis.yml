@@ -5,6 +5,9 @@ node_js:
   - 10
   - 8
 
+before_install:
+  - npm install -g yarn
+
 after_success:
   - npm run benchmark
   - npm run coveralls
