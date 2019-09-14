@@ -6,8 +6,8 @@ node_js:
   - 8
 
 before_install:
-  - npm install -g yarn
+  - cd packages/better-dni && npm install -g yarn
 
 after_success:
-  - npm run benchmark
-  - npm run coveralls
+  - cd packages/better-dni && yarn benchmark
+  - cd packages/better-dni && yarn coveralls

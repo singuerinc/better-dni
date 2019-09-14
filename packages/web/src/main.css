@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Fira+Sans");
-@import "../node_modules/tachyons/css/tachyons.min.css";
+@import "tachyons/css/tachyons.min.css";
 
 html,
 body {
