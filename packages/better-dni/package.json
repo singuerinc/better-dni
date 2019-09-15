@@ -24,7 +24,7 @@
     "@babel/preset-env": "^7.5.5",
     "@willowi/validate-nif": "^1.0.0",
     "benchmark": "^2.1.4",
-    "coveralls": "^3.0.4",
+    "coveralls": "^3.0.6",
     "dni-js": "^0.2.0",
     "dni-js-validator": "^1.0.3",
     "mocha": "^6.2.0",
