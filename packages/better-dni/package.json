@@ -29,6 +29,7 @@
     "dni-js-validator": "^1.0.3",
     "mocha": "^6.2.0",
     "mocha-lcov-reporter": "^1.3.0",
+    "np": "^5.1.0",
     "nyc": "^14.1.1",
     "rollup": "^1.15.1",
     "rollup-plugin-babel": "^4.0.3"
