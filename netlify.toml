@@ -1,4 +1,4 @@
 [build]
-  base = "web/"
-  publish = "web/dist/"
-  command = "yarn build"
+  base = "packages/web/"
+  publish = "packages/web/dist/"
+  command = "cd packages/web; yarn build;"

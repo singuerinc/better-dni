@@ -1,0 +1,50 @@
+{
+  "name": "better-dni",
+  "version": "3.0.4",
+  "description": "The fastest Spanish DNI (NIE / NIF) validation out there.",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "author": "Nahuel Scotti <nahuel.scotti@gmail.com> (https://www.singuerinc.com)",
+  "repository": "singuerinc/better-dni",
+  "engines": {
+    "node": ">=8"
+  },
+  "scripts": {
+    "benchmark": "node benchmark.js",
+    "build": "rollup --config",
+    "dev": "rollup --config -w",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls",
+    "np": "npx np",
+    "playground": "yarn build && node playground.js",
+    "test": "nyc mocha",
+    "release": "NODE_ENV=production yarn build && yarn test && yarn benchmark && yarn np"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@willowi/validate-nif": "^1.0.0",
+    "benchmark": "^2.1.4",
+    "coveralls": "^3.0.4",
+    "dni-js": "^0.2.0",
+    "dni-js-validator": "^1.0.3",
+    "mocha": "^6.2.0",
+    "mocha-lcov-reporter": "^1.3.0",
+    "nyc": "^14.1.1",
+    "rollup": "^1.15.1",
+    "rollup-plugin-babel": "^4.0.3"
+  },
+  "keywords": [
+    "dni",
+    "nie",
+    "nif",
+    "spain",
+    "españa"
+  ],
+  "types": "types/index.d.ts",
+  "files": [
+    "dist/index.js",
+    "dist/index.js.map",
+    "types/index.d.ts"
+  ],
+  "np": {}
+}
