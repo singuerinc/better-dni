@@ -1051,10 +1051,10 @@ bcrypt-pbkdf@^1.0.0:
   dependencies:
     tweetnacl "^0.14.3"
 
-better-dni@^3.0.1:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/better-dni/-/better-dni-3.0.2.tgz#6688263edbe94b9620ce01c9a640c6020bc9b2c3"
-  integrity sha512-YZ+kyPgukVnZv0WVktrkyxbQ1rFkERrov2BJaCHXinoPrQI/3boQ5sN3tuh+xP3c7s9H0ZawaW7lGRxtl34uuA==
+better-dni@*:
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/better-dni/-/better-dni-3.0.5.tgz#a53e74ca5a05fa4e0cca8ab4a02a96eaecb9484c"
+  integrity sha512-T2dZAdMG6+SN+0R9nivOGlf6ljJfa6J9oU+5JTjLU3HHVRI0wTvxlHeBGjVk6D1u7DDs+eZpXWnpVaAlXcMGuw==
 
 binary-extensions@^1.0.0:
   version "1.13.1"
@@ -4476,9 +4476,9 @@ safe-regex@^1.1.0:
   integrity sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
 
 safer-eval@^1.3.0:
-  version "1.3.3"
-  resolved "https://registry.yarnpkg.com/safer-eval/-/safer-eval-1.3.3.tgz#0309e9fcc0609e66c1b599fd0d4772132b260ca8"
-  integrity sha512-j/qb0rtnwTp5V1D7nR0Ns/14HU8OiHPaoZNJhM+Lfmv1nbXZCXG9LHaVW157agEocdSVAeeRNddK/yuWfalzGQ==
+  version "1.3.5"
+  resolved "https://registry.yarnpkg.com/safer-eval/-/safer-eval-1.3.5.tgz#a75a1193a4e1dfadd34a8c87ad08e7b978c494b1"
+  integrity sha512-BJ//K2Y+EgCbOHEsDGS5YahYBcYy7JcFpKDo2ba5t4MnOGHYtk7HvQkcxTDFvjQvJ0CRcdas/PyF+gTTCay+3w==
   dependencies:
     clones "^1.2.0"
 
