@@ -1,4 +1,4 @@
-//  Better DNI v3.0.4
+//  Better DNI v3.0.5
 //  https://github.com/singuerinc/better-dni
 //  (c) 2017-2019 Nahuel Scotti
 //  Better DNI may be freely distributed under the MIT license.
@@ -7,7 +7,7 @@
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
   typeof define === 'function' && define.amd ? define(['exports'], factory) :
   (global = global || self, factory(global.betterDni = {}));
-}(this, function (exports) { 'use strict';
+}(this, (function (exports) { 'use strict';
 
   var _isNIE = function _isNIE(v) {
     return /^[XYZ]{1}[0-9]{7}[TRWAGMYFPDXBNJZSQVHLCKE]{1}$/i.test(v);
@@ -245,5 +245,5 @@
 
   Object.defineProperty(exports, '__esModule', { value: true });
 
-}));
+})));
 //# sourceMappingURL=index.js.map
