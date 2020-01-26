@@ -1,11 +1,11 @@
 {
   "name": "web",
   "private": true,
-  "version": "3.0.8",
+  "version": "3.0.9",
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "better-dni": "^3.0.8",
+    "better-dni": "^3.0.9",
     "feather-icons": "^4.22.1",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
