@@ -1,11 +1,11 @@
 {
   "name": "web",
   "private": true,
-  "version": "3.0.4",
+  "version": "3.0.9",
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "better-dni": "*",
+    "better-dni": "^3.0.9",
     "feather-icons": "^4.22.1",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
@@ -16,7 +16,7 @@
     "@types/react": "^16.9.11",
     "@types/react-dom": "^16.9.3",
     "parcel-bundler": "^1.12.4",
-    "typescript": "^3.6.4"
+    "typescript": "^3.7.5"
   },
   "scripts": {
     "start": "parcel ./src/index.html",
