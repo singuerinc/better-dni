@@ -1,8 +1,10 @@
 {
   "name": "better-dni",
   "scripts": {
+    "postinstall": "lerna bootstrap",
     "changelog": "lerna-changelog",
-    "release": "changelog && lerna publish"
+    "release": "changelog && lerna publish",
+    "build:web": "lerna run --scope web build"
   },
   "devDependencies": {
     "lerna": "^3.20.2",
