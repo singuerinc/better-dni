@@ -1,14 +1,31 @@
 {
   "name": "better-dni",
   "scripts": {
-    "changelog": "lerna-changelog",
-    "release": "changelog && lerna publish"
+    "release": "lerna-changelog && lerna publish"
   },
   "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@types/react": "^16.9.11",
+    "@types/react-dom": "^16.9.3",
+    "@willowi/validate-nif": "^1.0.0",
+    "benchmark": "^2.1.4",
+    "coveralls": "^3.0.7",
+    "dni-js": "^0.2.0",
+    "dni-js-validator": "^1.0.3",
     "lerna": "^3.20.2",
-    "lerna-changelog": "^1.0.0"
+    "lerna-changelog": "^1.0.0",
+    "mocha": "^7.0.1",
+    "mocha-lcov-reporter": "^1.3.0",
+    "nyc": "^15.0.0",
+    "parcel-bundler": "^1.12.4",
+    "typescript": "^3.7.5",
+    "uglifyjs": "^2.4.11"
   },
   "changelog": {
     "repo": "singuerinc/better-dni"
+  },
+  "dependencies": {
+    "better-dni": "file:packages/better-dni",
+    "web": "file:packages/web"
   }
 }

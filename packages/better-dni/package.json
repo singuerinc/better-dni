@@ -18,18 +18,6 @@
     "playground": "yarn build && node playground.js",
     "test": "nyc mocha"
   },
-  "devDependencies": {
-    "@willowi/validate-nif": "^1.0.0",
-    "benchmark": "^2.1.4",
-    "coveralls": "^3.0.7",
-    "dni-js": "^0.2.0",
-    "dni-js-validator": "^1.0.3",
-    "mocha": "^6.2.2",
-    "mocha-lcov-reporter": "^1.3.0",
-    "nyc": "^14.1.1",
-    "typescript": "^3.7.5",
-    "uglifyjs": "^2.4.11"
-  },
   "keywords": [
     "dni",
     "nie",
