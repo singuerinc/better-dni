@@ -1,7 +1,14 @@
 {
   "name": "better-dni",
-  "private": true,
-  "workspaces": [
-    "packages/*"
-  ]
+  "scripts": {
+    "changelog": "lerna-changelog",
+    "release": "changelog && lerna publish"
+  },
+  "devDependencies": {
+    "lerna": "^3.20.2",
+    "lerna-changelog": "^1.0.0"
+  },
+  "changelog": {
+    "repo": "singuerinc/better-dni"
+  }
 }

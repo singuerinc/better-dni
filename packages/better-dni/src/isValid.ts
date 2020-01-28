@@ -10,20 +10,21 @@ import { _isNIF } from "./internal/_isNIF";
  * isValid("X9464186P"); // => true
  * isValid("03118880B"); // => true
  */
-const isValid = (value) => {
+const isValid = (value: string) => {
   const dni = !value ? "" : value; // lowercase is faster
 
   if (dni.length !== 9 && !_isNIE(dni) && !_isNIF(dni)) {
     return false;
   }
 
-  let f = "xyzXYZ".indexOf(dni[0]) % 3;
+  const f = "xyzXYZ".indexOf(dni[0]) % 3;
+  let s: string = f.toString();
 
   if (f === -1) {
-    f = dni[0];
+    s = dni[0];
   }
 
-  const i = +(f + dni.slice(1, 8)) % 23;
+  const i = +(s + dni.slice(1, 8)) % 23;
 
   return "trwagmyfpdxbnjzsqvhlcket".indexOf(dni[8].toLowerCase()) === i;
 };
