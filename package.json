@@ -1,7 +1,10 @@
 {
   "name": "better-dni",
   "scripts": {
-    "release": "lerna-changelog && lerna publish"
+    "postinstall": "lerna bootstrap",
+    "changelog": "lerna-changelog",
+    "release": "changelog && lerna publish",
+    "build:web": "lerna run --scope web build"
   },
   "devDependencies": {
     "@babel/core": "^7.6.4",
