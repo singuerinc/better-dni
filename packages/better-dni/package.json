@@ -1,6 +1,6 @@
 {
   "name": "better-dni",
-  "version": "3.0.6",
+  "version": "3.0.9",
   "description": "The fastest Spanish DNI (NIE / NIF) validation out there.",
   "main": "dist/index.js",
   "license": "MIT",
@@ -11,28 +11,24 @@
   },
   "scripts": {
     "benchmark": "node benchmark.js",
-    "build": "rollup --config",
-    "dev": "rollup --config -w",
+    "build": "tsc && yarn run minify",
+    "dev": "tsc -w",
+    "minify": "uglifyjs ./dist/index.js --compress -o ./dist/index.min.js",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
-    "np": "npx np",
     "playground": "yarn build && node playground.js",
-    "test": "nyc mocha",
-    "release": "NODE_ENV=production yarn build && yarn test && yarn benchmark && yarn np"
+    "test": "nyc mocha"
   },
   "devDependencies": {
-    "@babel/core": "^7.6.4",
-    "@babel/preset-env": "^7.6.3",
     "@willowi/validate-nif": "^1.0.0",
     "benchmark": "^2.1.4",
     "coveralls": "^3.0.7",
     "dni-js": "^0.2.0",
     "dni-js-validator": "^1.0.3",
-    "mocha": "^6.2.2",
+    "mocha": "^7.0.1",
     "mocha-lcov-reporter": "^1.3.0",
-    "np": "^5.1.1",
-    "nyc": "^14.1.1",
-    "rollup": "^1.25.2",
-    "rollup-plugin-babel": "^4.0.3"
+    "nyc": "^15.0.0",
+    "typescript": "^3.7.5",
+    "uglify-js": "^3.7.6"
   },
   "keywords": [
     "dni",
@@ -41,11 +37,8 @@
     "spain",
     "españa"
   ],
-  "types": "types/index.d.ts",
+  "types": "dist",
   "files": [
-    "dist/index.js",
-    "dist/index.js.map",
-    "types/index.d.ts"
-  ],
-  "np": {}
+    "dist"
+  ]
 }
