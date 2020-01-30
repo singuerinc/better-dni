@@ -16,7 +16,8 @@
     "minify": "uglifyjs ./dist/index.js --compress -o ./dist/index.min.js",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "playground": "yarn build && node playground.js",
-    "test": "nyc mocha"
+    "test": "nyc mocha",
+    "release": "np"
   },
   "devDependencies": {
     "@willowi/validate-nif": "^1.0.0",
@@ -26,6 +27,7 @@
     "dni-js-validator": "^1.0.3",
     "mocha": "^7.0.1",
     "mocha-lcov-reporter": "^1.3.0",
+    "np": "*",
     "nyc": "^15.0.0",
     "typescript": "^3.7.5",
     "uglify-js": "^3.7.6"
