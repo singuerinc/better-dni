@@ -1,5 +1,5 @@
-import { _isNIF } from "./internal/_isNIF";
 import { ctrlChar } from "./ctrlChar";
+import { _isNIF } from "./internal/_isNIF";
 
 /**
  * Returns true if the string is a NIF
@@ -9,7 +9,7 @@ import { ctrlChar } from "./ctrlChar";
  * @example
  * isNIF("93375221M"); // => true
  */
-const isNIF = (value: string) => {
+const isNIF = (value: string): boolean => {
   return (
     !!value &&
     value.length === 9 &&

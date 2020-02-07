@@ -1,5 +1,5 @@
-import { _isNIE } from "./internal/_isNIE";
 import { ctrlChar } from "./ctrlChar";
+import { _isNIE } from "./internal/_isNIE";
 
 /**
  * Returns true if the string is a NIE
@@ -9,7 +9,7 @@ import { ctrlChar } from "./ctrlChar";
  * @example
  * isNIE("X4108613P"); // => true
  */
-const isNIE = (value: string) => {
+const isNIE = (value: string): boolean => {
   return (
     !!value &&
     value.length === 9 &&

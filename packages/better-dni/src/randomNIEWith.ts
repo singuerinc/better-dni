@@ -1,12 +1,12 @@
 import { _randFloat } from "./internal/_utils";
-import { ctrlChar } from "./ctrlChar";
 
 /**
  * Returns a random NIE with a specific letter
  * A seed can be passed as a third parameter and
  * it will always return the same value
- * @param xyz {string}
- * @param l {string}
+ * @param {string} xyz
+ * @param {string} l
+ * @param {number} seed
  * @returns {string | null}
  * @since 1.12.0
  * @example
@@ -21,8 +21,8 @@ import { ctrlChar } from "./ctrlChar";
 const randomNIEWith = (
   xyz: string,
   l: string,
-  seed = 100000000 * Math.random()
-) => {
+  seed: number = 100000000 * Math.random()
+): string | null => {
   const headNum = "xyzXYZ".indexOf(xyz) % 3;
 
   if (headNum === -1) {

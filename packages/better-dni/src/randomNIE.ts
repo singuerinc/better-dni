@@ -1,4 +1,4 @@
-import { _randStrLimit, _letter } from "./internal/_utils";
+import { _letter, _randStrLimit } from "./internal/_utils";
 
 /**
  * Returns a valid NIE string
@@ -7,7 +7,7 @@ import { _randStrLimit, _letter } from "./internal/_utils";
  * @example
  * randomNIE() // => "X4108613P"
  */
-const randomNIE = () => {
+const randomNIE = (): string => {
   const r = Math.floor(Math.random() * 3);
   const nn = _randStrLimit(7);
   const l = _letter(`${r}${nn}`).toUpperCase();

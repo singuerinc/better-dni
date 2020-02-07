@@ -6,6 +6,5 @@
  * @example
  * normalize(" x-9464186_p   "); // => "X9464186P"
  */
-export const normalize = (str: string) => {
-  return str.replace(/[-_\s]/gi, "").toUpperCase();
-};
+export const normalize = (value: string): string =>
+  value.replace(/[-_\s]/gi, "").toUpperCase();
