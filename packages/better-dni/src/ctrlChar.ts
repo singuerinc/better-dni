@@ -12,7 +12,7 @@ import { _letter } from "./internal/_utils";
  * ctrlChar("03118880B"); // => 'B'
  * ctrlChar("03118880"); // => 'B'
  */
-const ctrlChar = (y: string) => {
+const ctrlChar = (y: string): string => {
   // Get a number from 0 - 2 when `y` is a NIE
   const f = "xyzXYZ".indexOf(y[0]) % 3;
   let s = f.toString();

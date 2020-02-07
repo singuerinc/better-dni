@@ -1,4 +1,4 @@
-import { _randStrLimit, _letter } from "./internal/_utils";
+import { _letter, _randStrLimit } from "./internal/_utils";
 
 /**
  * Returns a valid NIF string
@@ -7,7 +7,7 @@ import { _randStrLimit, _letter } from "./internal/_utils";
  * @example
  * randomNIF() // => "93375221M"
  */
-const randomNIF = () => {
+const randomNIF = (): string => {
   const nn = _randStrLimit(8);
   return nn + _letter(nn).toUpperCase();
 };

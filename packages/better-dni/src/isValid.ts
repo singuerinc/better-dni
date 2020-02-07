@@ -10,7 +10,7 @@ import { _isNIF } from "./internal/_isNIF";
  * isValid("X9464186P"); // => true
  * isValid("03118880B"); // => true
  */
-const isValid = (value: string) => {
+const isValid = (value: string): boolean => {
   const dni = !value ? "" : value; // lowercase is faster
 
   if (dni.length !== 9 && !_isNIE(dni) && !_isNIF(dni)) {

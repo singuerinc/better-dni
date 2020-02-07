@@ -4,7 +4,8 @@ import { _randFloat } from "./internal/_utils";
  * Returns a random NIF with a specific letter
  * A seed can be passed as a second parameter and
  * it will always return the same value
- * @param char {string}
+ * @param {string} char
+ * @param {number} seed
  * @returns {string | null}
  * @since 1.11.0
  * @example
@@ -16,7 +17,10 @@ import { _randFloat } from "./internal/_utils";
  * randomNIFWith('G', 1); //=> '95652174G'
  * randomNIFWith('G', 1); //=> '95652174G'
  */
-const randomNIFWith = (char: string, seed = 100000000 * Math.random()) => {
+const randomNIFWith = (
+  char: string,
+  seed: number = 100000000 * Math.random()
+): string | null => {
   const lastNum =
     "trwagmyfpdxbnjzsqvhlckeTRWAGMYFPDXBNJZSQVHLCKE".indexOf(char) % 23;
 
