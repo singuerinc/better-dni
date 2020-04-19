@@ -1,1 +1,1 @@
-export declare const normalize: (str: string) => string;
+export declare const normalize: (value: string) => string;

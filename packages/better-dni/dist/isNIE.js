@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var _isNIE_1 = require("./internal/_isNIE");
 var ctrlChar_1 = require("./ctrlChar");
+var _isNIE_1 = require("./internal/_isNIE");
 var isNIE = function (value) {
     return (!!value &&
         value.length === 9 &&

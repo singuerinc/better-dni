@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.normalize = function (str) {
-    return str.replace(/[-_\s]/gi, "").toUpperCase();
+exports.normalize = function (value) {
+    return value.replace(/[-_\s]/gi, "").toUpperCase();
 };
 //# sourceMappingURL=normalize.js.map

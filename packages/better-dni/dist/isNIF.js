@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var _isNIF_1 = require("./internal/_isNIF");
 var ctrlChar_1 = require("./ctrlChar");
+var _isNIF_1 = require("./internal/_isNIF");
 var isNIF = function (value) {
     return (!!value &&
         value.length === 9 &&
