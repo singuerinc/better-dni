@@ -110,7 +110,7 @@ yarn && yarn build && yarn benchmark
 
 ## Demo
 
-[https://better-dni.netlify.com/](https://better-dni.netlify.com/)
+[https://better-dni.singuerinc.com/](https://better-dni.singuerinc.com/)
 
 ## Related
 
