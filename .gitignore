@@ -1,5 +1,6 @@
 .env
 node_modules
+packages/better-dni/dist
 packages/better-dni/coverage
 packages/better-dni/.nyc_output
 packages/web/dist
