@@ -1,5 +1,6 @@
 {
   "name": "web",
+  "version": "4.0.5",
   "private": true,
   "main": "index.js",
   "license": "MIT",

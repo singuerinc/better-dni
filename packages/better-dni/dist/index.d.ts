@@ -1,9 +1,0 @@
-export { ctrlChar } from "./ctrlChar";
-export { isNIE } from "./isNIE";
-export { isNIF } from "./isNIF";
-export { isValid } from "./isValid";
-export { normalize } from "./normalize";
-export { randomNIE } from "./randomNIE";
-export { randomNIEWith } from "./randomNIEWith";
-export { randomNIF } from "./randomNIF";
-export { randomNIFWith } from "./randomNIFWith";
