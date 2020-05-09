@@ -28,4 +28,8 @@ describe("#isNIF", () => {
   it("should handle undefined values", () => {
     assert.equal(isNIF(undefined), false);
   });
+
+  it("should handle NIF with K for <14 years old", () => {
+    assert.equal(isNIF("K9999999N"), true);
+  });
 });
