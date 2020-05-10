@@ -6,3 +6,4 @@ packages/better-dni/.nyc_output
 packages/web/dist
 packages/web/.cache
 packages/web/node_modules
+yarn-error.log

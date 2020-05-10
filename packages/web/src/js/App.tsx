@@ -2,12 +2,8 @@ import { isNIE, isNIF, isValid, randomNIF, randomNIE } from "better-dni";
 import * as React from "react";
 import { Check } from "./Check";
 
-const examplesNIF = Array(5)
-  .fill(0)
-  .map(randomNIF);
-const examplesNIE = Array(5)
-  .fill(0)
-  .map(randomNIE);
+const examplesNIF = Array(5).fill(0).map(randomNIF);
+const examplesNIE = Array(5).fill(0).map(randomNIE);
 
 class App extends React.Component {
   state = {
@@ -24,7 +20,7 @@ class App extends React.Component {
     this.setState({ value });
   }
 
-  handleClick = (type) => (e) => {
+  handleClick = (type: "nie" | "nif") => (e: React.MouseEvent) => {
     e.preventDefault();
     this.setState({
       value: type === "nie" ? randomNIE() : randomNIF()
@@ -38,7 +34,7 @@ class App extends React.Component {
     const isNIFVal = isNIF(value);
 
     return (
-      <form className="black-80 w-100 w-50-l center">
+      <form className="black-80 bg-black-10 pa4 w-100 w-50-l center">
         <div>
           <input
             className="input-reset f2 f1-ns ba b--black-10 bg-black pa2 mb2 db w-100 near-white fw6 tc"

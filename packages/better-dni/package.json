@@ -1,6 +1,6 @@
 {
   "name": "better-dni",
-  "version": "4.0.8",
+  "version": "4.0.9",
   "description": "The fastest Spanish DNI (NIE / NIF) validation out there.",
   "main": "dist/index.js",
   "license": "MIT",
@@ -15,7 +15,8 @@
     "dev": "tsc -w",
     "minify": "uglifyjs ./dist/index.js --compress -o ./dist/index.min.js",
     "playground": "yarn build && node playground.js",
-    "test": "nyc mocha && nyc report --reporter=lcov"
+    "test": "nyc mocha && nyc report --reporter=lcov",
+    "prepublish": "yarn run build && cp ../../README.md ./ && yarn run minify"
   },
   "devDependencies": {
     "@rollup/plugin-typescript": "^4.1.1",
@@ -41,7 +42,6 @@
   ],
   "types": "./dist/index.d.ts",
   "files": [
-    "dist",
-    "../../README.md"
+    "dist"
   ]
 }
