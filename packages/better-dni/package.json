@@ -14,11 +14,13 @@
     "build": "rollup -c",
     "dev": "tsc -w",
     "playground": "yarn build && node playground.js",
+    "size": "size-limit",
     "test": "jest",
     "prepublish": "yarn run build && cp ../../README.md ./"
   },
   "devDependencies": {
     "@rollup/plugin-typescript": "^4.1.1",
+    "@size-limit/preset-small-lib": "^4.11.0",
     "@types/jest": "^26.0.23",
     "@willowi/validate-nif": "^1.0.0",
     "benchmark": "^2.1.4",
@@ -28,10 +30,17 @@
     "jest": "^27.0.2",
     "rollup": "^2.50.4",
     "rollup-plugin-terser": "^7.0.2",
+    "size-limit": "^4.11.0",
     "ts-jest": "^27.0.1",
     "tslib": "^1.11.2",
     "typescript": "^4.3.2"
   },
+  "size-limit": [
+    {
+      "limit": "1 kB",
+      "path": "dist/index.js"
+    }
+  ],
   "keywords": [
     "dni",
     "nie",

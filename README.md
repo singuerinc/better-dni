@@ -7,7 +7,7 @@
 
 ![Better DNI](logo.png)
 
-The fastest Spanish DNI (NIE / NIF) validation out there.
+The fastest Spanish DNI (NIE / NIF) validation out there — 660 bytes.
 
 ## Installation
 
