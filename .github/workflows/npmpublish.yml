@@ -39,4 +39,4 @@ jobs:
       - run: yarn
       - run: yarn run semantic-release
         env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
