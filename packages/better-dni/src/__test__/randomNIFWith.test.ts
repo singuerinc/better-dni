@@ -1,5 +1,5 @@
-import { ctrlChar } from "../src/ctrlChar";
-import { randomNIFWith } from "../src/randomNIFWith";
+import { ctrlChar } from "../ctrlChar";
+import { randomNIFWith } from "../randomNIFWith";
 
 describe("#randomNIFWith", () => {
   it("should generate a NIF that ends with E", () => {
@@ -19,17 +19,27 @@ describe("#randomNIFWith", () => {
 
   it("should generate a random NIF that ends with G", () => {
     const nif = randomNIFWith("G");
-    expect(ctrlChar(nif)).toBe("G");
+    if (nif) {
+      expect(ctrlChar(nif)).toBe("G");
+    } else {
+      throw new Error();
+    }
   });
 
   it("should work with lower case", () => {
     const nif = randomNIFWith("g");
-    expect(ctrlChar(nif)).toBe("G");
+    if (nif) {
+      expect(ctrlChar(nif)).toBe("G");
+    }
   });
 
   it("should work with upper case", () => {
     const nif = randomNIFWith("C");
-    expect(ctrlChar(nif)).toBe("C");
+    if (nif) {
+      expect(ctrlChar(nif)).toBe("C");
+    } else {
+      throw new Error();
+    }
   });
 
   it("should not generate with invalid letters", () => {

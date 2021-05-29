@@ -1,4 +1,4 @@
-import { isNIE } from "../src/isNIE";
+import { isNIE } from "../isNIE";
 
 describe("#isNIE", () => {
   it("should return if is nie with X", () => {
@@ -41,10 +41,12 @@ describe("#isNIE", () => {
   });
 
   it("should handle null values", () => {
+    //@ts-expect-error possible but not allowed by ts
     expect(isNIE(null)).toBe(false);
   });
 
   it("should handle undefined values", () => {
+    //@ts-expect-error possible but not allowed by ts
     expect(isNIE(undefined)).toBe(false);
   });
 });

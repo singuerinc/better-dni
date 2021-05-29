@@ -1,4 +1,4 @@
-import { isValid } from "../src/isValid";
+import { isValid } from "../isValid";
 
 describe("#isValid", () => {
   describe("nif", () => {
@@ -63,10 +63,12 @@ describe("#isValid", () => {
     });
 
     it("should handle null values", () => {
+      //@ts-expect-error possible but not allowed by ts
       expect(isValid(null)).toBe(false);
     });
 
     it("should handle undefined values", () => {
+      //@ts-expect-error possible but not allowed by ts
       expect(isValid(undefined)).toBe(false);
     });
   });

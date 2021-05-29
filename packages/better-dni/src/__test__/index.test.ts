@@ -8,7 +8,7 @@ import {
   randomNIFWith,
   randomNIEWith,
   normalize,
-} from "../src/index";
+} from "../index";
 
 describe("api", () => {
   it("should export isValid", () => {

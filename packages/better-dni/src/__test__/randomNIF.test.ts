@@ -1,6 +1,6 @@
-import { ctrlChar } from "../src/ctrlChar";
-import { isNIF } from "../src/isNIF";
-import { randomNIF } from "../src/randomNIF";
+import { ctrlChar } from "../ctrlChar";
+import { isNIF } from "../isNIF";
+import { randomNIF } from "../randomNIF";
 
 describe("#randomNIF", () => {
   it("should return a random nif", () => {

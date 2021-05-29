@@ -1,5 +1,5 @@
-import { ctrlChar } from "../src/ctrlChar";
-import { randomNIEWith } from "../src/randomNIEWith";
+import { ctrlChar } from "../ctrlChar";
+import { randomNIEWith } from "../randomNIEWith";
 
 describe("#randomNIEWith", () => {
   it("should generate a NIE that ends with E", () => {
@@ -24,22 +24,38 @@ describe("#randomNIEWith", () => {
 
   it("should generate a random NIE that ends with G", () => {
     const nie = randomNIEWith("X", "G");
-    expect(ctrlChar(nie)).toBe("G");
+    if (nie) {
+      expect(ctrlChar(nie)).toBe("G");
+    } else {
+      throw new Error();
+    }
   });
 
   it("should generate a random NIE that ends with X", () => {
     const nie = randomNIEWith("X", "X");
-    expect(ctrlChar(nie)).toBe("X");
+    if (nie) {
+      expect(ctrlChar(nie)).toBe("X");
+    } else {
+      throw new Error();
+    }
   });
 
   it("should work with lower case", () => {
     const nie = randomNIEWith("y", "g");
-    expect(ctrlChar(nie)).toBe("G");
+    if (nie) {
+      expect(ctrlChar(nie)).toBe("G");
+    } else {
+      throw new Error();
+    }
   });
 
   it("should work with upper case", () => {
     const nie = randomNIEWith("Z", "C");
-    expect(ctrlChar(nie)).toBe("C");
+    if (nie) {
+      expect(ctrlChar(nie)).toBe("C");
+    } else {
+      throw new Error();
+    }
   });
 
   it("should not generate with invalid letters", () => {

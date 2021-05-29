@@ -1,4 +1,4 @@
-import { ctrlChar } from "../src/ctrlChar";
+import { ctrlChar } from "../ctrlChar";
 
 describe("#ctrlChar", () => {
   it("should return the letter for a NIE in upper case with control letter", () => {

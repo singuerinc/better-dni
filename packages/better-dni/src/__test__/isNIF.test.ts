@@ -1,4 +1,4 @@
-import { isNIF } from "../src/isNIF";
+import { isNIF } from "../isNIF";
 
 describe("#isNIF", () => {
   it("should return true if is nif", () => {
@@ -21,10 +21,12 @@ describe("#isNIF", () => {
   });
 
   it("should handle null values", () => {
+    //@ts-expect-error possible but not allowed by ts
     expect(isNIF(null)).toBe(false);
   });
 
   it("should handle undefined values", () => {
+    //@ts-expect-error possible but not allowed by ts
     expect(isNIF(undefined)).toBe(false);
   });
 });

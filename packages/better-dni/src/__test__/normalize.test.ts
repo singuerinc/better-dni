@@ -1,4 +1,4 @@
-import { normalize } from "../src/normalize";
+import { normalize } from "../normalize";
 
 describe("normalize", () => {
   describe("clean", () => {

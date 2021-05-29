@@ -84,33 +84,29 @@ normalize(" x-9464186_p   "); // => "X9464186P"
 
 `better-dni` does a similar job as other libraries like [dni-js](https://github.com/albertfdp/dni-js/), [dni-js-validator](https://github.com/idirouhab/dni-js-validator), and [@willowi/validate-nif](https://github.com/WillowiDev/validate-nif) but `better-dni` is built with optimization and speed in mind. Take a look at these benchmark results:
 
-```bash
-yarn && yarn benchmark
+```js
+yarn && yarn build && yarn benchmark
 ```
 
 ### isValid
 
-x 10.000.000 operations
-
-| lib                   | method       | time in ms | diff          |
-| --------------------- | ------------ | ---------- | ------------- |
-| better-dni            | #isValid     | 737 ms     |               |
-| dni-js-validator      | #isValid     | 2380 ms    | x3.22 slower  |
-| dni-js                | #isValid     | 2610 ms    | x3.54 slower  |
-| @willowi/validate-nif | #validateNif | 11000 ms   | x14.92 slower |
+| lib                   | method       | operations/sec |             |
+| --------------------- | ------------ | -------------- | ----------- |
+| better-dni            | #isValid     | **10,128,148** | 3.5x faster |
+| dni-js-validator      | #isValid     | 2,870,822      |             |
+| dni-js                | #isValid     | 2,448,090      |             |
+| @willowi/validate-nif | #validateNif | 683,573        |             |
 
 ### ctrlChar / getLetter
 
-x 10.000.000 operations
+| lib                   | method     | operations/sec |             |
+| --------------------- | ---------- | -------------- | ----------- |
+| better-dni            | #ctrlChar  | **10,874,568** | 5.3x faster |
+| dni-js                | #getLetter | 2,032,845      |             |
+| dni-js-validator      | no method  | -              |             |
+| @willowi/validate-nif | no method  | -              |             |
 
-| lib                   | method     | time in ms | diff         |
-| --------------------- | ---------- | ---------- | ------------ |
-| better-dni            | #ctrlChar  | 791 ms     |              |
-| dni-js                | #getLetter | 2120 ms    | x2.68 slower |
-| dni-js-validator      | no method  | -          |              |
-| @willowi/validate-nif | no method  | -          |              |
-
-> Benchmark on a MacBook Pro (16-inch, 2019) - 2,6 GHz 6-Core Intel Core i7 - 16 GB 2667 MHz DDR4 / Node v14.15.1
+> Benchmark on a MacBook Pro (Retina, 13-inch, Early 2015) - 3,1 GHz Intel Core i7 - 16 GB 1867 MHz DDR3 / Node v10.2.1
 
 ## Demo
 

@@ -1,6 +1,6 @@
-import { ctrlChar } from "../src/ctrlChar";
-import { isNIE } from "../src/isNIE";
-import { randomNIE } from "../src/randomNIE";
+import { ctrlChar } from "../ctrlChar";
+import { isNIE } from "../isNIE";
+import { randomNIE } from "../randomNIE";
 
 describe("#randomNIE", () => {
   it("should return a random nie", () => {

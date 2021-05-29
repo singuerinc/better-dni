@@ -3,5 +3,18 @@
   "private": true,
   "workspaces": [
     "packages/*"
-  ]
+  ],
+  "scripts": {
+    "build": "yarn workspaces run build",
+    "lint": "yarn workspaces run lint",
+    "format": "yarn workspaces run format",
+    "check": "yarn workspaces run check",
+    "test": "yarn workspaces run test"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^12.1.4",
+    "@commitlint/config-conventional": "^12.1.4",
+    "commitlint": "^12.1.4",
+    "husky": "^6.0.0"
+  }
 }
