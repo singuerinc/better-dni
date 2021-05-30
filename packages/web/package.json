@@ -1,17 +1,20 @@
 {
   "name": "web",
-  "version": "4.0.9",
+  "version": "1.0.0",
   "private": true,
   "main": "index.html",
   "license": "MIT",
   "dependencies": {
-    "better-dni": "^4.1.1",
     "feather-icons": "^4.22.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "tachyons": "^4.11.1"
   },
+  "peerDependencies": {
+    "better-dni": "^4.1.1"
+  },
   "devDependencies": {
+    "better-dni": "*",
     "@babel/core": "^7.14.3",
     "@types/feather-icons": "^4.7.0",
     "@types/react": "^17.0.8",
