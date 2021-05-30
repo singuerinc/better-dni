@@ -9,36 +9,34 @@
 
   <body class="near-black ma4">
     <nav class="flex">
-      <ul class="list flex justify-end w-100 ph4">
+      <ul class="list flex w-100 justify-between ph0 ma0">
+        <li><h3 class="tr f3 ma0">v{{VERSION}}</h3></li>
         <li>
           <a
             href="https://github.com/singuerinc/better-dni"
             target="_blank"
-            class="pa2 near-white link dim"
+            class="pa2 near-black link dim"
             >Github</a
           >
         </li>
       </ul>
     </nav>
-    <section class="flex flex-wrap relative justify-center items-center">
-      <h1 class="w-100 tc f1 f-headline-l lh-solid mt5 mb0">
-        BT<span class="near-white">DNI</span>T3R
+    <section class="flex flex-wrap relative">
+      <h1 class="w-100 f1 f-headline-l lh-solid mt5 mb0">
+        BT<span class="">DNI</span>T3R
       </h1>
-      <h3 class="w-100 tc f3 ma0">
-        v{{VERSION}}
-      </h3>
-      <h2 class="w-100 ph2 tc fw3 f4 f3-l lh-title cyan">
-        The fastest Spanish DNI (NIE / NIF) validation out there
+      <h2 class="w-100 ph0 fw3 f4 f3-l lh-title cyan">
+        The fastest Javascript Spanish DNI (NIE / NIF) validation out there.
       </h2>
     </section>
-    <section class="flex flex-wrap justify-center included mt3">
-      <h3 class="w-100 tc">Try it</h3>
-      <div class="w-100 flex flex-wrap justify-center">
+    <section class="flex flex-wrap included mt3">
+      <pre>npm i better-dni</pre>
+      <div class="w-100 flex flex-wrap">
         <div id="app"></div>
       </div>
     </section>
-    <section class="flex flex-column justify-center items-center">
-      <p class="tc w-30 f7 o-70 mt5">
+    <section class="flex flex-column">
+      <p class="w-30 f7 o-70 mt5">
         Created by
         <a
           class="link dim near-black"
@@ -48,6 +46,6 @@
         >
       </p>
     </section>
-    <script src="js/index.tsx"></script>
+    <script src="./index.tsx"></script>
   </body>
 </html>

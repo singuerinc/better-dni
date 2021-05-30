@@ -13,7 +13,7 @@ export const Check = ({ check, label }: { check: boolean; label: string }) => (
         )}
         {check && (
           <span
-            className="white"
+            className="green"
             dangerouslySetInnerHTML={{ __html: feather.icons.check.toSvg() }}
           />
         )}

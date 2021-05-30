@@ -1,11 +1,11 @@
-const { version } = require("./package.json");
+const { version } = require("../better-dni/package.json");
 
 module.exports = {
   plugins: {
     "posthtml-expressions": {
       locals: {
-        VERSION: version
-      }
-    }
-  }
+        VERSION: version,
+      },
+    },
+  },
 };

@@ -1,5 +1,0 @@
-{
-  "transformers":{
-    "*.html": ["@parcel/transformer-posthtml"]
-  }
-}

@@ -10,7 +10,7 @@ on:
       - beta
 
 jobs:
-  build:
+  build-and-test:
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -24,8 +24,8 @@ jobs:
       - run: yarn run build
       - run: yarn test
 
-  publish-npm:
-    needs: build
+  build-and-publish:
+    needs: build-and-test
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -37,6 +37,7 @@ jobs:
           node-version: 12
           registry-url: https://registry.npmjs.org/
       - run: yarn
+      - run: yarn run build
       - run: yarn run semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

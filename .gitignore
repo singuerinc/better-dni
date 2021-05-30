@@ -7,3 +7,4 @@ packages/web/dist
 packages/web/.cache
 packages/web/node_modules
 yarn-error.log
+.parcel-cache

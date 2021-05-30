@@ -1,7 +1,7 @@
 import { validateNif } from "@willowi/validate-nif";
 import { getControlDigit, isValid as dniJsIsValid } from "dni-js";
 import { isValid as dniJsValidatorIsValid } from "dni-js-validator";
-import * as nanobench from "nanobench";
+import nanobench from "nanobench";
 import { ctrlChar } from "./src/ctrlChar";
 import { isNIE } from "./src/isNIE";
 import { isNIF } from "./src/isNIF";

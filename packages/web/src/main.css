@@ -3,7 +3,7 @@
 
 html,
 body {
-  background: #38d9a9;
+  background: #ffff00;
   height: 100%;
 }
 
@@ -19,4 +19,8 @@ nav {
 
 input:focus {
   outline: none;
+}
+
+input::placeholder {
+  color: black;
 }
