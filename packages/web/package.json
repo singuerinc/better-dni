@@ -5,7 +5,7 @@
   "main": "index.html",
   "license": "MIT",
   "dependencies": {
-    "better-dni": "*",
+    "better-dni": "^4.1.1",
     "feather-icons": "^4.22.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
