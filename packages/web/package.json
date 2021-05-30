@@ -25,7 +25,8 @@
   "scripts": {
     "format": "prettier --write \"./src/**/*.{ts,tsx,html}\"",
     "start": "parcel ./src/index.html ",
-    "build": "parcel build ./src/index.html --out-dir dist",
-    "test": "exit 0"
+    "build": "parcel build ./src/index.html --out-dir ./dist",
+    "test": "exit 0",
+    "deploy": "yarn run vercel deploy"
   }
 }

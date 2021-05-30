@@ -1,15 +1,12 @@
-import { isNIE, isNIF, isValid, randomNIF, randomNIE } from "better-dni";
+import { isNIE, isNIF, isValid, randomNIE, randomNIF } from "better-dni";
 import * as React from "react";
 import { useState } from "react";
 import { Check } from "./Check";
 
-const examplesNIF = Array(5).fill(0).map(randomNIF);
-const examplesNIE = Array(5).fill(0).map(randomNIE);
-
 export function App() {
   const [value, setValue] = useState("");
 
-  const handleChange = (event) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value: string = event.target.value;
     setValue(value);
   };
