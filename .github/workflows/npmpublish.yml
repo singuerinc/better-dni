@@ -10,22 +10,7 @@ on:
       - beta
 
 jobs:
-  build-and-test:
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./packages/better-dni
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: 12
-      - run: yarn
-      - run: yarn run build
-      - run: yarn test
-
-  build-and-publish:
-    needs: build-and-test
+  build-test-and-publish:
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -38,6 +23,7 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - run: yarn
       - run: yarn run build
+      - run: yarn test
       - run: yarn run semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
