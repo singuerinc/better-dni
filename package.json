@@ -8,7 +8,6 @@
     "build": "yarn workspaces run build",
     "lint": "yarn workspaces run lint",
     "format": "yarn workspaces run format",
-    "check": "yarn workspaces run check",
     "test": "yarn workspaces run test"
   },
   "devDependencies": {
