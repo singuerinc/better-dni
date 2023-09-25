@@ -89,23 +89,23 @@ yarn run benchmark
 
 ### isValid
 
-| lib                   | method       | time     | diff          |
-| --------------------- | ------------ | -------- | ------------- |
-| better-dni            | #isValid     | 896 ms   |               |
-| dni-js-validator      | #isValid     | 2550 ms  | x2.85 slower  |
-| dni-js                | #isValid     | 2630 ms  | x2.94 slower  |
-| @willowi/validate-nif | #validateNif | 11000 ms | x12.27 slower |
+| lib                   | method       | time               | diff          |
+| --------------------- | ------------ | ------------------ | ------------- |
+| better-dni            | #isValid     | 0 s + 365932959 ns |               |
+| dni-js-validator      | #isValid     | 1 s + 154193500 ns | x3.15 slower  |
+| dni-js                | #isValid     | 1 s + 188613500 ns | x3.24 slower  |
+| @willowi/validate-nif | #validateNif | 4 s + 986185000 ns | x13.62 slower |
 
 ### ctrlChar / getLetter
 
-| lib                   | method     | time    | diff         |
-| --------------------- | ---------- | ------- | ------------ |
-| better-dni            | #ctrlChar  | 859 ms  |              |
-| dni-js                | #getLetter | 2190 ms | x2.55 slower |
-| dni-js-validator      | no method  | -       |              |
-| @willowi/validate-nif | no method  | -       |              |
+| lib                   | method     | time               | diff         |    |
+| --------------------- | ---------- | ------------------ | ------------ |----|
+| better-dni            | #ctrlChar  | 0 s + 423324167 ns |              |    |
+| dni-js                | #getLetter | 0 s + 354445959 ns | x1.16 faster | 😲 |
+| dni-js-validator      | no method  | -                  |              |    |
+| @willowi/validate-nif | no method  | -                  |              |    |
 
-> Benchmark on a MacBook Pro (16-inch, 2019) - 2,6 GHz 6-Core Intel Core i7 - 16 GB 2667 MHz DDR4 / Node v14.15.1
+> Benchmark on a MacBook M2 Pro (16-inch, 2023) - 16 GB Node v20.7.0
 
 ## Demo
 
