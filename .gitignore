@@ -9,3 +9,4 @@ packages/web/node_modules
 yarn-error.log
 .parcel-cache
 .vercel
+.DS_Store
