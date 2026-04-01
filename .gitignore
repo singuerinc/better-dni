@@ -3,9 +3,9 @@ node_modules
 packages/better-dni/dist
 packages/better-dni/coverage
 packages/better-dni/.nyc_output
-packages/web/dist
-packages/web/.cache
-packages/web/node_modules
+apps/web/dist
+apps/web/.cache
+apps/web/node_modules
 pnpm-debug.log
 .parcel-cache
 .turbo
