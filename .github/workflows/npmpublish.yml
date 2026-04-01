@@ -12,19 +12,18 @@ on:
 jobs:
   build-test-and-publish:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./packages/better-dni
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: 12
+          node-version: 22
           registry-url: https://registry.npmjs.org/
-      - run: yarn
-      - run: yarn run build
-      - run: yarn test
-      - run: yarn run semantic-release
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm run build
+      - run: pnpm run test
+      - run: pnpm --filter better-dni exec semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}

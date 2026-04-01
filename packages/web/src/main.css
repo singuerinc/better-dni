@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Manrope");
-@import "tachyons/css/tachyons.min.css";
+@import url("https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css");
 
 html,
 body {
