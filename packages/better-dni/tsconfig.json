@@ -5,12 +5,9 @@
     "module": "ES2015",
     "target": "ES5",
     "lib": ["es2015"],
-    "noImplicitAny": true,
     "removeComments": true,
     "preserveConstEnums": true,
     "sourceMap": true,
-    "declarationDir": "./dist/types",
-    "declaration": true,
     "rootDir": "./src",
     "typeRoots": [
       "./src/@types",

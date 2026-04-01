@@ -19,7 +19,7 @@
   },
   "scripts": {
     "benchmark": "ts-node -O '{\"module\":\"commonjs\"}' benchmark.ts",
-    "build": "rollup -c",
+    "build": "vite build",
     "dev": "tsc -w",
     "lint": "eslint src --ext .ts",
     "format": "prettier --write \"./src/**/*.{ts,tsx,html}\"",
@@ -29,7 +29,8 @@
     "prepublish": "cp ../../README.md ./"
   },
   "devDependencies": {
-    "@rollup/plugin-typescript": "^8.2.1",
+    "vite": "^6.2.0",
+    "vite-plugin-dts": "^4.5.0",
     "@semantic-release/git": "^9.0.0",
     "@size-limit/preset-small-lib": "^4.11.0",
     "@types/jest": "^26.0.23",
@@ -44,8 +45,6 @@
     "jest": "^27.0.3",
     "nanobench": "^2.1.1",
     "prettier": "^2.3.0",
-    "rollup": "^2.50.4",
-    "rollup-plugin-terser": "^7.0.2",
     "semantic-release": "^17.4.3",
     "size-limit": "^4.11.0",
     "ts-jest": "^27.0.1",
