@@ -1,17 +1,16 @@
 import { isNIE, isNIF, isValid, randomNIE, randomNIF } from "better-dni";
-import * as React from "react";
-import { useState } from "react";
+import { useState, type ChangeEvent, type MouseEvent } from "react";
 import { Check } from "./Check";
 
 export function App() {
   const [value, setValue] = useState("");
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const value: string = event.target.value;
     setValue(value);
   };
 
-  const handleClick = (type: "nie" | "nif") => (e: React.MouseEvent) => {
+  const handleClick = (type: "nie" | "nif") => (e: MouseEvent) => {
     e.preventDefault();
     setValue(type === "nie" ? randomNIE() : randomNIF());
   };
