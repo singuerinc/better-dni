@@ -5,23 +5,22 @@ on: [pull_request]
 jobs:
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./packages/better-dni
 
     strategy:
       matrix:
-        node-version: [10.x, 12.x, 14.x]
+        node-version: [18.x, 20.x, 22.x]
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-      - run: yarn
-      - run: yarn run build
-      - run: yarn test
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm run build --filter=better-dni...
+      - run: pnpm run test --filter=better-dni
       - uses: coverallsapp/github-action@master
         with:
           path-to-lcov: ${{ github.workspace }}/packages/better-dni/coverage/lcov.info

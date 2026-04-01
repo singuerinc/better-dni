@@ -7,12 +7,13 @@
   "author": "Nahuel Scotti <nahuel.scotti@gmail.com> (https://www.singuerinc.com)",
   "repository": "singuerinc/better-dni",
   "engines": {
-    "node": ">=10"
+    "node": ">=18"
   },
   "scripts": {
     "benchmark": "ts-node -O '{\"module\":\"commonjs\"}' benchmark.ts",
     "build": "rollup -c",
     "dev": "tsc -w",
+    "lint": "eslint src --ext .ts",
     "format": "prettier --write \"./src/**/*.{ts,tsx,html}\"",
     "playground": "ts-node -O '{\"module\":\"commonjs\"}' playground.ts",
     "size": "size-limit",
