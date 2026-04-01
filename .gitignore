@@ -4,10 +4,8 @@ packages/better-dni/dist
 packages/better-dni/coverage
 packages/better-dni/.nyc_output
 apps/web/dist
-apps/web/.cache
 apps/web/node_modules
 pnpm-debug.log
-.parcel-cache
 .turbo
 .vercel
 .DS_Store
