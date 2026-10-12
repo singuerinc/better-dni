@@ -1,55 +1,28 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Better-DNI</title>
+    <title>
+      Better DNI: Spanish DNI, NIE and NIF validation for JavaScript
+    </title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Manrope&display=swap" rel="stylesheet" />
-    <link href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css" rel="stylesheet" />
+    <meta
+      name="description"
+      content="Validate Spanish DNI, NIE and NIF numbers in JavaScript, compute the control letter and generate valid test IDs. Try it live."
+    />
+    <meta name="theme-color" content="#fdfdfb" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   </head>
-
-  <body class="near-black ma4">
-    <nav class="flex">
-      <ul class="list flex w-100 justify-end ph0 ma0">
-        <li>
-          <a
-            href="https://github.com/singuerinc/better-dni"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="pa2 near-black link dim"
-            >Github</a
-          >
-        </li>
-      </ul>
-    </nav>
-    <section class="flex flex-wrap relative">
-      <h1 class="w-100 f1 f-headline-l lh-solid mt5 mb0">
-        BT<span class="">DNI</span>T3R
-      </h1>
-      <h2 class="w-100 ph0 fw3 f4 f3-l lh-title cyan">
-        The fastest Javascript Spanish DNI (NIE / NIF) validation out there.
-      </h2>
-    </section>
-    <section class="flex flex-wrap included mt3">
-      <pre>npm i better-dni</pre>
-      <div class="w-100 flex flex-wrap">
-        <div id="app"></div>
-      </div>
-    </section>
-    <section class="flex flex-column">
-      <p class="w-30 f7 o-70 mt5">
-        Created by
-        <a
-          class="link dim near-black"
-          href="https://github.com/singuerinc"
-          target="_blank"
-          rel="noopener noreferrer"
-          >@singuerinc</a
-        >
+  <body>
+    <div id="app"></div>
+    <noscript>
+      <p>
+        Better DNI validates Spanish DNI, NIE and NIF numbers.
+        <a href="https://github.com/singuerinc/better-dni"
+          >Read the documentation on GitHub</a
+        >.
       </p>
-    </section>
+    </noscript>
     <script type="module" src="/src/index.tsx"></script>
   </body>
 </html>
