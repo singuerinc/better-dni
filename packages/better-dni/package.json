@@ -15,7 +15,7 @@
   "author": "Nahuel Scotti <nahuel.scotti@gmail.com> (https://www.singuerinc.com)",
   "repository": "singuerinc/better-dni",
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   },
   "scripts": {
     "benchmark": "tsx benchmark.ts",
