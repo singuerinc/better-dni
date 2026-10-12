@@ -22,6 +22,6 @@
     "start": "vite",
     "build": "vite build",
     "test": "exit 0",
-    "deploy": "pnpm vercel deploy"
+    "deploy": "vercel deploy"
   }
 }
