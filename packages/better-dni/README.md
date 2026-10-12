@@ -1,18 +1,21 @@
 [![npm](https://img.shields.io/npm/v/better-dni.svg)](http://npm.im/better-dni)
 [![Codacy grade](https://img.shields.io/codacy/grade/83d00fabfa424b0dbba64735f64ff74c.svg?style=flat-square)](https://app.codacy.com/app/nahuel.scotti/better-dni)
-[![Coveralls github](https://img.shields.io/coveralls/github/singuerinc/better-dni.svg?style=flat-square)](https://coveralls.io/github/singuerinc/better-dni?branch=master)
+[![Coveralls github](https://img.shields.io/coveralls/github/singuerinc/better-dni.svg?style=flat-square)](https://coveralls.io/github/singuerinc/better-dni?branch=main)
 [![Known Vulnerabilities](https://snyk.io/test/github/singuerinc/better-dni/badge.svg?style=flat-square)](https://snyk.io/test/github/singuerinc/better-dni)
 ![npm bundle size (minified)](https://img.shields.io/bundlephobia/min/better-dni.svg?style=flat-square)
 
-![Better DNI](../../logo.png)
+![Better DNI](logo.png)
 
-The fastest Spanish DNI (NIE / NIF) validation out there — And lighter: 660 bytes.
+The fastest Spanish DNI (NIE / NIF) validation out there — And lighter: 812 bytes (minified + brotli).
 
 ## Installation
 
 ```js
 // npm
 npm i better-dni
+
+// pnpm
+pnpm add better-dni
 
 // yarn
 yarn add better-dni
@@ -84,28 +87,28 @@ normalize(" x-9464186_p   "); // => "X9464186P"
 `better-dni` does a similar job as other libraries like [dni-js](https://github.com/albertfdp/dni-js/), [dni-js-validator](https://github.com/idirouhab/dni-js-validator), and [@willowi/validate-nif](https://github.com/WillowiDev/validate-nif) but `better-dni` is built with optimization and speed in mind. Take a look at these benchmark results:
 
 ```sh
-yarn run benchmark
+pnpm --filter better-dni benchmark
 ```
 
 ### isValid
 
-| lib                   | method       | time     | diff          |
-| --------------------- | ------------ | -------- | ------------- |
-| better-dni            | #isValid     | 896 ms   |               |
-| dni-js-validator      | #isValid     | 2550 ms  | x2.85 slower  |
-| dni-js                | #isValid     | 2630 ms  | x2.94 slower  |
-| @willowi/validate-nif | #validateNif | 11000 ms | x12.27 slower |
+| lib                   | method       | time    | diff          |
+| --------------------- | ------------ | ------- | ------------- |
+| better-dni            | #isValid     | 420 ms  |               |
+| dni-js                | #isValid     | 1.27 s  | x3.02 slower  |
+| dni-js-validator      | #isValid     | 1.48 s  | x3.52 slower  |
+| @willowi/validate-nif | #validateNif | 6.28 s  | x14.95 slower |
 
-### ctrlChar / getLetter
+### ctrlChar / getControlDigit
 
-| lib                   | method     | time    | diff         |
-| --------------------- | ---------- | ------- | ------------ |
-| better-dni            | #ctrlChar  | 859 ms  |              |
-| dni-js                | #getLetter | 2190 ms | x2.55 slower |
-| dni-js-validator      | no method  | -       |              |
-| @willowi/validate-nif | no method  | -       |              |
+| lib                   | method           | time   | diff         |    |
+| --------------------- | ---------------- | ------ | ------------ | -- |
+| better-dni            | #ctrlChar        | 521 ms |              |    |
+| dni-js                | #getControlDigit | 474 ms | x1.10 faster | 😲 |
+| dni-js-validator      | no method        | -      |              |    |
+| @willowi/validate-nif | no method        | -      |              |    |
 
-> Benchmark on a MacBook Pro (16-inch, 2019) - 2,6 GHz 6-Core Intel Core i7 - 16 GB 2667 MHz DDR4 / Node v14.15.1
+> 10,000,000 calls per method, median of 3 runs. MacBook Pro M3 Pro (14-inch, 2023) - 36 GB, Node v22.22.0
 
 ## Demo
 
@@ -117,4 +120,4 @@ yarn run benchmark
 
 ## Reference
 
-[http://www.interior.gob.es/web/servicios-al-ciudadano/dni/calculo-del-digito-de-control-del-nif-nie](http://www.interior.gob.es/web/servicios-al-ciudadano/dni/calculo-del-digito-de-control-del-nif-nie)
+[https://www.interior.gob.es/opencms/ca/servicios-al-ciudadano/tramites-y-gestiones/dni/calculo-del-digito-de-control-del-nif-nie/](https://www.interior.gob.es/opencms/ca/servicios-al-ciudadano/tramites-y-gestiones/dni/calculo-del-digito-de-control-del-nif-nie/)
