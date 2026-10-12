@@ -1280,8 +1280,12 @@ code {
     white-space: nowrap;
   }
 
+  .bench tr {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
   .bench td.mono {
-    word-break: break-all;
-    text-align: right;
+    white-space: nowrap;
+    word-break: normal;
   }
 }
