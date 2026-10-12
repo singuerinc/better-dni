@@ -11,7 +11,7 @@ import { randomNIEWith } from "./src/randomNIEWith";
 import { randomNIF } from "./src/randomNIF";
 import { randomNIFWith } from "./src/randomNIFWith";
 
-nanobench("isValid 10.000.000 times", function (b: any) {
+nanobench("isValid 10.000.000 times", function (b) {
   b.start();
 
   for (let i = 0; i < 10_000_000; i++) {
@@ -21,7 +21,7 @@ nanobench("isValid 10.000.000 times", function (b: any) {
   b.end();
 });
 
-nanobench("dni-js-validator isValid 10.000.000 times", function (b: any) {
+nanobench("dni-js-validator isValid 10.000.000 times", function (b) {
   b.start();
 
   for (let i = 0; i < 10_000_000; i++) {
@@ -31,7 +31,7 @@ nanobench("dni-js-validator isValid 10.000.000 times", function (b: any) {
   b.end();
 });
 
-nanobench("dni-js isValid 10.000.000 times", function (b: any) {
+nanobench("dni-js isValid 10.000.000 times", function (b) {
   b.start();
 
   for (let i = 0; i < 10_000_000; i++) {
@@ -43,7 +43,7 @@ nanobench("dni-js isValid 10.000.000 times", function (b: any) {
 
 nanobench(
   "@willowi/validate-nif validateNif 10.000.000 times",
-  function (b: any) {
+  function (b) {
     b.start();
 
     for (let i = 0; i < 10_000_000; i++) {
@@ -54,7 +54,7 @@ nanobench(
   }
 );
 
-nanobench("ctrlChar 10.000.000 times", function (b: any) {
+nanobench("ctrlChar 10.000.000 times", function (b) {
   b.start();
 
   for (let i = 0; i < 10_000_000; i++) {
@@ -64,7 +64,7 @@ nanobench("ctrlChar 10.000.000 times", function (b: any) {
   b.end();
 });
 
-nanobench("getControlDigit 10.000.000 times", function (b: any) {
+nanobench("getControlDigit 10.000.000 times", function (b) {
   b.start();
 
   for (let i = 0; i < 10_000_000; i++) {
@@ -74,7 +74,7 @@ nanobench("getControlDigit 10.000.000 times", function (b: any) {
   b.end();
 });
 
-nanobench.skip("randomNIE 10.000.000 times", function (b: any) {
+nanobench.skip("randomNIE 10.000.000 times", function (b) {
   b.start();
 
   for (let i = 0; i < 10_000_000; i++) {
@@ -84,7 +84,7 @@ nanobench.skip("randomNIE 10.000.000 times", function (b: any) {
   b.end();
 });
 
-nanobench.skip("randomNIF 10.000.000 times", function (b: any) {
+nanobench.skip("randomNIF 10.000.000 times", function (b) {
   b.start();
 
   for (let i = 0; i < 10_000_000; i++) {
@@ -94,7 +94,7 @@ nanobench.skip("randomNIF 10.000.000 times", function (b: any) {
   b.end();
 });
 
-nanobench("isNIE 10.000.000 times", function (b: any) {
+nanobench("isNIE 10.000.000 times", function (b) {
   b.start();
 
   for (let i = 0; i < 10_000_000; i++) {
@@ -104,7 +104,7 @@ nanobench("isNIE 10.000.000 times", function (b: any) {
   b.end();
 });
 
-nanobench("isNIF 10.000.000 times", function (b: any) {
+nanobench("isNIF 10.000.000 times", function (b) {
   b.start();
 
   for (let i = 0; i < 10_000_000; i++) {
@@ -114,7 +114,7 @@ nanobench("isNIF 10.000.000 times", function (b: any) {
   b.end();
 });
 
-nanobench("randomNIEWith 10.000.000 times", function (b: any) {
+nanobench("randomNIEWith 10.000.000 times", function (b) {
   b.start();
 
   for (let i = 0; i < 10_000_000; i++) {
@@ -124,7 +124,7 @@ nanobench("randomNIEWith 10.000.000 times", function (b: any) {
   b.end();
 });
 
-nanobench("randomNIFWith 10.000.000 times", function (b: any) {
+nanobench("randomNIFWith 10.000.000 times", function (b) {
   b.start();
 
   for (let i = 0; i < 10_000_000; i++) {
