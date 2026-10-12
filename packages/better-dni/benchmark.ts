@@ -31,7 +31,7 @@ nanobench("dni-js-validator isValid 10.000.000 times", function (b: any) {
   b.end();
 });
 
-nanobench("dni-js-validator isValid 10.000.000 times", function (b: any) {
+nanobench("dni-js isValid 10.000.000 times", function (b: any) {
   b.start();
 
   for (let i = 0; i < 10_000_000; i++) {
