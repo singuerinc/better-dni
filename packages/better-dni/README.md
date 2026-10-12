@@ -21,6 +21,14 @@ pnpm add better-dni
 yarn add better-dni
 ```
 
+## Upgrading to v5
+
+- Requires Node.js 20 or newer.
+- Ships both ES modules (`import`) and CommonJS (`require`), with bundled TypeScript types.
+- Only the package root (`better-dni`) can be imported; deep imports such as `better-dni/dist/...` are no longer supported.
+
+The API is unchanged.
+
 ## Usage
 
 ### isValid / isNIF / isNIE / ctrlChar
