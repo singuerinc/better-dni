@@ -13,7 +13,11 @@
   },
   "license": "MIT",
   "author": "Nahuel Scotti <nahuel.scotti@gmail.com> (https://www.singuerinc.com)",
-  "repository": "singuerinc/better-dni",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/singuerinc/better-dni.git",
+    "directory": "packages/better-dni"
+  },
   "engines": {
     "node": ">=20"
   },
