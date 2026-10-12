@@ -19,7 +19,7 @@ import { _randFloat } from "./internal/_utils";
  */
 const randomNIFWith = (
   char: string,
-  seed: number = 100000000 * Math.random()
+  seed: number = 100000000 * Math.random(),
 ): string | null => {
   const lastNum =
     "trwagmyfpdxbnjzsqvhlckeTRWAGMYFPDXBNJZSQVHLCKE".indexOf(char) % 23;

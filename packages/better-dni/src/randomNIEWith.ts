@@ -21,7 +21,7 @@ import { _randFloat } from "./internal/_utils";
 const randomNIEWith = (
   xyz: string,
   l: string,
-  seed: number = 100000000 * Math.random()
+  seed: number = 100000000 * Math.random(),
 ): string | null => {
   const headNum = "xyzXYZ".indexOf(xyz) % 3;
 
@@ -40,7 +40,7 @@ const randomNIEWith = (
 
   // TODO: Better calculation
   const num = Math.floor(
-    1000000 * headOne + (9999999 - 1000000 * headOne - 23) * _randFloat(seed)
+    1000000 * headOne + (9999999 - 1000000 * headOne - 23) * _randFloat(seed),
   );
 
   const b = +`${headNum}${num}`;

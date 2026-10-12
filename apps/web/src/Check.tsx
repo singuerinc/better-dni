@@ -6,10 +6,7 @@ export const Check = ({ check, label }: { check: boolean; label: string }) => (
     <div className="mv1">
       <div className="w-100 cf">
         {!check && (
-          <span
-            className="red"
-            dangerouslySetInnerHTML={{ __html: X_SVG }}
-          />
+          <span className="red" dangerouslySetInnerHTML={{ __html: X_SVG }} />
         )}
         {check && (
           <span
