@@ -8,6 +8,7 @@ on:
       - next-major
       - alpha
       - beta
+  workflow_dispatch:
 
 jobs:
   build-test-and-publish:
