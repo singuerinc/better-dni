@@ -33,6 +33,20 @@ describe("#isValid", () => {
     });
   });
 
+  describe("nif with l or m", () => {
+    it("should validate L1111111G", () => {
+      expect(isValid("L1111111G")).toBe(true);
+    });
+
+    it("should validate m1234567l", () => {
+      expect(isValid("m1234567l")).toBe(true);
+    });
+
+    it("should not validate L1111111C", () => {
+      expect(isValid("L1111111C")).toBe(false);
+    });
+  });
+
   describe("nie", () => {
     it("should validate x9464186p", () => {
       expect(isValid("x9464186p")).toBe(true);
