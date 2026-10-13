@@ -1,6 +1,6 @@
 {
   "name": "better-dni",
-  "version": "5.2.0",
+  "version": "5.2.1",
   "description": "The fastest Spanish DNI (NIE / NIF) validation out there.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
