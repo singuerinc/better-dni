@@ -1,5 +1,7 @@
+import { t } from "./i18n";
+
 const today = new Date()
-  .toLocaleDateString("en-GB", {
+  .toLocaleDateString(t.numberLocale, {
     day: "2-digit",
     month: "short",
     year: "numeric",
@@ -39,7 +41,7 @@ export function Stamp({
             textLength={RING_LENGTH - 4}
             lengthAdjust="spacing"
           >
-            BETTER DNI · EXAMINED · BETTER DNI · EXAMINED ·
+            {t.stamp.ring}
           </textPath>
         </text>
         {valid ? (
@@ -48,7 +50,7 @@ export function Stamp({
               {kind}
             </text>
             <text x="80" y="87" textAnchor="middle" className="stamp-main">
-              VALID
+              {t.stamp.valid}
             </text>
             <text x="80" y="104" textAnchor="middle" className="stamp-sub">
               {today}
@@ -60,8 +62,10 @@ export function Stamp({
             y="86"
             textAnchor="middle"
             className="stamp-main pending"
+            textLength={t.stamp.pendingWidth}
+            lengthAdjust={t.stamp.pendingWidth ? "spacingAndGlyphs" : undefined}
           >
-            PENDING
+            {t.stamp.pending}
           </text>
         )}
       </svg>

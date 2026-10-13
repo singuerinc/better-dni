@@ -398,6 +398,7 @@ code {
 
 .control-primary {
   border-color: var(--ink);
+  white-space: nowrap;
 }
 
 .control-hint {

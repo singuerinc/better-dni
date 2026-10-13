@@ -1,4 +1,5 @@
 import { ctrlChar, isNIE, isNIF, isValid, normalize } from "better-dni";
+import { t } from "./i18n";
 
 export const LETTERS = "TRWAGMYFPDXBNJZSQVHLCKE";
 
@@ -63,17 +64,20 @@ export function read(raw: string): Reading {
 }
 
 export function verdict(reading: Reading): string {
-  if (!reading.raw.trim()) return "Awaiting a number.";
-  if (!reading.shaped) return `${reading.normalized} is not shaped like a DNI.`;
+  const { verdict: v } = t;
+  if (!reading.raw.trim()) return v.awaiting;
+  if (!reading.shaped) return v.unshaped(reading.normalized);
   if (!reading.complete) {
-    const missing = (reading.prefix ? 7 : 8) - reading.body.length;
-    return `${missing} more digit${missing === 1 ? "" : "s"} to go.`;
+    return v.missing((reading.prefix ? 7 : 8) - reading.body.length);
   }
-  if (!reading.letter) return `Control letter should be ${reading.expected}.`;
+  if (!reading.letter) return v.noLetter(reading.expected ?? "");
   if (reading.isValid)
-    return `${reading.normalized} is a valid ${reading.isNIE ? "NIE" : "NIF"}.`;
+    return v.valid(reading.normalized, reading.isNIE ? "NIE" : "NIF");
   if (reading.letter !== reading.expected) {
-    return `Control letter is ${reading.letter}, should be ${reading.expected}.`;
+    return v.wrongLetter(reading.letter, reading.expected ?? "");
   }
-  return `${reading.normalized} is valid once written as ${reading.prefix}${reading.body}${reading.expected}.`;
+  return v.rewrite(
+    reading.normalized,
+    `${reading.prefix}${reading.body}${reading.expected}`,
+  );
 }

@@ -1,4 +1,5 @@
 import { useEffect, useState, type ReactNode } from "react";
+import { t } from "./i18n";
 
 export function CopyButton({
   text,
@@ -36,10 +37,10 @@ export function CopyButton({
         onClick={handleCopy}
         aria-label={label}
       >
-        {copied ? <span className="control-copied">Copied</span> : children}
+        {copied ? <span className="control-copied">{t.copied}</span> : children}
       </button>
       <span className="sr-only" role="status">
-        {copied ? `${text} copied to clipboard` : ""}
+        {copied ? t.copiedStatus(text) : ""}
       </span>
     </>
   );
