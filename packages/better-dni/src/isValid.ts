@@ -14,7 +14,7 @@ import { _isNIF } from "./internal/_isNIF";
 const isValid = (value: string): boolean => {
   const dni = !value ? "" : value; // lowercase is faster
 
-  if (dni.length !== 9 && !_isNIE(dni) && !_isNIF(dni)) {
+  if (dni.length !== 9 || (!_isNIE(dni) && !_isNIF(dni))) {
     return false;
   }
 
