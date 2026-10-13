@@ -2,7 +2,7 @@ import { randomNIE, randomNIF } from "better-dni";
 import { useEffect, useId, useState, type ChangeEvent } from "react";
 import { CopyButton } from "./CopyButton";
 import { Figure } from "./Figure";
-import { LETTERS, read, verdict, type Reading } from "./parse";
+import { LETTERS, isNIEPrefix, read, verdict, type Reading } from "./parse";
 import { Stamp } from "./Stamp";
 
 const EXAMPLE = "X1302311M";
@@ -109,13 +109,15 @@ function ReferenceTable({
       <tbody>
         <tr>
           <td>10</td>
-          <th scope="row">NIE prefix</th>
+          <th scope="row">Prefix</th>
           <td>
             {!reading.shaped
               ? dash
-              : reading.prefix
-                ? `${reading.prefix} → ${"XYZ".indexOf(reading.prefix)}`
-                : "none · NIF"}
+              : !reading.prefix
+                ? "none · NIF"
+                : isNIEPrefix(reading.prefix)
+                  ? `${reading.prefix} → ${reading.digits[0]} · NIE`
+                  : `${reading.prefix} → dropped · NIF`}
           </td>
         </tr>
         <tr>
@@ -168,14 +170,13 @@ function ControlTable({
 }) {
   const shown = reading.complete ? reading : example;
   const isExample = !reading.complete;
-  const digits =
-    (shown.prefix ? String("XYZ".indexOf(shown.prefix)) : "") + shown.body;
   return (
     <section className="sheet-section" id="fig-2" aria-labelledby="fig-2-title">
       <SectionHead id="fig-2-title" fig="Fig. 2" title="Control letter table" />
       <p className="section-lede">
-        Swap an NIE’s X, Y or Z for 0, 1 or 2, divide the number by 23, and the
-        remainder picks one of twenty-three letters.
+        Swap an NIE’s X, Y or Z for 0, 1 or 2, drop the K, L or M of a NIF,
+        divide the number by 23, and the remainder picks one of twenty-three
+        letters.
       </p>
       <ol className="letters" aria-label="Remainder to letter table">
         {LETTERS.split("").map((letter, i) => (
@@ -191,7 +192,7 @@ function ControlTable({
       <p className="worked">
         {isExample && <span className="worked-tag">Example</span>}
         <span className="mono">
-          {digits} mod 23 = {shown.remainder} →{" "}
+          {shown.digits} mod 23 = {shown.remainder} →{" "}
           <span className="carmine">{shown.expected}</span>
         </span>
       </p>
@@ -255,8 +256,9 @@ function Benchmark() {
 const CLAIMS = [
   {
     fn: "isValid(value)",
-    claim: "returns true when value is a valid DNI, either NIF or NIE.",
-    example: 'isValid("Z7662566Y"); //=> true',
+    claim:
+      "returns true when value is a valid DNI, either NIE or NIF, including the K, L and M NIFs.",
+    example: 'isValid("Z7662566Y"); //=> true\nisValid("K1111111G"); //=> true',
   },
   {
     fn: "isNIF(value) / isNIE(value)",
@@ -452,9 +454,10 @@ export function App() {
             </h1>
             <div className="crosshair-rule" aria-hidden="true" />
             <p className="lede">
-              Better DNI validates Spanish NIF and NIE numbers, works out the
-              control letter and generates valid IDs for your tests.{" "}
-              <code>isValid</code> runs about 3× faster than{" "}
+              Better DNI validates Spanish NIF and NIE numbers, including the K,
+              L and M NIFs issued to minors and people without a DNI or NIE. It
+              works out the control letter and generates valid IDs for your
+              tests. <code>isValid</code> runs about 3× faster than{" "}
               <span className="nowrap">dni-js</span>, in 812 bytes.
             </p>
             <div className="actions">

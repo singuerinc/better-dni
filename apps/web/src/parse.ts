@@ -2,8 +2,18 @@ import { ctrlChar, isNIE, isNIF, isValid, normalize } from "better-dni";
 
 export const LETTERS = "TRWAGMYFPDXBNJZSQVHLCKE";
 
-const NIE_PREFIX_DIGIT: Record<string, string> = { X: "0", Y: "1", Z: "2" };
-const SHAPE = /^([XYZ])?(\d{0,8})([A-Z])?$/;
+/** NIE prefixes become a digit; the K, L and M of a NIF are dropped. */
+const PREFIX_DIGIT: Record<string, string> = {
+  X: "0",
+  Y: "1",
+  Z: "2",
+  K: "",
+  L: "",
+  M: "",
+};
+const SHAPE = /^([XYZKLM])?(\d{0,8})([A-Z])?$/;
+
+export const isNIEPrefix = (prefix: string): boolean => "XYZ".includes(prefix);
 
 export type Reading = {
   raw: string;
@@ -12,10 +22,12 @@ export type Reading = {
   shaped: boolean;
   prefix: string;
   body: string;
+  /** Body with the prefix swapped for its digit (or dropped), the number taken mod 23. */
+  digits: string;
   letter: string;
   /** True once the body has every digit (7 for an NIE, 8 for a NIF). */
   complete: boolean;
-  /** Body (with the NIE prefix swapped for its digit) mod 23, once complete. */
+  /** Digits mod 23, once complete. */
   remainder: number | null;
   /** The control letter better-dni computes, once complete. */
   expected: string | null;
@@ -31,7 +43,7 @@ export function read(raw: string): Reading {
   const body = match?.[2] ?? "";
   const letter = match?.[3] ?? "";
   const complete = Boolean(match) && body.length === (prefix ? 7 : 8);
-  const digits = (NIE_PREFIX_DIGIT[prefix] ?? "") + body;
+  const digits = (PREFIX_DIGIT[prefix] ?? "") + body;
 
   return {
     raw,
@@ -39,6 +51,7 @@ export function read(raw: string): Reading {
     shaped: Boolean(match),
     prefix,
     body,
+    digits,
     letter,
     complete,
     remainder: complete ? Number(digits) % 23 : null,
