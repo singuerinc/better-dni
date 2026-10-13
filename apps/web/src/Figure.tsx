@@ -1,3 +1,4 @@
+import { t } from "./i18n";
 import { isNIEPrefix, type Reading } from "./parse";
 
 const W = 640;
@@ -128,9 +129,7 @@ export function Figure({
       viewBox={`0 0 ${W} ${H}`}
       role="img"
       aria-label={
-        example
-          ? "Figure 1, example: X1302311M exploded into prefix X, body 1302311 and control letter M, with leaders to normalize, isValid, isNIE and isNIF."
-          : `Figure 1: ${reading.normalized || "empty"} exploded into its parts.`
+        example ? t.fig1.exampleLabel : t.fig1.label(reading.normalized)
       }
     >
       <defs>
@@ -275,7 +274,8 @@ export function Figure({
             textAnchor="end"
             className="dimension-label"
           >
-            {bodyBox.part.text.length} / {reading.prefix ? 7 : 8} digits
+            {bodyBox.part.text.length} / {reading.prefix ? 7 : 8}{" "}
+            {t.fig1.digits}
           </text>
         </g>
       )}
