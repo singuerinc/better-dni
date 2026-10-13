@@ -22,8 +22,8 @@ const isValid = (value: string): boolean => {
   let s: string = f.toString();
 
   if (f === -1) {
-    // a NIF with K uses only its 7 digits
-    s = "kK".includes(dni[0]) ? "0" : dni[0];
+    // a NIF with K, L or M uses only its 7 digits
+    s = "klmKLM".includes(dni[0]) ? "0" : dni[0];
   }
 
   const i = +(s + dni.slice(1, 8)) % 23;

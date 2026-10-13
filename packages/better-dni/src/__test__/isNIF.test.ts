@@ -18,6 +18,16 @@ describe("#isNIF", () => {
     expect(isNIF("K11111111G")).toBe(false);
   });
 
+  it("should return true if is a NIF with L or M", () => {
+    expect(isNIF("L1111111G")).toBe(true);
+    expect(isNIF("m1234567l")).toBe(true);
+  });
+
+  it("should return false if is a NIF with L or M and a wrong control letter", () => {
+    expect(isNIF("L1111111C")).toBe(false);
+    expect(isNIF("M1234567A")).toBe(false);
+  });
+
   it("should return if is not nif", () => {
     expect(isNIF("0000000AA")).toBe(false);
   });

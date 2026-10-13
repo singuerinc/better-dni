@@ -18,8 +18,8 @@ const ctrlChar = (y: string): string => {
   const f = "xyzXYZ".indexOf(y[0]) % 3;
   let s = f.toString();
   // Otherwise default to the number (NIF case only),
-  // a NIF with K uses only its 7 digits
-  if (f === -1) s = "kK".includes(y[0]) ? "0" : y[0];
+  // a NIF with K, L or M uses only its 7 digits
+  if (f === -1) s = "klmKLM".includes(y[0]) ? "0" : y[0];
   // Strip the letters
   const i = `${s}${y.slice(1, 8)}`;
   return _letter(i).toUpperCase();
