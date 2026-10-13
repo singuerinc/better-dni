@@ -21,6 +21,11 @@ describe("#ctrlChar", () => {
     expect(ctrlChar("03118880b")).toBe("B");
   });
 
+  it("should return the letter for a NIF with K", () => {
+    expect(ctrlChar("K1111111G")).toBe("G");
+    expect(ctrlChar("k1111111")).toBe("G");
+  });
+
   it("should return the letter for a NIF without control letter", () => {
     expect(ctrlChar("03118880")).toBe("B");
   });

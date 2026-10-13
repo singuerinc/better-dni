@@ -8,6 +8,7 @@ import { _isNIF } from "./internal/_isNIF";
  * @since 1.0.1
  * @example
  * isNIF("93375221M"); // => true
+ * isNIF("K1111111G"); // => true
  */
 const isNIF = (value: string): boolean => {
   return (

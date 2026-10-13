@@ -19,6 +19,20 @@ describe("#isValid", () => {
     });
   });
 
+  describe("nif with k", () => {
+    it("should validate K1111111G", () => {
+      expect(isValid("K1111111G")).toBe(true);
+    });
+
+    it("should validate k0867756n", () => {
+      expect(isValid("k0867756n")).toBe(true);
+    });
+
+    it("should not validate K1111111C", () => {
+      expect(isValid("K1111111C")).toBe(false);
+    });
+  });
+
   describe("nie", () => {
     it("should validate x9464186p", () => {
       expect(isValid("x9464186p")).toBe(true);

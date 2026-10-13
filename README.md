@@ -41,6 +41,7 @@ isValid("Z7662566Y"); //=> true
 
 // checks if it is a valid NIF
 isNIF("06672804K"); //=> true
+isNIF("K1111111G"); //=> true (NIF with K)
 
 // checks if it is a valid NIE
 isNIE("X1302311M"); //=> true
