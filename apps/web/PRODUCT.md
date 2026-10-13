@@ -24,7 +24,7 @@ Success: an evaluating developer leaves convinced and with `npm i better-dni`; a
 Three claims, all backed by the library itself:
 
 1. **Speed.** `isValid` is ~10x faster than dni-js and dni-js-validator and ~50x faster than @willowi/validate-nif (README benchmark: 10M calls, median of 3 runs, M3 Pro, Node 22).
-2. **Size.** 887 bytes minified + brotli.
+2. **Size.** 897 bytes minified + brotli.
 3. **Generators.** `randomNIF`, `randomNIE`, and seeded `randomNIFWith` / `randomNIEWith` for deterministic test data, plus `ctrlChar` and `normalize`.
 
 ## Operating Context
@@ -50,7 +50,7 @@ Three claims, all backed by the library itself:
 ## Evidence on Hand
 
 - Benchmark tables in the root `README.md` (isValid and ctrlChar), reproducible with `pnpm --filter better-dni benchmark`.
-- Bundle size figure (887 B min + brotli) from the README.
+- Bundle size figure (897 B min + brotli) from the README.
 - Badges: npm version, Codacy grade, Coveralls coverage, Snyk, bundlephobia.
 - Logo: `logo.svg` / `logo.png` at the repo root (available, not required).
 - Official reference for the control-letter algorithm: Spanish Ministry of the Interior page linked in the README.
