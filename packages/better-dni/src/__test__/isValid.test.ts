@@ -86,6 +86,12 @@ describe("#isValid", () => {
   });
 
   describe("errors", () => {
+    it("should not validate 9 chars strings with an invalid format", () => {
+      expect(isValid("+3118880B")).toBe(false);
+      expect(isValid(" 3118880B")).toBe(false);
+      expect(isValid("A3118880B")).toBe(false);
+    });
+
     it("should handle empty strings", () => {
       expect(isValid("")).toBe(false);
     });
