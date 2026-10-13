@@ -6,7 +6,7 @@
 
 ![Better DNI](logo.png)
 
-The fastest Spanish DNI (NIE / NIF) validation out there — And lighter: 812 bytes (minified + brotli).
+The fastest Spanish DNI (NIE / NIF) validation out there — And lighter: 887 bytes (minified + brotli).
 
 ## Installation
 
@@ -103,17 +103,17 @@ pnpm --filter better-dni benchmark
 
 | lib                   | method       | time    | diff          |
 | --------------------- | ------------ | ------- | ------------- |
-| better-dni            | #isValid     | 420 ms  |               |
-| dni-js                | #isValid     | 1.27 s  | x3.02 slower  |
-| dni-js-validator      | #isValid     | 1.48 s  | x3.52 slower  |
-| @willowi/validate-nif | #validateNif | 6.28 s  | x14.95 slower |
+| better-dni            | #isValid     | 84 ms   |               |
+| dni-js                | #isValid     | 859 ms  | x10.23 slower |
+| dni-js-validator      | #isValid     | 980 ms  | x11.67 slower |
+| @willowi/validate-nif | #validateNif | 4.24 s  | x50.48 slower |
 
 ### ctrlChar / getControlDigit
 
 | lib                   | method           | time   | diff         |    |
 | --------------------- | ---------------- | ------ | ------------ | -- |
-| better-dni            | #ctrlChar        | 521 ms |              |    |
-| dni-js                | #getControlDigit | 474 ms | x1.10 faster | 😲 |
+| better-dni            | #ctrlChar        | 355 ms |              |    |
+| dni-js                | #getControlDigit | 313 ms | x1.13 faster | 😲 |
 | dni-js-validator      | no method        | -      |              |    |
 | @willowi/validate-nif | no method        | -      |              |    |
 

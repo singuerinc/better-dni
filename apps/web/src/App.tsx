@@ -9,27 +9,27 @@ const EXAMPLE = "X1302311M";
 const INSTALL = "npm i better-dni";
 
 const BENCHMARK = [
-  { lib: "better-dni", method: "isValid", ms: 420, time: "420 ms", diff: "" },
+  { lib: "better-dni", method: "isValid", ms: 84, time: "84 ms", diff: "" },
   {
     lib: "dni-js",
     method: "isValid",
-    ms: 1270,
-    time: "1.27 s",
-    diff: "×3.02 slower",
+    ms: 859,
+    time: "859 ms",
+    diff: "×10.23 slower",
   },
   {
     lib: "dni-js-validator",
     method: "isValid",
-    ms: 1480,
-    time: "1.48 s",
-    diff: "×3.52 slower",
+    ms: 980,
+    time: "980 ms",
+    diff: "×11.67 slower",
   },
   {
     lib: "@willowi/validate-nif",
     method: "validateNif",
-    ms: 6280,
-    time: "6.28 s",
-    diff: "×14.95 slower",
+    ms: 4240,
+    time: "4.24 s",
+    diff: "×50.48 slower",
   },
 ];
 const SLOWEST = Math.max(...BENCHMARK.map((row) => row.ms));
@@ -247,7 +247,7 @@ function Benchmark() {
       </table>
       <p className="footnote">
         Not every method wins: on <code>ctrlChar</code>, dni-js’s{" "}
-        <code>getControlDigit</code> is ×1.10 faster (474 ms against 521 ms).
+        <code>getControlDigit</code> is ×1.13 faster (313 ms against 355 ms).
       </p>
     </section>
   );
@@ -429,7 +429,7 @@ export function App() {
               </div>
               <div>
                 <dt>Size</dt>
-                <dd>812 B min + brotli</dd>
+                <dd>887 B min + brotli</dd>
               </div>
               <div>
                 <dt>Runtime</dt>
@@ -457,8 +457,8 @@ export function App() {
               Better DNI validates Spanish NIF and NIE numbers, including the K,
               L and M NIFs issued to minors and people without a DNI or NIE. It
               works out the control letter and generates valid IDs for your
-              tests. <code>isValid</code> runs about 3× faster than{" "}
-              <span className="nowrap">dni-js</span>, in 812 bytes.
+              tests. <code>isValid</code> runs about 10× faster than{" "}
+              <span className="nowrap">dni-js</span>, in 887 bytes.
             </p>
             <div className="actions">
               <CopyButton
