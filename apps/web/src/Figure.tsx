@@ -1,4 +1,4 @@
-import type { Reading } from "./parse";
+import { isNIEPrefix, type Reading } from "./parse";
 
 const W = 640;
 const H = 520;
@@ -46,6 +46,7 @@ function partsOf(reading: Reading, example: boolean): Part[] {
   }
 
   const parts: Part[] = [];
+  const niePrefix = isNIEPrefix(reading.prefix);
   if (reading.prefix) {
     parts.push({
       id: "prefix",
@@ -54,7 +55,7 @@ function partsOf(reading: Reading, example: boolean): Part[] {
       slots: 1,
       flagged: false,
       empty: false,
-      api: [16, 20],
+      api: niePrefix ? [16, 20] : [16, 22],
     });
   }
   parts.push({
@@ -64,7 +65,7 @@ function partsOf(reading: Reading, example: boolean): Part[] {
     slots: example ? reading.body.length : reading.prefix ? 7 : 8,
     flagged: false,
     empty: reading.body.length === 0,
-    api: reading.prefix ? [22] : [16, 20, 22],
+    api: !reading.prefix ? [16, 20, 22] : niePrefix ? [22] : [20],
   });
   parts.push({
     id: "letter",

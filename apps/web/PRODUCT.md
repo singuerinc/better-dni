@@ -38,7 +38,7 @@ Three claims, all backed by the library itself:
 - Public API: `isValid`, `isNIF`, `isNIE`, `ctrlChar`, `normalize`, `randomNIF`, `randomNIFWith`, `randomNIE`, `randomNIEWith`. The API did not change in v5.
 - v5 packaging: Node 20+, ESM and CommonJS, bundled TypeScript types, root import only.
 - Stack: Vite + React 19 single-page app in a pnpm/Turborepo monorepo, deployed on Vercel.
-- Terminology: DNI is the umbrella term; NIF (Spanish nationals) and NIE (foreigners, prefix X/Y/Z) are the two kinds; the trailing letter is the control character.
+- Terminology: DNI is the umbrella term; NIF (Spanish nationals, plus the K, L and M NIFs for minors and people without a DNI or NIE) and NIE (foreigners, prefix X/Y/Z) are the two kinds; the trailing letter is the control character.
 - Benchmark nuance: on `ctrlChar`, dni-js is ~1.1x faster than `better-dni`. Speed claims must be scoped to `isValid`, not stated as "faster at everything".
 
 ## Brand Commitments
