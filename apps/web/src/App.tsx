@@ -429,7 +429,7 @@ export function App() {
               </div>
               <div>
                 <dt>Size</dt>
-                <dd>887 B min + brotli</dd>
+                <dd>897 B min + brotli</dd>
               </div>
               <div>
                 <dt>Runtime</dt>
@@ -458,7 +458,7 @@ export function App() {
               L and M NIFs issued to minors and people without a DNI or NIE. It
               works out the control letter and generates valid IDs for your
               tests. <code>isValid</code> runs about 10× faster than{" "}
-              <span className="nowrap">dni-js</span>, in 887 bytes.
+              <span className="nowrap">dni-js</span>, in 897 bytes.
             </p>
             <div className="actions">
               <CopyButton

@@ -9,7 +9,7 @@ related_targets: []
 
 Scope: `apps/web` single page (index.html + React demo). Visitor mode: **Persuade**.
 
-Audience and job: JS developers evaluating a Spanish ID validator, and developers who need valid test IDs (equal weight). Action: try the validator, grab a generated ID, copy `npm i better-dni`. Proof: the live demo running the real library, README benchmark (isValid only, with conditions), 887 B min+brotli. Constraints: name "Better DNI", credit @singuerinc, no invented claims; scope speed to isValid and disclose the ctrlChar result.
+Audience and job: JS developers evaluating a Spanish ID validator, and developers who need valid test IDs (equal weight). Action: try the validator, grab a generated ID, copy `npm i better-dni`. Proof: the live demo running the real library, README benchmark (isValid only, with conditions), 897 B min+brotli. Constraints: name "Better DNI", credit @singuerinc, no invented claims; scope speed to isValid and disclose the ctrlChar result.
 
 Memorable moment: typing an ID explodes it into numbered parts on leader lines, and the examiner's stamp lands when it is valid.
 
